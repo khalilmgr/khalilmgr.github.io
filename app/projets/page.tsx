@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useLang } from "../context/LanguageContext";
 
 export default function ProjetsPage() {
+  const { lang } = useLang();
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-16 bg-[#0f172a]">
       <div className="max-w-3xl mx-auto w-full text-center">
@@ -15,12 +18,12 @@ export default function ProjetsPage() {
           className="mb-20"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-[#fbbf24] uppercase mb-4">
-            — Mes Réalisations
+            {lang === "fr" ? "— Mes Réalisations" : "— My Work"}
           </p>
           <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#f1f5f9]">
-            Mes{" "}
+            {lang === "fr" ? "Mes" : "My"}{" "}
             <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-              Projets
+              {lang === "fr" ? "Projets" : "Projects"}
             </span>
           </h1>
           <div className="mt-5 w-16 h-1 bg-[#fbbf24] rounded mx-auto" />
@@ -41,13 +44,15 @@ export default function ProjetsPage() {
                 <AcadIcon />
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-widest text-[#94a3b8] uppercase mb-1">Catégorie</p>
+                <p className="font-mono text-[10px] tracking-widest text-[#94a3b8] uppercase mb-1">
+                  {lang === "fr" ? "Catégorie" : "Category"}
+                </p>
                 <p className="text-base font-bold uppercase tracking-wide text-[#f1f5f9] group-hover:text-[#fbbf24] transition-colors duration-200">
-                  Académiques
+                  {lang === "fr" ? "Académiques" : "Academic"}
                 </p>
               </div>
               <span className="font-mono text-xs text-[#2d4a7a] group-hover:text-[#fbbf24] transition-colors duration-200">
-                Explorer →
+                {lang === "fr" ? "Explorer →" : "Explore →"}
               </span>
             </Link>
           </motion.div>
@@ -65,13 +70,15 @@ export default function ProjetsPage() {
                 <FootballIcon />
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-widest text-[#94a3b8] uppercase mb-1">Catégorie</p>
+                <p className="font-mono text-[10px] tracking-widest text-[#94a3b8] uppercase mb-1">
+                  {lang === "fr" ? "Catégorie" : "Category"}
+                </p>
                 <p className="text-base font-bold uppercase tracking-wide text-[#f1f5f9] group-hover:text-[#fbbf24] transition-colors duration-200">
-                  Personnels
+                  {lang === "fr" ? "Personnels" : "Personal"}
                 </p>
               </div>
               <span className="font-mono text-xs text-[#fbbf24]/50 group-hover:text-[#fbbf24] transition-colors duration-200">
-                Explorer →
+                {lang === "fr" ? "Explorer →" : "Explore →"}
               </span>
             </Link>
           </motion.div>

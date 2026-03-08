@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "../context/LanguageContext";
 
 export default function PersonalProjects() {
+  const { lang } = useLang();
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-16 bg-[#0f172a]">
       <div className="max-w-xl mx-auto w-full text-center">
@@ -14,7 +17,7 @@ export default function PersonalProjects() {
           className="mb-14"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-[#fbbf24] uppercase mb-4">
-            — Projets Personnels
+            {lang === "fr" ? "— Projets Personnels" : "— Personal Projects"}
           </p>
           <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#f1f5f9]">
             Football{" "}
@@ -31,7 +34,9 @@ export default function PersonalProjects() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="text-[#94a3b8] text-base mb-14 leading-relaxed"
         >
-          Découvrez mes projets en analyse football.
+          {lang === "fr"
+            ? "Découvrez mes projets en analyse football."
+            : "Explore my football data analysis projects."}
         </motion.p>
 
         {/* CTA */}
@@ -47,7 +52,7 @@ export default function PersonalProjects() {
           className="inline-flex items-center gap-3 px-10 py-4 bg-[#fbbf24] text-[#0f172a] font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-[#f59e0b] transition-colors duration-200"
         >
           <GitHubIcon />
-          Voir sur GitHub
+          {lang === "fr" ? "Voir sur GitHub" : "View on GitHub"}
           <span>→</span>
         </motion.a>
       </div>

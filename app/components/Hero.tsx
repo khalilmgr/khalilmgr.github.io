@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { lang } = useLang();
   return (
     <section className="min-h-screen flex items-center justify-center px-6 bg-[#0f172a] relative overflow-hidden">
       {/* Background grid */}
@@ -41,8 +43,17 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="font-mono text-base md:text-lg text-[#94a3b8] uppercase tracking-[0.2em]"
         >
-          Étudiant 2<sup>ème</sup> année &mdash;{" "}
-          <span className="text-[#fbbf24]">BUT Informatique Parcours Data</span>
+          {lang === "fr" ? (
+            <>
+              Étudiant 2<sup>ème</sup> année &mdash;{" "}
+              <span className="text-[#fbbf24]">BUT Informatique Parcours Data</span>
+            </>
+          ) : (
+            <>
+              2<sup>nd</sup> Year Student &mdash;{" "}
+              <span className="text-[#fbbf24]">Computer Science, Data Track</span>
+            </>
+          )}
         </motion.p>
       </div>
     </section>

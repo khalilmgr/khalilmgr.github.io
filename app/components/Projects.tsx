@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLang } from "../context/LanguageContext";
 
 type Project = {
   title: string;
@@ -9,37 +10,31 @@ type Project = {
   highlight?: boolean;
 };
 
-const academic: Project[] = [
-  {
-    title: "Analyse JO Paris 2024",
-    github: "https://github.com/khalilmgr/olympics-data-analysis",
-    highlight: true,
-  },
-  {
-    title: "CoLive — App Colocation",
-    github: "https://github.com/khalilmgr/colive-symfony-app",
-  },
-  {
-    title: "Jeu Solitaire",
-    github: "https://github.com/khalilmgr/peg-solitaire-python",
-  },
-];
+const academic = {
+  fr: [
+    { title: "Analyse JO Paris 2024", github: "https://github.com/khalilmgr/olympics-data-analysis", highlight: true },
+    { title: "CoLive — App Colocation", github: "https://github.com/khalilmgr/colive-symfony-app" },
+    { title: "Jeu Solitaire", github: "https://github.com/khalilmgr/peg-solitaire-python" },
+  ] as Project[],
+  en: [
+    { title: "Paris 2024 Olympics Analysis", github: "https://github.com/khalilmgr/olympics-data-analysis", highlight: true },
+    { title: "CoLive — Co-living App", github: "https://github.com/khalilmgr/colive-symfony-app" },
+    { title: "Peg Solitaire Game", github: "https://github.com/khalilmgr/peg-solitaire-python" },
+  ] as Project[],
+};
 
-const personal: Project[] = [
-  {
-    title: "Analyse Football — Mercato",
-    github: "https://github.com/khalilmgr/football-data-analysis",
-    highlight: true,
-  },
-  {
-    title: "Analyse Stade de Reims",
-    github: "https://github.com/khalilmgr/football-data-analysis",
-  },
-  {
-    title: "Analyse Brentford FC",
-    github: "https://github.com/khalilmgr/football-data-analysis",
-  },
-];
+const personal = {
+  fr: [
+    { title: "Analyse Football — Mercato", github: "https://github.com/khalilmgr/football-data-analysis", highlight: true },
+    { title: "Analyse Stade de Reims", github: "https://github.com/khalilmgr/football-data-analysis" },
+    { title: "Analyse Brentford FC", github: "https://github.com/khalilmgr/football-data-analysis" },
+  ] as Project[],
+  en: [
+    { title: "Football Analysis — Transfer Market", github: "https://github.com/khalilmgr/football-data-analysis", highlight: true },
+    { title: "Stade de Reims Analysis", github: "https://github.com/khalilmgr/football-data-analysis" },
+    { title: "Brentford FC Analysis", github: "https://github.com/khalilmgr/football-data-analysis" },
+  ] as Project[],
+};
 
 function ProjectRow({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
@@ -120,13 +115,13 @@ function Section({
 }
 
 export default function Projects() {
+  const { lang } = useLang();
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
     <section id="projects" className="py-24 px-6 bg-[#1a2744]">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 30 }}
@@ -135,27 +130,26 @@ export default function Projects() {
           className="mb-16"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-[#fbbf24] uppercase mb-3">
-            — 03. Projets
+            {lang === "fr" ? "— 03. Projets" : "— 03. Projects"}
           </p>
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-[#f1f5f9]">
-            Mes Réalisations
+            {lang === "fr" ? "Mes Réalisations" : "My Work"}
           </h2>
           <div className="mt-4 w-12 h-1 bg-[#fbbf24] rounded" />
         </motion.div>
 
         <Section
-          label="Projets Académiques"
+          label={lang === "fr" ? "Projets Académiques" : "Academic Projects"}
           title="Académique"
-          projects={academic}
+          projects={academic[lang]}
         />
         <Section
-          label="Projets Personnels — Football Analytics"
+          label={lang === "fr" ? "Projets Personnels — Football Analytics" : "Personal Projects — Football Analytics"}
           title="Personnel"
-          projects={personal}
+          projects={personal[lang]}
           baseDelay={0.1}
         />
 
-        {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -170,7 +164,7 @@ export default function Projects() {
             className="inline-flex items-center gap-2 px-6 py-3 border border-[#2d4a7a] text-sm font-mono text-[#94a3b8] rounded hover:border-[#fbbf24] hover:text-[#fbbf24] transition-all duration-200"
           >
             <GitHubIcon />
-            Voir tous mes repos sur GitHub
+            {lang === "fr" ? "Voir tous mes repos sur GitHub" : "View all my repos on GitHub"}
             <span className="ml-1 text-[#fbbf24]">→</span>
           </a>
         </motion.div>

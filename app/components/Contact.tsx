@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "../context/LanguageContext";
 
 export default function Contact() {
+  const { lang } = useLang();
   return (
     <section className="min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16 bg-[#0f172a] relative overflow-hidden">
       {/* Background accent */}
@@ -23,10 +25,21 @@ export default function Contact() {
             — Contact
           </p>
           <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#f1f5f9]">
-            Me{" "}
-            <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-              Contacter
-            </span>
+            {lang === "fr" ? (
+              <>
+                Me{" "}
+                <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
+                  Contacter
+                </span>
+              </>
+            ) : (
+              <>
+                Get{" "}
+                <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
+                  In Touch
+                </span>
+              </>
+            )}
           </h1>
           <div className="mt-5 w-16 h-1 bg-[#fbbf24] rounded mx-auto" />
         </motion.div>

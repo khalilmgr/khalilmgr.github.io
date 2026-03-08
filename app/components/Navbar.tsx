@@ -5,19 +5,30 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "../context/LanguageContext";
 
-const links = [
-  { label: "Accueil", href: "/" },
-  { label: "Compétences", href: "/competences" },
-  { label: "Projets", href: "/projets" },
-  { label: "Présentation", href: "/presentation" },
-  { label: "Contact", href: "/contact" },
-];
+const links = {
+  fr: [
+    { label: "Accueil", href: "/" },
+    { label: "Compétences", href: "/competences" },
+    { label: "Projets", href: "/projets" },
+    { label: "Présentation", href: "/presentation" },
+    { label: "Contact", href: "/contact" },
+  ],
+  en: [
+    { label: "Home", href: "/" },
+    { label: "Skills", href: "/competences" },
+    { label: "Projects", href: "/projets" },
+    { label: "About", href: "/presentation" },
+    { label: "Contact", href: "/contact" },
+  ],
+};
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { lang, toggle } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -31,6 +42,8 @@ export default function Navbar() {
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  const navLinks = links[lang];
 
   return (
     <motion.nav
@@ -54,39 +67,56 @@ export default function Navbar() {
           />
         </Link>
 
-        <ul className="hidden md:flex gap-8">
-          {links.map((link) => {
-            const active = isActive(link.href);
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-xs uppercase tracking-wider font-medium transition-colors duration-200 relative pb-1 ${
-                    active ? "text-[#fbbf24]" : "text-[#94a3b8] hover:text-[#fbbf24]"
-                  }`}
-                >
-                  {link.label}
-                  {active && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-px bg-[#fbbf24] rounded-full"
-                    />
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-8">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-xs uppercase tracking-wider font-medium transition-colors duration-200 relative pb-1 ${
+                      active ? "text-[#fbbf24]" : "text-[#94a3b8] hover:text-[#fbbf24]"
+                    }`}
+                  >
+                    {link.label}
+                    {active && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute bottom-0 left-0 right-0 h-px bg-[#fbbf24] rounded-full"
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
-        >
-          <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
+          <button
+            onClick={toggle}
+            className="font-mono text-[10px] tracking-widest uppercase border border-[#2d4a7a] hover:border-[#fbbf24] text-[#94a3b8] hover:text-[#fbbf24] px-3 py-1.5 rounded transition-all duration-200"
+          >
+            {lang === "fr" ? "EN" : "FR"}
+          </button>
+        </div>
+
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggle}
+            className="font-mono text-[10px] tracking-widest uppercase border border-[#2d4a7a] hover:border-[#fbbf24] text-[#94a3b8] hover:text-[#fbbf24] px-2.5 py-1 rounded transition-all duration-200"
+          >
+            {lang === "fr" ? "EN" : "FR"}
+          </button>
+          <button
+            className="flex flex-col gap-1.5 p-2"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+          >
+            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -99,7 +129,7 @@ export default function Navbar() {
             className="md:hidden overflow-hidden bg-[#1a2744] border-b border-[#2d4a7a]"
           >
             <ul className="px-6 py-5 flex flex-col gap-4">
-              {links.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

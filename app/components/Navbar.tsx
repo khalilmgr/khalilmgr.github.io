@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
@@ -43,8 +44,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-mono text-sm tracking-widest text-[#fbbf24] uppercase font-bold">
-          KM<span className="text-[#f1f5f9]">.</span>dev
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/favicon.svg"
+            alt="KM.dev"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
         </Link>
 
         <ul className="hidden md:flex gap-8">

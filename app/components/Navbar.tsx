@@ -61,8 +61,8 @@ export default function Navbar() {
           <Image
             src="/favicon.svg"
             alt="KM.dev"
-            width={40}
-            height={40}
+            width={52}
+            height={52}
             className="object-contain"
           />
         </Link>

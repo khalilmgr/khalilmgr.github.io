@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useLang } from "../../context/LanguageContext";
+import TravelMap from "../../components/TravelMap";
 
 const interets = {
   fr: [
@@ -116,23 +117,26 @@ export default function InteretsPage() {
         {/* Cards */}
         <div className="flex flex-col gap-6">
           {list.map((item, i) => (
-            <motion.div
-              key={item.titre}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="bg-[#1a2744] border border-[#2d4a7a] rounded-2xl p-8 flex gap-6 items-start hover:border-[#fbbf24]/20 transition-all duration-300"
-            >
-              <span className="text-4xl flex-shrink-0 mt-1">{item.icon}</span>
-              <div>
-                <h2 className="text-[#f1f5f9] font-bold text-lg uppercase tracking-wide mb-3">
-                  {item.titre}
-                </h2>
-                <p className="text-[#94a3b8] text-base leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
+            <>
+              <motion.div
+                key={item.titre}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                className="bg-[#1a2744] border border-[#2d4a7a] rounded-2xl p-8 flex gap-6 items-start hover:border-[#fbbf24]/20 transition-all duration-300"
+              >
+                <span className="text-4xl flex-shrink-0 mt-1">{item.icon}</span>
+                <div>
+                  <h2 className="text-[#f1f5f9] font-bold text-lg uppercase tracking-wide mb-3">
+                    {item.titre}
+                  </h2>
+                  <p className="text-[#94a3b8] text-base leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+              {i === 0 && <TravelMap />}
+            </>
           ))}
         </div>
 

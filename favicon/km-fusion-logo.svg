@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f38"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE566"/>
+      <stop offset="50%" style="stop-color:#FFD23F"/>
+      <stop offset="100%" style="stop-color:#E8A800"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="400" height="400" rx="48" fill="url(#bg)"/>
+
+  <!-- Halo ambiant derrière le logo -->
+  <ellipse cx="200" cy="200" rx="110" ry="90" fill="#FFD23F" opacity="0.04"/>
+
+  <!--
+    CONCEPT : K et M fusionnés
+    La barre verticale GAUCHE est partagée entre K et M.
+    Le K utilise : barre gauche + diagonale haute vers droite + diagonale basse vers droite
+    Le M utilise : barre gauche (partagée) + V central + barre droite
+    
+    Les deux lettres se rejoignent sur la barre verticale gauche commune,
+    et le V du M croise les diagonales du K au centre.
+    
+    Structure de points :
+    - Barre verticale commune : x=130, y=100 → y=300
+    - K diag haute : (130,200) → (230,100)
+    - K diag basse : (130,200) → (230,300)  [= barre droite basse du M]
+    - M V-gauche : (130,100) → (200,210)
+    - M V-droite : (200,210) → (270,100)
+    - M barre droite : (270,100) → (270,300)
+    
+    La magie : (130,300) est partagé K bas + M bas gauche
+               (230,300) est partagé K diag basse + contribue visuellement au M
+  -->
+
+  <!-- Couche de lueur douce derrière les traits principaux -->
+  <g opacity="0.25" filter="url(#softglow)">
+    <!-- Barre verticale gauche commune -->
+    <line x1="130" y1="100" x2="130" y2="300" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+    <!-- Diagonale haute K -->
+    <line x1="130" y1="200" x2="235" y2="100" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+    <!-- Diagonale basse K / jam M -->
+    <line x1="130" y1="200" x2="235" y2="300" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+    <!-- V gauche M -->
+    <line x1="130" y1="100" x2="200" y2="215" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+    <!-- V droit M -->
+    <line x1="200" y1="215" x2="270" y2="100" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+    <!-- Barre droite M -->
+    <line x1="270" y1="100" x2="270" y2="300" stroke="#FFD23F" stroke-width="22" stroke-linecap="round"/>
+  </g>
+
+  <!-- Traits principaux nets -->
+  <g filter="url(#glow)" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Barre verticale gauche — partagée K et M -->
+    <line x1="130" y1="100" x2="130" y2="300" stroke-width="14"/>
+
+    <!-- Diagonale haute du K → monte vers droite depuis le milieu de la barre commune -->
+    <line x1="130" y1="200" x2="235" y2="100" stroke-width="14"/>
+
+    <!-- Diagonale basse du K → descend vers droite, elle "traverse" le M -->
+    <line x1="130" y1="200" x2="235" y2="300" stroke-width="14"/>
+
+    <!-- V gauche du M → part du haut de la barre commune et plonge vers le centre -->
+    <line x1="130" y1="100" x2="200" y2="215" stroke-width="14"/>
+
+    <!-- V droit du M → remonte du centre vers la barre droite -->
+    <line x1="200" y1="215" x2="270" y2="100" stroke-width="14"/>
+
+    <!-- Barre droite du M -->
+    <line x1="270" y1="100" x2="270" y2="300" stroke-width="14"/>
+
+    <!-- Nœud de croisement central — point fort de la fusion -->
+    <!-- Le V du M et les diagonales du K se croisent ~(175, 155) et ~(175, 245) -->
+    <!-- On accentue ces points d'intersection avec un dot -->
+    <circle cx="176" cy="155" r="7" fill="url(#gold)" stroke="none"/>
+    <circle cx="176" cy="245" r="7" fill="url(#gold)" stroke="none"/>
+
+  </g>
+
+  <!-- Point central de fusion (sommet du V du M = milieu du K) mis en valeur -->
+  <circle cx="200" cy="215" r="5" fill="#FFE566" opacity="0.9"/>
+
+  <!-- Détails tech subtils : petits segments angulaires aux coins -->
+  <g stroke="#FFD23F" stroke-width="2.5" stroke-linecap="round" opacity="0.3">
+    <polyline points="52,52 52,72 72,72"/>
+    <polyline points="348,52 348,72 328,72"/>
+    <polyline points="52,348 52,328 72,328"/>
+    <polyline points="348,348 348,328 328,328"/>
+  </g>
+
+  <!-- Baseline minimaliste -->
+  <text x="200" y="358" text-anchor="middle"
+        font-family="'Courier New', monospace"
+        font-size="13" letter-spacing="6"
+        fill="#FFD23F" opacity="0.35">KM.DEV</text>
+
+</svg>

@@ -14,12 +14,6 @@ const interets = {
         "Explorer de nouvelles cultures, découvrir d'autres façons de vivre et de penser. Les voyages élargissent la perspective et nourrissent la créativité — une qualité que je retrouve dans mon approche de la data.",
     },
     {
-      icon: "💻",
-      titre: "Nouvelles technologies",
-      description:
-        "Passionné par l'évolution rapide du secteur tech, je me tiens constamment informé des dernières innovations : nouveaux frameworks, outils de développement, tendances en data engineering.",
-    },
-    {
       icon: "🤖",
       titre: "Intelligence artificielle",
       description:
@@ -44,12 +38,6 @@ const interets = {
       titre: "Travel",
       description:
         "Exploring new cultures, discovering different ways of living and thinking. Travel broadens perspective and nurtures creativity — a quality I bring to my approach to data.",
-    },
-    {
-      icon: "💻",
-      titre: "New Technologies",
-      description:
-        "Passionate about the rapid evolution of the tech sector, I constantly stay informed of the latest innovations: new frameworks, development tools, and data engineering trends.",
     },
     {
       icon: "🤖",

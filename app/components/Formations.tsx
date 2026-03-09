@@ -24,7 +24,7 @@ const formations = {
       degree: "BUT Informatique",
       year: "1ère année",
       description:
-        "Une année de mise à niveau et de découverte de tous les pans de l'informatique à travers de nombreux projets concrets : développement web avec PHP, JavaScript et Symfony, gestion de bases de données avec MySQL et Oracle, algorithmique, systèmes Linux, réseaux et travail en équipe en méthode agile. L'objectif était de se familiariser avec l'ensemble des outils du métier avant de choisir une spécialité.",
+        "Une année de mise à niveau et de découverte de tous les pans de l'informatique à travers de nombreux projets concrets. L'objectif était de se familiariser avec l'ensemble des outils du métier avant de choisir une spécialité.",
       icon: "💻",
     },
     {
@@ -59,7 +59,7 @@ const formations = {
       degree: "Bachelor's in Computer Science",
       year: "1st year",
       description:
-        "A year of discovering every aspect of computer science through many hands-on projects: web development with PHP, JavaScript and Symfony, database management with MySQL and Oracle, algorithms, Linux systems, networking and agile teamwork. The goal was to get comfortable with the full range of tools before choosing a specialization.",
+        "A year of discovering every aspect of computer science through many hands-on projects. The goal was to get comfortable with the full range of tools before choosing a specialization.",
       icon: "💻",
     },
     {

@@ -94,18 +94,24 @@ export default function Navbar() {
 
           <button
             onClick={toggle}
-            className="font-mono text-[10px] tracking-widest uppercase border border-[#2d4a7a] hover:border-[#fbbf24] text-[#94a3b8] hover:text-[#fbbf24] px-3 py-1.5 rounded transition-all duration-200"
+            className="flex items-center gap-1.5 border border-[#2d4a7a] hover:border-[#fbbf24]/60 px-2.5 py-1.5 rounded transition-all duration-200"
+            aria-label="Toggle language"
           >
-            {lang === "fr" ? "EN" : "FR"}
+            <span className={`text-base leading-none transition-opacity duration-200 ${lang === "fr" ? "opacity-100" : "opacity-30"}`}>🇫🇷</span>
+            <span className="text-[#2d4a7a] text-[10px]">·</span>
+            <span className={`text-base leading-none transition-opacity duration-200 ${lang === "en" ? "opacity-100" : "opacity-30"}`}>🇬🇧</span>
           </button>
         </div>
 
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={toggle}
-            className="font-mono text-[10px] tracking-widest uppercase border border-[#2d4a7a] hover:border-[#fbbf24] text-[#94a3b8] hover:text-[#fbbf24] px-2.5 py-1 rounded transition-all duration-200"
+            className="flex items-center gap-1.5 border border-[#2d4a7a] hover:border-[#fbbf24]/60 px-2 py-1.5 rounded transition-all duration-200"
+            aria-label="Toggle language"
           >
-            {lang === "fr" ? "EN" : "FR"}
+            <span className={`text-sm leading-none transition-opacity duration-200 ${lang === "fr" ? "opacity-100" : "opacity-30"}`}>🇫🇷</span>
+            <span className="text-[#2d4a7a] text-[10px]">·</span>
+            <span className={`text-sm leading-none transition-opacity duration-200 ${lang === "en" ? "opacity-100" : "opacity-30"}`}>🇬🇧</span>
           </button>
           <button
             className="flex flex-col gap-1.5 p-2"

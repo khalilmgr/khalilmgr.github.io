@@ -13,7 +13,7 @@ const formations = {
       degree: "BUT Informatique — Parcours Data",
       year: "2ème année",
       description:
-        "Spécialisation en data science, analyse de données et visualisation. Compétences approfondies en Python, SQL avancé, Power BI, Tableau et machine learning.",
+        "Dans la continuité de la 1ère année, cette année creuse vraiment la spécialité data. Python devient l'outil central avec un écosystème complet : Pandas, NumPy, Streamlit pour créer des applications web de visualisation, Grafana pour le monitoring, Plotly et Matplotlib pour les graphiques. Le SQL passe à un niveau avancé (vues, procédures, optimisation). La visualisation avec Power BI et Tableau occupe une place majeure. Chaque semestre s'articule autour d'un gros projet applicatif en groupe et d'un stage en entreprise — qui représente le coefficient le plus important — où les compétences sont mises en pratique dans un contexte professionnel réel.",
       icon: "📊",
     },
     {
@@ -24,7 +24,7 @@ const formations = {
       degree: "BUT Informatique",
       year: "1ère année",
       description:
-        "Fondamentaux de l'informatique : algorithmique, bases de données, développement web (PHP, JavaScript, Symfony), systèmes Linux et travail en équipe agile.",
+        "Une année de mise à niveau et de découverte de tous les pans de l'informatique à travers de nombreux projets concrets : développement web avec PHP, JavaScript et Symfony, gestion de bases de données avec MySQL et Oracle, algorithmique, systèmes Linux, réseaux et travail en équipe en méthode agile. L'objectif était de se familiariser avec l'ensemble des outils du métier avant de choisir une spécialité.",
       icon: "💻",
     },
     {
@@ -48,7 +48,7 @@ const formations = {
       degree: "Bachelor's in Computer Science — Data Track",
       year: "2nd year",
       description:
-        "Specialization in data science, data analysis and visualization. In-depth skills in Python, advanced SQL, Power BI, Tableau and machine learning.",
+        "Building on the first year, this year dives deep into the data specialization. Python becomes the central tool with a full ecosystem: Pandas, NumPy, Streamlit for data web apps, Grafana for monitoring, Plotly and Matplotlib for charts. SQL moves to an advanced level (views, stored procedures, optimization). Visualization with Power BI and Tableau takes a major role. Each semester is structured around a large group project and a company internship — which carries the highest coefficient — where skills are applied in a real professional setting.",
       icon: "📊",
     },
     {
@@ -59,7 +59,7 @@ const formations = {
       degree: "Bachelor's in Computer Science",
       year: "1st year",
       description:
-        "Computer science fundamentals: algorithms, databases, web development (PHP, JavaScript, Symfony), Linux systems and agile teamwork.",
+        "A year of discovering every aspect of computer science through many hands-on projects: web development with PHP, JavaScript and Symfony, database management with MySQL and Oracle, algorithms, Linux systems, networking and agile teamwork. The goal was to get comfortable with the full range of tools before choosing a specialization.",
       icon: "💻",
     },
     {

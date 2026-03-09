@@ -74,8 +74,35 @@ export default function Contact() {
             khalilmgr
           </motion.a>
         </div>
+
+        {/* CV Download */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.44 }}
+          className="mt-6 flex justify-center"
+        >
+          <a
+            href={lang === "fr" ? "/CV_Khalil_Moughamir_FR.pdf" : "/CV_Khalil_Moughamir_EN.pdf"}
+            download
+            className="inline-flex items-center gap-3 px-8 py-4 border border-[#fbbf24]/40 text-[#fbbf24] font-bold uppercase tracking-widest text-sm rounded-xl hover:border-[#fbbf24] hover:bg-[#fbbf24]/5 transition-all duration-200"
+          >
+            <DownloadIcon />
+            {lang === "fr" ? "Télécharger mon CV" : "Download my CV"}
+          </a>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
   );
 }
 

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Khalil Moughamir — Data & Développement",
+  title: "Khalil Moughamir",
   description:
     "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours Data à l'IUT de Reims. Passionné de data science et d'analyse sportive.",
   keywords: ["data", "python", "SQL", "power bi", "tableau", "développement web", "IUT Reims"],

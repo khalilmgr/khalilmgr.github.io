@@ -27,6 +27,9 @@ const DEVICON_MAP: Record<string, string> = {
   "VS Code": `${DEVICON_BASE}/vscode/vscode-original.svg`,
   MySQL: `${DEVICON_BASE}/mysql/mysql-original.svg`,
   Oracle: `${DEVICON_BASE}/oracle/oracle-original.svg`,
+  Canva: `${DEVICON_BASE}/canva/canva-original.svg`,
+  PhpStorm: `${DEVICON_BASE}/phpstorm/phpstorm-original.svg`,
+  PyCharm: `${DEVICON_BASE}/pycharm/pycharm-original.svg`,
 };
 
 const categories = {
@@ -47,6 +50,7 @@ const categories = {
       skills: [
         "MySQL",
         "Oracle",
+        { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
         { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
         { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
@@ -59,7 +63,11 @@ const categories = {
     },
     {
       title: "Outils & DevOps",
-      skills: ["Git", "GitHub", "Linux", "Docker", "VS Code"],
+      skills: [
+        "Git", "GitHub", "Linux", "Docker", "VS Code",
+        "Canva", "PhpStorm", "PyCharm",
+        { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
+      ],
     },
   ],
   en: [
@@ -79,6 +87,7 @@ const categories = {
       skills: [
         "MySQL",
         "Oracle",
+        { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
         { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
         { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
@@ -91,7 +100,11 @@ const categories = {
     },
     {
       title: "Tools & DevOps",
-      skills: ["Git", "GitHub", "Linux", "Docker", "VS Code"],
+      skills: [
+        "Git", "GitHub", "Linux", "Docker", "VS Code",
+        "Canva", "PhpStorm", "PyCharm",
+        { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
+      ],
     },
   ],
 };
@@ -113,7 +126,7 @@ function SkillLogo({ skill }: { skill: SkillItem }) {
             alt={name}
             width={32}
             height={32}
-            className={`object-contain ${name === "GitHub" ? "invert" : ""}`}
+            className={`object-contain ${name === "GitHub" || name === "Symfony" ? "invert" : ""}`}
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://khalilmgr.github.io";
+const siteUrl = "https://khalil-moughamir.vercel.app";
 
 export const metadata: Metadata = {
   title: "Khalil Moughamir — Portfolio Data & Développement Web",

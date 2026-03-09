@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
         <span className="font-mono text-xs text-white tracking-widest">
           © 2026 Khalil Moughamir — Hébergé par{" "}
-          <span className="text-[#fbbf24]">Vercel</span>
+          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-[#fbbf24] hover:underline">Vercel</a>
         </span>
         <a
           href="mailto:khalil.moughamir@gmail.com"

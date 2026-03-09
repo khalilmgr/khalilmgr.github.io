@@ -197,6 +197,67 @@ export default function ParcoursPage() {
           </div>
         </motion.div>
 
+        {/* Concours d'éloquence */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mb-20"
+        >
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[#fbbf24] uppercase mb-6">
+            {lang === "fr" ? "— Au-delà du terrain" : "— Beyond the pitch"}
+          </p>
+          <div className="bg-[#1a2744] border border-[#2d4a7a] rounded-xl p-6">
+            <div className="flex items-start gap-4 mb-4">
+              <span className="font-mono text-[10px] text-[#fbbf24] tracking-widest whitespace-nowrap mt-0.5">
+                Avril 2022
+              </span>
+              <div className="w-px h-4 bg-[#2d4a7a] mt-0.5" />
+              <div>
+                <p className="text-[#f1f5f9] font-bold text-base uppercase tracking-wide">
+                  {lang === "fr" ? "Concours d'éloquence — 3ème Prix 🥉" : "Eloquence Competition — 3rd Prize 🥉"}
+                </p>
+                <p className="text-[#fbbf24]/60 font-mono text-[10px] mt-0.5">
+                  {lang === "fr" ? "Fondaction du Football · U16 · Stade de Reims" : "Fondaction du Football · U16 · Stade de Reims"}
+                </p>
+              </div>
+            </div>
+            <p className="text-[#94a3b8] text-sm leading-relaxed mb-5">
+              {lang === "fr"
+                ? <>Sujet traité : <span className="text-[#f1f5f9] italic">« Est-il possible de composer le bonheur de l'homme avec la souffrance de la femme ? »</span> — Une expérience qui m'a prouvé que la rigueur et la préparation forgées sur le terrain se transfèrent aussi bien à l'oral.</>
+                : <>Subject: <span className="text-[#f1f5f9] italic">"Is it possible to compose man's happiness with woman's suffering?"</span> — An experience that showed me that the discipline and preparation built on the pitch translate just as well to public speaking.</>
+              }
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://www.youtube.com/watch?v=lJZdevZq5MM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-[#2d4a7a] hover:border-[#fbbf24]/60 text-[#94a3b8] hover:text-[#fbbf24] text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-200"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                {lang === "fr" ? "Voir la vidéo" : "Watch the video"}
+                <span className="text-[#fbbf24]/50">(1:55 · 2:33)</span>
+              </a>
+              <a
+                href="https://www.fondactiondufootball.com/actualites/les-finales-de-la-3e-saison-du-concours-d-eloquence-ont-debute"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-[#2d4a7a] hover:border-[#fbbf24]/60 text-[#94a3b8] hover:text-[#fbbf24] text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-200"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                {lang === "fr" ? "Article officiel" : "Official article"}
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Profil joueur */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

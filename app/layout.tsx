@@ -38,7 +38,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Khalil Moughamir" }],
   creator: "Khalil Moughamir",
   metadataBase: new URL(siteUrl),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "fr": "/",
+      "en": "/",
+    },
+  },
   openGraph: {
     type: "website",
     url: siteUrl,

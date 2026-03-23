@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     description:
       "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours Data à l'IUT de Reims.",
   },
+  verification: {
+    google: "dyiSzpzVaR4UQPKy4IT4yj1gpIzoeUdzhKHTcirK4Ug",
+  },
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",

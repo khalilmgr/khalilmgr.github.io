@@ -12,51 +12,27 @@ const bio = {
   fr: [
     <>
       Je m’appelle <span className="text-white font-medium">Khalil Moughamir</span>, j’ai{" "}
-      <span className="text-white font-medium">20 ans</span> et je suis étudiant en 3ème année
-      de BUT Informatique, parcours{" "}
-      <span className="text-white font-medium">Administration, Gestion et Exploitation des Données (AGED)</span>,
-      à l’IUT de Reims-Châlons-Charleville (Université de Reims Champagne-Ardenne).
-    </>,
-    <>
-      Cette année, je réalise une <span className="text-white font-medium">bidiplomation à l’Université du Québec à Chicoutimi (UQAC)</span>,
-      du 31 août 2026 au 30 avril 2027 — deux trimestres d’enseignement universitaire (30 crédits) complétés par un stage
-      obligatoire en entreprise, pour obtenir simultanément mon BUT Informatique français et un Baccalauréat en informatique
-      canadien. Au-delà de l’académique, c’est une immersion professionnelle et interculturelle en Amérique du Nord francophone.
-    </>,
-    <>
-      Passionné par la data et le football, mon parcours est le résultat de deux univers exigeants qui se sont nourris
-      l’un l’autre — le sport de haut niveau et l’informatique.
-    </>,
-    <>
-      Cette expérience du haut niveau m’a naturellement orienté vers{" "}
-      <span className="text-white font-medium">l’analyse de données appliquée au football</span>.
-      Connaître les exigences du terrain de l’intérieur me donne une perspective unique : je ne veux pas
-      seulement traiter des chiffres, je veux comprendre ce qu’ils racontent sur la performance, l’effort
-      et la tactique.
+      <span className="text-white font-medium">20 ans</span> et je suis étudiant en 3ème année de BUT
+      Informatique, parcours Data, à l’IUT de Reims, actuellement en double diplôme à l’
+      <span className="text-white font-medium">Université du Québec à Chicoutimi</span>. Mon parcours
+      est le résultat de deux univers exigeants qui se sont nourris l’un l’autre : le sport de haut
+      niveau et l’informatique. Cela m’a naturellement orienté vers{" "}
+      <span className="text-white font-medium">l’analyse de données appliquée au football</span>, avec
+      un objectif clair : rendre la donnée facile à comprendre, aider les clubs à prendre de meilleures
+      décisions, et automatiser les systèmes qui la traitent.
     </>,
   ],
   en: [
     <>
-      My name is <span className="text-white font-medium">Khalil Moughamir</span>, I am{" "}
-      <span className="text-white font-medium">20 years old</span> and a 3rd year student in the
-      Computer Science program, <span className="text-white font-medium">Data, Management and Information Systems Administration track (AGED)</span>,
-      at IUT de Reims-Châlons-Charleville (Université de Reims Champagne-Ardenne).
-    </>,
-    <>
-      This year, I’m completing a <span className="text-white font-medium">dual-degree year at the Université du Québec à Chicoutimi (UQAC)</span>,
-      from August 31, 2026 to April 30, 2027 — two university terms (30 credits) plus a mandatory company internship, earning
-      both my French BUT Informatique and a Canadian Baccalauréat en informatique. Beyond academics, it’s a professional and
-      cross-cultural immersion in French-speaking North America.
-    </>,
-    <>
-      Passionate about data and football, my journey is the result of two demanding worlds that have shaped each other —
-      high-level sport and computer science.
-    </>,
-    <>
-      This high-performance experience naturally drew me toward{" "}
-      <span className="text-white font-medium">data analysis applied to football</span>.
-      Knowing the demands of the pitch from the inside gives me a unique perspective: I don’t just want
-      to process numbers, I want to understand what they tell us about performance, effort, and tactics.
+      My name is <span className="text-white font-medium">Khalil Moughamir</span>, I’m{" "}
+      <span className="text-white font-medium">20 years old</span> and a 3rd year Computer Science
+      student, Data track, at IUT de Reims, currently on a dual-degree exchange at the{" "}
+      <span className="text-white font-medium">Université du Québec à Chicoutimi</span>. My path is the
+      result of two demanding worlds that have shaped each other: high-level sport and computer science.
+      That naturally drew me toward{" "}
+      <span className="text-white font-medium">data analysis applied to football</span>, with a clear
+      goal: make data easy to understand, help clubs make better decisions, and automate the systems
+      that process it.
     </>,
   ],
 };

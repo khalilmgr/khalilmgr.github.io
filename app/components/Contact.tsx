@@ -63,57 +63,8 @@ export default function Contact() {
             khalilmgr
           </motion.a>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.26 }}
-          className="mt-4 flex justify-center"
-        >
-          <a
-            href={lang === "fr" ? "/CV_Khalil_Moughamir_FR.pdf" : "/CV_Khalil_Moughamir_EN.pdf"}
-            download
-            className="inline-flex items-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
-          >
-            <DownloadIcon />
-            {lang === "fr" ? "Télécharger mon CV" : "Download my CV"}
-          </a>
-        </motion.div>
-
-        <motion.a
-          href="tel:+33769888989"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.34 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="mt-4 inline-flex items-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
-        >
-          <PhoneIcon />
-          +33 07 69 88 89 89
-        </motion.a>
       </div>
     </section>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.62 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function DownloadIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" y1="15" x2="12" y2="3" />
-    </svg>
   );
 }
 

@@ -40,22 +40,22 @@ const bio = {
 const formations = {
   fr: [
     {
-      period: "2026 — 2027",
-      degree: "Bidiplomation — BUT Informatique / Baccalauréat en informatique",
+      period: "2026 – 2027",
+      degree: "Bidiplomation · BUT Informatique / Baccalauréat en informatique",
       subtitle: "Université du Québec à Chicoutimi",
     },
     {
-      period: "2025 — 2026",
-      degree: "BUT Informatique — Parcours Data",
+      period: "2025 – 2026",
+      degree: "BUT Informatique · Parcours Data",
       subtitle: "IUT de Reims-Châlons-Charleville · Major de promo",
     },
     {
-      period: "2024 — 2025",
+      period: "2024 – 2025",
       degree: "BUT Informatique",
       subtitle: "IUT de Reims-Châlons-Charleville",
     },
     {
-      period: "2023 — 2024",
+      period: "2023 – 2024",
       degree: "Baccalauréat Général",
       subtitle:
         "Lycée Hugues Libergier, Reims · Spécialités Mathématiques et Physique-Chimie, mention Bien",
@@ -63,22 +63,22 @@ const formations = {
   ],
   en: [
     {
-      period: "2026 — 2027",
-      degree: "Dual degree — BUT Informatique / Bachelor's in Computer Science",
+      period: "2026 – 2027",
+      degree: "Dual degree · BUT Informatique / Bachelor's in Computer Science",
       subtitle: "Université du Québec à Chicoutimi",
     },
     {
-      period: "2025 — 2026",
-      degree: "Bachelor's in Computer Science — Data Track",
+      period: "2025 – 2026",
+      degree: "Bachelor's in Computer Science · Data Track",
       subtitle: "IUT de Reims-Châlons-Charleville · Top of class",
     },
     {
-      period: "2024 — 2025",
+      period: "2024 – 2025",
       degree: "Bachelor's in Computer Science",
       subtitle: "IUT de Reims-Châlons-Charleville",
     },
     {
-      period: "2023 — 2024",
+      period: "2023 – 2024",
       degree: "French Baccalauréat (General)",
       subtitle:
         "Lycée Hugues Libergier, Reims · Mathematics and Physics-Chemistry specialties, with honours",
@@ -171,7 +171,7 @@ const interets = {
       icon: "🤖",
       titre: "Intelligence artificielle",
       description:
-        "Fasciné par les possibilités offertes par l'IA, notamment dans le domaine sportif — analyser des performances, détecter des patterns, anticiper des résultats.",
+        "Fasciné par les possibilités offertes par l'IA, notamment dans le domaine sportif : analyser des performances, détecter des patterns, anticiper des résultats.",
     },
     {
       icon: "⚡",
@@ -183,7 +183,7 @@ const interets = {
       icon: "🚀",
       titre: "Entrepreneuriat",
       description:
-        "L'envie de créer, de bâtir des projets qui ont du sens et de l'impact — vision claire, équipe solide, exécution sans relâche.",
+        "L'envie de créer, de bâtir des projets qui ont du sens et de l'impact : vision claire, équipe solide, exécution sans relâche.",
     },
   ],
   en: [
@@ -197,7 +197,7 @@ const interets = {
       icon: "🤖",
       titre: "Artificial Intelligence",
       description:
-        "Fascinated by the possibilities offered by AI, especially in sport — analyzing performance, detecting patterns, predicting outcomes.",
+        "Fascinated by the possibilities offered by AI, especially in sport: analyzing performance, detecting patterns, predicting outcomes.",
     },
     {
       icon: "⚡",
@@ -209,7 +209,7 @@ const interets = {
       icon: "🚀",
       titre: "Entrepreneurship",
       description:
-        "The desire to create, to build projects with meaning and impact — a clear vision, a solid team, relentless execution.",
+        "The desire to create, to build projects with meaning and impact: a clear vision, a solid team, relentless execution.",
     },
   ],
 };
@@ -259,7 +259,7 @@ function SportifTab({ lang }: { lang: Lang }) {
       {/* Photo gallery */}
       <div className="mb-14">
         <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-5 text-center">
-          {lang === "fr" ? "— En action" : "— In action"}
+          {lang === "fr" ? "• En action" : "• In action"}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {photos.map((src, i) => (
@@ -280,7 +280,7 @@ function SportifTab({ lang }: { lang: Lang }) {
 
       {/* Timeline */}
       <div className="mb-14">
-        <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">— Timeline</p>
+        <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">• Timeline</p>
         <div className="relative flex flex-col gap-0">
           {timeline.map((p, i) => (
             <motion.div
@@ -309,7 +309,7 @@ function SportifTab({ lang }: { lang: Lang }) {
       {/* Eloquence contest */}
       <div className="mb-14">
         <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">
-          {lang === "fr" ? "— Au-delà du terrain" : "— Beyond the pitch"}
+          {lang === "fr" ? "• Au-delà du terrain" : "• Beyond the pitch"}
         </p>
         <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-xl p-6">
           <div className="flex items-start gap-4 mb-4">
@@ -317,7 +317,7 @@ function SportifTab({ lang }: { lang: Lang }) {
             <div className="w-px h-4 bg-white/15 mt-0.5" />
             <div>
               <p className="text-[#f5f5f7] font-semibold text-base">
-                {lang === "fr" ? "Concours d'éloquence — 3ème Prix 🥉" : "Eloquence Competition — 3rd Prize 🥉"}
+                {lang === "fr" ? "Concours d'éloquence · 3ème Prix 🥉" : "Eloquence Competition · 3rd Prize 🥉"}
               </p>
               <p className="text-white/40 font-mono text-[10px] mt-0.5">Fondaction du Football · U16 · Stade de Reims</p>
             </div>
@@ -353,7 +353,7 @@ function SportifTab({ lang }: { lang: Lang }) {
       {/* Player profile */}
       <div>
         <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">
-          {lang === "fr" ? "— Profil joueur" : "— Player profile"}
+          {lang === "fr" ? "• Profil joueur" : "• Player profile"}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {profile.map((item) => (
@@ -442,7 +442,7 @@ export default function About() {
           className="mb-14 text-center"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
-            {lang === "fr" ? "— Qui suis-je" : "— Who am I"}
+            {lang === "fr" ? "• Qui suis-je" : "• Who am I"}
           </p>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7] mb-8">
             {lang === "fr" ? "À propos" : "About"}

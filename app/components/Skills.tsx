@@ -198,7 +198,7 @@ export default function Skills() {
           className="mb-14 text-center"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
-            {lang === "fr" ? "— Compétences" : "— Skills"}
+            {lang === "fr" ? "• Compétences" : "• Skills"}
           </p>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
             {lang === "fr" ? "Ma" : "My"} Stack

@@ -7,7 +7,7 @@ const LOGOMARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 1
 const LOGOMARK_B64 = Buffer.from(LOGOMARK_SVG).toString("base64");
 
 export const runtime = "edge";
-export const alt = "Khalil Moughamir — Portfolio Data & Développement Web";
+export const alt = "Khalil Moughamir · Portfolio Data & Développement Web";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

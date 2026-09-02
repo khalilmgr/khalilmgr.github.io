@@ -21,7 +21,7 @@ const academic = {
       highlight: true,
     },
     {
-      title: "CoLive — Plateforme de colocation",
+      title: "CoLive · Plateforme de colocation",
       description:
         "Application web permettant aux étudiants en alternance de trouver plus facilement des colocations pendant leurs études.",
       github: "https://github.com/khalilmgr/colive-symfony-app",
@@ -54,7 +54,7 @@ const academic = {
       highlight: true,
     },
     {
-      title: "CoLive — Co-living Platform",
+      title: "CoLive · Co-living Platform",
       description:
         "Web application allowing student interns to more easily find shared housing during their studies.",
       github: "https://github.com/khalilmgr/colive-symfony-app",
@@ -131,22 +131,22 @@ export default function Projects() {
 
   const copy = {
     fr: {
-      eyebrow: "— 03. Projets",
+      eyebrow: "• 03. Projets",
       title: "Mes réalisations",
       academic: "Académiques",
       personal: "Personnels",
       personalTitle: "Football Data",
-      personalDesc: "Mes projets d'analyse de données appliquée au football — mercato, performances et statistiques de clubs.",
+      personalDesc: "Mes projets d'analyse de données appliquée au football : mercato, performances et statistiques de clubs.",
       viewOnGithub: "Voir sur GitHub",
       allRepos: "Voir tous mes repos sur GitHub",
     },
     en: {
-      eyebrow: "— 03. Projects",
+      eyebrow: "• 03. Projects",
       title: "My work",
       academic: "Academic",
       personal: "Personal",
       personalTitle: "Football Data",
-      personalDesc: "My data analysis projects applied to football — transfer market, performance and club statistics.",
+      personalDesc: "My data analysis projects applied to football: transfer market, performance and club statistics.",
       viewOnGithub: "View on GitHub",
       allRepos: "View all my repos on GitHub",
     },

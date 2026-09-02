@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://khalil-moughamir.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Khalil Moughamir — Portfolio Data & Développement Web",
+  title: "Khalil Moughamir · Portfolio Data & Développement Web",
   description:
     "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED à l'IUT de Reims-Châlons-Charleville, en double diplôme à l'UQAC (Québec). Compétences en Python, SQL, Power BI, Tableau, React et développement web.",
   keywords: [
@@ -52,14 +52,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Khalil Moughamir — Portfolio Data & Développement Web",
+    title: "Khalil Moughamir · Portfolio Data & Développement Web",
     description:
       "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED, en double diplôme à l'UQAC (Québec).",
     siteName: "Khalil Moughamir",
   },
   twitter: {
     card: "summary",
-    title: "Khalil Moughamir — Portfolio",
+    title: "Khalil Moughamir · Portfolio",
     description:
       "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED, en double diplôme à l'UQAC (Québec).",
   },

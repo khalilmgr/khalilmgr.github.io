@@ -20,15 +20,15 @@ export default function Contact() {
           className="mb-14"
         >
           <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
-            — Contact
+            • Contact
           </p>
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
             {lang === "fr" ? "Me contacter" : "Get in touch"}
           </h2>
           <p className="mt-6 text-white/50 text-base leading-relaxed">
             {lang === "fr"
-              ? "N'hésitez pas à me contacter pour toute opportunité ou collaboration — je réponds très rapidement !"
-              : "Feel free to reach out for any opportunity or collaboration — I respond very quickly!"}
+              ? "N'hésitez pas à me contacter pour toute opportunité ou collaboration. Je réponds très rapidement !"
+              : "Feel free to reach out for any opportunity or collaboration. I respond very quickly!"}
           </p>
         </motion.div>
 

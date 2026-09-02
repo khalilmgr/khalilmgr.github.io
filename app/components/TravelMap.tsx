@@ -37,7 +37,7 @@ export default function TravelMap() {
         <span className="font-mono text-xs text-white/70 tracking-widest uppercase">
           {lang === "fr" ? "Pays visités" : "Countries visited"}
         </span>
-        <span className="font-mono text-xs text-white/20">—</span>
+        <span className="font-mono text-xs text-white/20">•</span>
         <div className="flex flex-wrap gap-2">
           {visited.map((c) => (
             <span

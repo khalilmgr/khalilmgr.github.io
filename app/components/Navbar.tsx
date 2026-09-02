@@ -61,7 +61,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4"
     >
       <div
-        className={`max-w-6xl mx-auto flex items-center justify-between rounded-full transition-all duration-300 px-4 py-2.5 ${
+        className={`w-full flex items-center justify-between rounded-full transition-all duration-300 px-4 py-2.5 ${
           scrolled
             ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             : "bg-transparent border border-transparent"

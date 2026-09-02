@@ -132,21 +132,6 @@ const sportifTimeline = {
   ],
 };
 
-const playerProfile = {
-  fr: [
-    { label: "Poste", valeur: "Défenseur central" },
-    { label: "Pied fort", valeur: "Gauche" },
-    { label: "Style", valeur: "Élégant, grande facilité technique" },
-    { label: "Qualité clé", valeur: "Relance propre sous pression" },
-  ],
-  en: [
-    { label: "Position", valeur: "Centre-back" },
-    { label: "Strong foot", valeur: "Left" },
-    { label: "Style", valeur: "Elegant, technically gifted" },
-    { label: "Key quality", valeur: "Clean build-up under pressure" },
-  ],
-};
-
 const interets = {
   fr: [
     {
@@ -233,7 +218,6 @@ function FormationsTab({ lang }: { lang: Lang }) {
 function SportifTab({ lang }: { lang: Lang }) {
   const [lightbox, setLightbox] = useState<string | null>(null);
   const timeline = sportifTimeline[lang];
-  const profile = playerProfile[lang];
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -316,14 +300,6 @@ function SportifTab({ lang }: { lang: Lang }) {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://www.youtube.com/watch?v=lJZdevZq5MM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white/25 text-white/50 hover:text-white text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-200"
-            >
-              {lang === "fr" ? "Voir la vidéo" : "Watch the video"}
-            </a>
-            <a
               href="https://www.fondactiondufootball.com/actualites/les-finales-de-la-3e-saison-du-concours-d-eloquence-ont-debute"
               target="_blank"
               rel="noopener noreferrer"
@@ -332,22 +308,6 @@ function SportifTab({ lang }: { lang: Lang }) {
               {lang === "fr" ? "Article officiel" : "Official article"}
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Player profile */}
-      <div>
-        <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">
-          {lang === "fr" ? "• Profil joueur" : "• Player profile"}
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {profile.map((item) => (
-            <div key={item.label} className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-xl px-6 py-4 flex gap-4 items-center">
-              <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest whitespace-nowrap min-w-[80px]">{item.label}</span>
-              <div className="w-px h-6 bg-white/15" />
-              <span className="text-[#f5f5f7] text-sm">{item.valeur}</span>
-            </div>
-          ))}
         </div>
       </div>
 

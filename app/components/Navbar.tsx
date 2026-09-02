@@ -69,11 +69,11 @@ export default function Navbar() {
       >
         <a href="#hero" className="flex items-center pl-1">
           <Image
-            src="/favicon.svg"
-            alt="KM.dev"
-            width={36}
-            height={36}
-            className="object-contain grayscale brightness-150 contrast-125"
+            src="/logomark.svg"
+            alt="Khalil Moughamir"
+            width={40}
+            height={35}
+            className="object-contain"
           />
         </a>
 

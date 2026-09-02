@@ -1,5 +1,11 @@
 import { ImageResponse } from "next/og";
 
+const LOGOMARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 100">
+  <path d="M54,15 L76,85 L98,15 L98,85" fill="none" stroke="#f5f5f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16,15 L16,85 M16,50 L54,15 M16,50 L54,85" fill="none" stroke="#f5f5f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+const LOGOMARK_B64 = Buffer.from(LOGOMARK_SVG).toString("base64");
+
 export const runtime = "edge";
 export const alt = "Khalil Moughamir — Portfolio Data & Développement Web";
 export const size = { width: 1200, height: 630 };
@@ -22,20 +28,13 @@ export default function Image() {
         }}
       >
         {/* Monogram */}
-        <div
-          style={{
-            width: 90,
-            height: 90,
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.2)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 32,
-          }}
-        >
-          <span style={{ color: "#f5f5f7", fontSize: 36, fontWeight: 700 }}>KM</span>
-        </div>
+        <img
+          src={`data:image/svg+xml;base64,${LOGOMARK_B64}`}
+          width={104}
+          height={90}
+          alt=""
+          style={{ marginBottom: 32 }}
+        />
 
         {/* Name */}
         <div

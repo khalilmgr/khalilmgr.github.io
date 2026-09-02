@@ -12,10 +12,20 @@ const bio = {
   fr: [
     <>
       Je m’appelle <span className="text-white font-medium">Khalil Moughamir</span>, j’ai{" "}
-      <span className="text-white font-medium">20 ans</span> et je suis étudiant en 2ème année
-      de BUT Informatique parcours Data à l’IUT de Reims. Passionné par la data et le football, mon
-      parcours est le résultat de deux univers exigeants qui se sont nourris l’un l’autre — le sport
-      de haut niveau et l’informatique.
+      <span className="text-white font-medium">20 ans</span> et je suis étudiant en 3ème année
+      de BUT Informatique, parcours{" "}
+      <span className="text-white font-medium">Administration, Gestion et Exploitation des Données (AGED)</span>,
+      à l’IUT de Reims-Châlons-Charleville (Université de Reims Champagne-Ardenne).
+    </>,
+    <>
+      Cette année, je réalise une <span className="text-white font-medium">bidiplomation à l’Université du Québec à Chicoutimi (UQAC)</span>,
+      du 31 août 2026 au 30 avril 2027 — deux trimestres d’enseignement universitaire (30 crédits) complétés par un stage
+      obligatoire en entreprise, pour obtenir simultanément mon BUT Informatique français et un Baccalauréat en informatique
+      canadien. Au-delà de l’académique, c’est une immersion professionnelle et interculturelle en Amérique du Nord francophone.
+    </>,
+    <>
+      Passionné par la data et le football, mon parcours est le résultat de deux univers exigeants qui se sont nourris
+      l’un l’autre — le sport de haut niveau et l’informatique.
     </>,
     <>
       Cette expérience du haut niveau m’a naturellement orienté vers{" "}
@@ -28,9 +38,19 @@ const bio = {
   en: [
     <>
       My name is <span className="text-white font-medium">Khalil Moughamir</span>, I am{" "}
-      <span className="text-white font-medium">20 years old</span> and a 2nd year student in the
-      Computer Science Data track at IUT de Reims. Passionate about data and football, my journey is the
-      result of two demanding worlds that have shaped each other — high-level sport and computer science.
+      <span className="text-white font-medium">20 years old</span> and a 3rd year student in the
+      Computer Science program, <span className="text-white font-medium">Data, Management and Information Systems Administration track (AGED)</span>,
+      at IUT de Reims-Châlons-Charleville (Université de Reims Champagne-Ardenne).
+    </>,
+    <>
+      This year, I’m completing a <span className="text-white font-medium">dual-degree year at the Université du Québec à Chicoutimi (UQAC)</span>,
+      from August 31, 2026 to April 30, 2027 — two university terms (30 credits) plus a mandatory company internship, earning
+      both my French BUT Informatique and a Canadian Baccalauréat en informatique. Beyond academics, it’s a professional and
+      cross-cultural immersion in French-speaking North America.
+    </>,
+    <>
+      Passionate about data and football, my journey is the result of two demanding worlds that have shaped each other —
+      high-level sport and computer science.
     </>,
     <>
       This high-performance experience naturally drew me toward{" "}
@@ -44,10 +64,19 @@ const bio = {
 const formations = {
   fr: [
     {
-      period: "2025 — 2026",
+      period: "2026 — 2027",
       status: "En cours",
-      school: "IUT de Reims",
-      degree: "BUT Informatique — Parcours Data",
+      school: "Université du Québec à Chicoutimi (UQAC)",
+      degree: "Bidiplomation — BUT Informatique / Baccalauréat en informatique",
+      year: "3ème année · programme 7833",
+      description:
+        "Année de double diplôme entre l'URCA et l'UQAC, du 31 août 2026 au 30 avril 2027, dans le cadre du parcours AGED (Administration, Gestion et Exploitation des Données). Deux trimestres d'enseignement universitaire (30 crédits) complétés par un stage obligatoire en entreprise — une immersion professionnelle et interculturelle en Amérique du Nord francophone, dans un environnement d'ingénierie logicielle international.",
+    },
+    {
+      period: "2025 — 2026",
+      status: "Validée",
+      school: "IUT de Reims-Châlons-Charleville",
+      degree: "BUT Informatique — Parcours AGED",
       year: "2ème année",
       description:
         "Dans la continuité de la 1ère année, cette année creuse vraiment la spécialité data. Python devient l'outil central avec un écosystème complet : Pandas, NumPy, Streamlit, Grafana, Plotly et Matplotlib. Le SQL passe à un niveau avancé. La visualisation avec Power BI et Tableau occupe une place majeure. Chaque semestre s'articule autour d'un gros projet applicatif en groupe et d'un stage en entreprise.",
@@ -55,7 +84,7 @@ const formations = {
     {
       period: "2024 — 2025",
       status: "Validée",
-      school: "IUT de Reims",
+      school: "IUT de Reims-Châlons-Charleville",
       degree: "BUT Informatique",
       year: "1ère année",
       description:
@@ -72,10 +101,19 @@ const formations = {
   ],
   en: [
     {
-      period: "2025 — 2026",
+      period: "2026 — 2027",
       status: "In progress",
-      school: "IUT de Reims",
-      degree: "Bachelor's in Computer Science — Data Track",
+      school: "Université du Québec à Chicoutimi (UQAC)",
+      degree: "Dual degree — BUT Informatique / Bachelor's in Computer Science",
+      year: "3rd year · program 7833",
+      description:
+        "Dual-degree exchange year between URCA and UQAC, from August 31, 2026 to April 30, 2027, as part of the AGED track (Data, Management and Information Systems Administration). Two university terms (30 credits) completed by a mandatory company internship — a professional and cross-cultural immersion in French-speaking North America, within an international software engineering environment.",
+    },
+    {
+      period: "2025 — 2026",
+      status: "Completed",
+      school: "IUT de Reims-Châlons-Charleville",
+      degree: "Bachelor's in Computer Science — AGED Track",
       year: "2nd year",
       description:
         "Building on the first year, this year dives deep into the data specialization. Python becomes the central tool with a full ecosystem: Pandas, NumPy, Streamlit, Grafana, Plotly and Matplotlib. SQL moves to an advanced level. Visualization with Power BI and Tableau takes a major role. Each semester is structured around a large group project and a company internship.",
@@ -83,7 +121,7 @@ const formations = {
     {
       period: "2024 — 2025",
       status: "Completed",
-      school: "IUT de Reims",
+      school: "IUT de Reims-Châlons-Charleville",
       degree: "Bachelor's in Computer Science",
       year: "1st year",
       description:

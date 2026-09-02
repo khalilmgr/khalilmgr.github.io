@@ -53,13 +53,13 @@ export default function Hero() {
         >
           {lang === "fr" ? (
             <>
-              Étudiant en 2<sup>ème</sup> année de BUT Informatique, parcours Data —
-              j’aime transformer des données brutes en décisions claires.
+              Étudiant en 3<sup>ème</sup> année de BUT Informatique, parcours AGED — actuellement
+              en double diplôme à l’UQAC (Québec).
             </>
           ) : (
             <>
-              2<sup>nd</sup> year Computer Science student, Data track — I turn
-              raw data into clear decisions.
+              3<sup>rd</sup> year Computer Science student (AGED track) — currently on a
+              dual-degree exchange at UQAC (Québec).
             </>
           )}
         </motion.p>

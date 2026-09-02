@@ -101,22 +101,16 @@ const sportifTimeline = {
       periode: "2011 – 2017",
       etape: "École de football",
       detail: "U6 → U11 · Stade de Reims",
-      description:
-        "Les premières années dans le club de ma ville, qui m'ont tout appris : les bases du jeu, la rigueur de l'entraînement et surtout l'amour du football.",
     },
     {
       periode: "2017 – 2021",
       etape: "Préformation",
       detail: "U12 → U15 · Stade de Reims",
-      description:
-        "Intégration du programme sport-études d'excellence. Un environnement ultra-compétitif qui forge le caractère et élève le niveau technique et tactique.",
     },
     {
       periode: "2021 – 2022",
       etape: "Centre de formation",
       detail: "Convention 2 ans · Stade de Reims",
-      description:
-        "Signature d'une convention de deux ans au centre de formation. L'aboutissement de 10 ans de travail acharné et la concrétisation d'un rêve de gamin.",
     },
   ],
   en: [
@@ -124,22 +118,16 @@ const sportifTimeline = {
       periode: "2011 – 2017",
       etape: "Football Academy",
       detail: "U6 → U11 · Stade de Reims",
-      description:
-        "The first years at my hometown club, which taught me everything: the basics of the game, the rigor of training and above all the love of football.",
     },
     {
       periode: "2017 – 2021",
       etape: "Pre-academy",
       detail: "U12 → U15 · Stade de Reims",
-      description:
-        "Integration into the elite sport-studies program. An ultra-competitive environment that forges character and raises technical and tactical levels.",
     },
     {
       periode: "2021 – 2022",
       etape: "Academy",
       detail: "2-year contract · Stade de Reims",
-      description:
-        "Signing a two-year contract at the academy. The culmination of 10 years of hard work and the realization of a childhood dream.",
     },
   ],
 };
@@ -281,25 +269,22 @@ function SportifTab({ lang }: { lang: Lang }) {
       {/* Timeline */}
       <div className="mb-14">
         <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase mb-6">• Timeline</p>
-        <div className="relative flex flex-col gap-0">
+        <div className="flex flex-col">
           {timeline.map((p, i) => (
             <motion.div
               key={p.etape}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative flex gap-6 pb-8 last:pb-0"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8 py-5 border-b border-white/10 last:border-0"
             >
-              {i < timeline.length - 1 && <div className="absolute left-[11px] top-6 bottom-0 w-px bg-white/10" />}
-              <div className="relative mt-1 w-6 h-6 flex-shrink-0 rounded-full border-2 border-white/40 bg-[#07070a] flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-white/70" />
-              </div>
-              <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-xl p-6 flex-1">
-                <span className="font-mono text-[10px] text-white/40 tracking-widest">{p.periode}</span>
-                <p className="text-[#f5f5f7] font-semibold text-base mt-1">{p.etape}</p>
-                <p className="text-white/40 font-mono text-[10px] mt-0.5 mb-3">{p.detail}</p>
-                <p className="text-white/50 text-sm leading-relaxed">{p.description}</p>
+              <span className="font-mono text-xs text-white/40 tracking-widest sm:w-28 sm:flex-shrink-0">
+                {p.periode}
+              </span>
+              <div>
+                <p className="text-[#f5f5f7] font-semibold text-base">{p.etape}</p>
+                <p className="text-white/45 text-sm mt-1">{p.detail}</p>
               </div>
             </motion.div>
           ))}

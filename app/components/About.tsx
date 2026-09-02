@@ -87,10 +87,8 @@ const formations = {
 };
 
 const photos = [
-  "/photos/IMG_0004 2.jpg",
   "/photos/IMG_0445.jpg",
   "/photos/IMG_0454.JPG",
-  "/photos/IMG_6101 2.JPG",
   "/photos/IMG_6105 2.JPG",
   "/photos/IMG_7789 2.jpg",
 ];

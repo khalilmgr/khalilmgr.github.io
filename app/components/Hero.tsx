@@ -23,18 +23,6 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-white/60 uppercase">
-            {lang === "fr" ? "Disponible pour stage" : "Open to internships"}
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

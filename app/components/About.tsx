@@ -41,75 +41,47 @@ const formations = {
   fr: [
     {
       period: "2026 — 2027",
-      status: "En cours",
-      school: "Université du Québec à Chicoutimi (UQAC)",
       degree: "Bidiplomation — BUT Informatique / Baccalauréat en informatique",
-      year: "3ème année · programme 7833",
-      description:
-        "Année de double diplôme entre l'URCA et l'UQAC, du 31 août 2026 au 30 avril 2027, dans le cadre du parcours AGED (Administration, Gestion et Exploitation des Données). Deux trimestres d'enseignement universitaire (30 crédits) complétés par un stage obligatoire en entreprise — une immersion professionnelle et interculturelle en Amérique du Nord francophone, dans un environnement d'ingénierie logicielle international.",
+      subtitle: "Université du Québec à Chicoutimi",
     },
     {
       period: "2025 — 2026",
-      status: "Validée",
-      school: "IUT de Reims-Châlons-Charleville",
-      degree: "BUT Informatique — Parcours AGED",
-      year: "2ème année",
-      description:
-        "Dans la continuité de la 1ère année, cette année creuse vraiment la spécialité data. Python devient l'outil central avec un écosystème complet : Pandas, NumPy, Streamlit, Grafana, Plotly et Matplotlib. Le SQL passe à un niveau avancé. La visualisation avec Power BI et Tableau occupe une place majeure. Chaque semestre s'articule autour d'un gros projet applicatif en groupe et d'un stage en entreprise.",
+      degree: "BUT Informatique — Parcours Data",
+      subtitle: "IUT de Reims-Châlons-Charleville · Major de promo",
     },
     {
       period: "2024 — 2025",
-      status: "Validée",
-      school: "IUT de Reims-Châlons-Charleville",
       degree: "BUT Informatique",
-      year: "1ère année",
-      description:
-        "Une année de mise à niveau et de découverte de tous les pans de l'informatique à travers de nombreux projets concrets, pour se familiariser avec l'ensemble des outils du métier avant de choisir une spécialité.",
+      subtitle: "IUT de Reims-Châlons-Charleville",
     },
     {
       period: "2023 — 2024",
-      status: "Obtenu — Mention Bien",
-      school: "Lycée Hugues Libergier, Reims",
       degree: "Baccalauréat Général",
-      year: "Terminale",
-      description: "Spécialités Mathématiques et Physique-Chimie. Baccalauréat obtenu avec la mention Bien.",
+      subtitle:
+        "Lycée Hugues Libergier, Reims · Spécialités Mathématiques et Physique-Chimie, mention Bien",
     },
   ],
   en: [
     {
       period: "2026 — 2027",
-      status: "In progress",
-      school: "Université du Québec à Chicoutimi (UQAC)",
       degree: "Dual degree — BUT Informatique / Bachelor's in Computer Science",
-      year: "3rd year · program 7833",
-      description:
-        "Dual-degree exchange year between URCA and UQAC, from August 31, 2026 to April 30, 2027, as part of the AGED track (Data, Management and Information Systems Administration). Two university terms (30 credits) completed by a mandatory company internship — a professional and cross-cultural immersion in French-speaking North America, within an international software engineering environment.",
+      subtitle: "Université du Québec à Chicoutimi",
     },
     {
       period: "2025 — 2026",
-      status: "Completed",
-      school: "IUT de Reims-Châlons-Charleville",
-      degree: "Bachelor's in Computer Science — AGED Track",
-      year: "2nd year",
-      description:
-        "Building on the first year, this year dives deep into the data specialization. Python becomes the central tool with a full ecosystem: Pandas, NumPy, Streamlit, Grafana, Plotly and Matplotlib. SQL moves to an advanced level. Visualization with Power BI and Tableau takes a major role. Each semester is structured around a large group project and a company internship.",
+      degree: "Bachelor's in Computer Science — Data Track",
+      subtitle: "IUT de Reims-Châlons-Charleville · Top of class",
     },
     {
       period: "2024 — 2025",
-      status: "Completed",
-      school: "IUT de Reims-Châlons-Charleville",
       degree: "Bachelor's in Computer Science",
-      year: "1st year",
-      description:
-        "A year of discovering every aspect of computer science through many hands-on projects, to get comfortable with the full range of tools before choosing a specialization.",
+      subtitle: "IUT de Reims-Châlons-Charleville",
     },
     {
       period: "2023 — 2024",
-      status: "Obtained — Honours",
-      school: "Lycée Hugues Libergier, Reims",
       degree: "French Baccalauréat (General)",
-      year: "Final year",
-      description: "Specialties in Mathematics and Physics-Chemistry. Baccalauréat obtained with honours (mention Bien).",
+      subtitle:
+        "Lycée Hugues Libergier, Reims · Mathematics and Physics-Chemistry specialties, with honours",
     },
   ],
 };
@@ -247,35 +219,25 @@ const interets = {
 function FormationsTab({ lang }: { lang: Lang }) {
   const items = formations[lang];
   return (
-    <div className="relative max-w-3xl mx-auto">
-      <div className="absolute left-6 top-0 bottom-0 w-px bg-white/10" />
-      <div className="flex flex-col gap-6">
-        {items.map((item, i) => (
-          <motion.div
-            key={item.degree}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative pl-16"
-          >
-            <div className="absolute left-0 top-5 w-12 h-12 flex items-center justify-center rounded-full bg-[#101014] border border-white/15 z-10">
-              <span className="w-2 h-2 rounded-full bg-white/70" />
-            </div>
-            <div className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                <span className="font-mono text-xs text-white/40 tracking-widest">{item.period}</span>
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/15 text-white/70">
-                  {item.status}
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold tracking-tight text-[#f5f5f7] mb-1">{item.degree}</h3>
-              <p className="text-xs font-mono text-white/50 mb-3">{item.school} — {item.year}</p>
-              <p className="text-sm text-white/50 leading-relaxed">{item.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+    <div className="max-w-2xl mx-auto flex flex-col">
+      {items.map((item, i) => (
+        <motion.div
+          key={item.degree}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.08 }}
+          className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8 py-5 border-b border-white/10 last:border-0"
+        >
+          <span className="font-mono text-xs text-white/40 tracking-widest sm:w-28 sm:flex-shrink-0">
+            {item.period}
+          </span>
+          <div>
+            <p className="text-[#f5f5f7] font-semibold text-base">{item.degree}</p>
+            <p className="text-white/45 text-sm mt-1">{item.subtitle}</p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }

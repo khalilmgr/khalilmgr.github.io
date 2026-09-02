@@ -41,13 +41,13 @@ export default function Hero() {
         >
           {lang === "fr" ? (
             <>
-              Étudiant en 3<sup>ème</sup> année de BUT Informatique, parcours AGED — actuellement
-              en double diplôme à l’UQAC (Québec).
+              Étudiant en 3<sup>ème</sup> année de BUT Informatique, actuellement en double
+              diplôme à l’Université du Québec à Chicoutimi (Canada).
             </>
           ) : (
             <>
-              3<sup>rd</sup> year Computer Science student (AGED track) — currently on a
-              dual-degree exchange at UQAC (Québec).
+              3<sup>rd</sup> year Computer Science student, currently on a dual-degree
+              exchange at the Université du Québec à Chicoutimi (Canada).
             </>
           )}
         </motion.p>

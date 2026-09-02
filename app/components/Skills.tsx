@@ -189,7 +189,7 @@ export default function Skills() {
   const cats = categories[lang];
 
   return (
-    <section id="skills" className="py-28 px-6 bg-[#07070a]">
+    <section id="competences" className="py-28 px-6 bg-[#07070a]">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

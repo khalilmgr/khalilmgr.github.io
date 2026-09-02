@@ -153,7 +153,7 @@ export default function Projects() {
   }[lang];
 
   return (
-    <section id="projects" className="py-28 px-6 bg-[#07070a]">
+    <section id="projets" className="py-28 px-6 bg-[#07070a]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={headerRef}

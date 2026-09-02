@@ -470,7 +470,7 @@ export default function About() {
   }[lang];
 
   return (
-    <section id="about" className="py-28 px-6 bg-[#07070a]">
+    <section id="a-propos" className="py-28 px-6 bg-[#07070a]">
       <div className="max-w-4xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

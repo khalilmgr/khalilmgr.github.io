@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
+import { scrollToSection } from "../lib/scroll";
 
 export default function Hero() {
   const { lang } = useLang();
   return (
     <section
-      id="hero"
+      id="accueil"
       className="min-h-screen flex items-center justify-center px-6 bg-[#07070a] relative overflow-hidden"
     >
       {/* Soft glass orbs */}
@@ -59,13 +60,15 @@ export default function Hero() {
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#projects"
+            href="#projets"
+            onClick={(e) => { e.preventDefault(); scrollToSection("projets"); }}
             className="px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold tracking-wide hover:bg-white/90 transition-colors duration-200"
           >
             {lang === "fr" ? "Voir mes projets" : "See my work"}
           </a>
           <a
             href="#contact"
+            onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
             className="px-7 py-3.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white text-sm font-semibold tracking-wide hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
           >
             {lang === "fr" ? "Me contacter" : "Get in touch"}

@@ -1,35 +1,31 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
 
 const links = {
   fr: [
-    { label: "Accueil", href: "/" },
-    { label: "Compétences", href: "/competences" },
-    { label: "Projets", href: "/projets" },
-    { label: "Formations", href: "/formations" },
-    { label: "Présentation", href: "/presentation" },
-    { label: "Contact", href: "/contact" },
+    { id: "hero", label: "Accueil" },
+    { id: "about", label: "À propos" },
+    { id: "projects", label: "Projets" },
+    { id: "skills", label: "Compétences" },
+    { id: "contact", label: "Contact" },
   ],
   en: [
-    { label: "Home", href: "/" },
-    { label: "Skills", href: "/competences" },
-    { label: "Projects", href: "/projets" },
-    { label: "Education", href: "/formations" },
-    { label: "About", href: "/presentation" },
-    { label: "Contact", href: "/contact" },
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+    { id: "contact", label: "Contact" },
   ],
 };
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [active, setActive] = useState("hero");
   const { lang, toggle } = useLang();
 
   useEffect(() => {
@@ -39,11 +35,21 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    const ids = links.fr.map((l) => l.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const navLinks = links[lang];
 
@@ -52,43 +58,46 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0f172a]/90 backdrop-blur-md border-b border-[#2d4a7a]"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4"
     >
-      <div className="w-full px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
+      <div
+        className={`max-w-6xl mx-auto flex items-center justify-between rounded-full transition-all duration-300 px-4 py-2.5 ${
+          scrolled
+            ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+            : "bg-transparent border border-transparent"
+        }`}
+      >
+        <a href="#hero" className="flex items-center pl-1">
           <Image
             src="/favicon.svg"
             alt="KM.dev"
-            width={52}
-            height={52}
-            className="object-contain"
+            width={36}
+            height={36}
+            className="object-contain grayscale brightness-150 contrast-125"
           />
-        </Link>
+        </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex gap-8">
+        <div className="hidden md:flex items-center gap-6">
+          <ul className="flex items-center gap-1">
             {navLinks.map((link) => {
-              const active = isActive(link.href);
+              const isActive = active === link.id;
               return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-xs uppercase tracking-wider font-medium transition-colors duration-200 relative pb-1 ${
-                      active ? "text-[#fbbf24]" : "text-[#94a3b8] hover:text-[#fbbf24]"
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    className={`relative block text-xs uppercase tracking-wider font-medium px-4 py-2 rounded-full transition-colors duration-200 ${
+                      isActive ? "text-black" : "text-white/60 hover:text-white"
                     }`}
                   >
-                    {link.label}
-                    {active && (
-                      <motion.div
-                        layoutId="nav-indicator"
-                        className="absolute bottom-0 left-0 right-0 h-px bg-[#fbbf24] rounded-full"
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 bg-white rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
-                  </Link>
+                    <span className="relative z-10">{link.label}</span>
+                  </a>
                 </li>
               );
             })}
@@ -96,23 +105,23 @@ export default function Navbar() {
 
           <button
             onClick={toggle}
-            className="flex items-center gap-1.5 border border-[#2d4a7a] hover:border-[#fbbf24]/60 px-2.5 py-1.5 rounded transition-all duration-200"
+            className="flex items-center gap-1.5 border border-white/10 hover:border-white/30 px-2.5 py-1.5 rounded-full transition-all duration-200"
             aria-label="Toggle language"
           >
             <span className={`text-base leading-none transition-opacity duration-200 ${lang === "fr" ? "opacity-100" : "opacity-30"}`}>🇫🇷</span>
-            <span className="text-[#2d4a7a] text-[10px]">·</span>
+            <span className="text-white/20 text-[10px]">·</span>
             <span className={`text-base leading-none transition-opacity duration-200 ${lang === "en" ? "opacity-100" : "opacity-30"}`}>🇬🇧</span>
           </button>
         </div>
 
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggle}
-            className="flex items-center gap-1.5 border border-[#2d4a7a] hover:border-[#fbbf24]/60 px-2 py-1.5 rounded transition-all duration-200"
+            className="flex items-center gap-1.5 border border-white/10 px-2 py-1.5 rounded-full transition-all duration-200"
             aria-label="Toggle language"
           >
             <span className={`text-sm leading-none transition-opacity duration-200 ${lang === "fr" ? "opacity-100" : "opacity-30"}`}>🇫🇷</span>
-            <span className="text-[#2d4a7a] text-[10px]">·</span>
+            <span className="text-white/20 text-[10px]">·</span>
             <span className={`text-sm leading-none transition-opacity duration-200 ${lang === "en" ? "opacity-100" : "opacity-30"}`}>🇬🇧</span>
           </button>
           <button
@@ -120,9 +129,9 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
-            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-[#fbbf24] transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-px bg-white transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
           </button>
         </div>
       </div>
@@ -134,19 +143,20 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#1a2744] border-b border-[#2d4a7a]"
+            className="md:hidden overflow-hidden mt-2 mx-1"
           >
-            <ul className="px-6 py-5 flex flex-col gap-4">
+            <ul className="flex flex-col gap-1 bg-[#101014] border border-white/10 rounded-3xl px-5 py-5">
               {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-sm uppercase tracking-wider font-medium block py-1 transition-colors duration-200 ${
-                      isActive(link.href) ? "text-[#fbbf24]" : "text-[#94a3b8] hover:text-[#fbbf24]"
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-sm uppercase tracking-wider font-medium block py-2 transition-colors duration-200 ${
+                      active === link.id ? "text-white" : "text-white/50 hover:text-white"
                     }`}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

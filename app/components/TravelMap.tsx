@@ -30,19 +30,19 @@ export default function TravelMap() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="w-full rounded-2xl overflow-hidden border border-[#2d4a7a] bg-[#0a1020]"
+      className="w-full rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl"
     >
       {/* Legend */}
       <div className="px-6 pt-5 pb-3 flex flex-wrap items-center gap-3">
-        <span className="font-mono text-xs text-[#fbbf24] tracking-widest uppercase">
+        <span className="font-mono text-xs text-white/70 tracking-widest uppercase">
           {lang === "fr" ? "Pays visités" : "Countries visited"}
         </span>
-        <span className="font-mono text-xs text-[#2d4a7a]">—</span>
+        <span className="font-mono text-xs text-white/20">—</span>
         <div className="flex flex-wrap gap-2">
           {visited.map((c) => (
             <span
               key={c.name}
-              className="font-mono text-[10px] text-[#94a3b8] bg-[#1a2744] border border-[#2d4a7a] px-2 py-0.5 rounded-full"
+              className="font-mono text-[10px] text-white/50 bg-white/[0.04] border border-white/10 px-2 py-0.5 rounded-full"
             >
               {lang === "fr" ? c.nameFr : c.name}
             </span>
@@ -58,19 +58,19 @@ export default function TravelMap() {
           className="absolute inset-0 w-full h-full"
         >
           {/* Ocean */}
-          <rect x="0" y="0" width="100" height="50" fill="#0d1b35" />
+          <rect x="0" y="0" width="100" height="50" fill="#0a0a0c" />
 
           {/* Grid */}
           {latLines.map((y) => (
-            <line key={`lat-${y}`} x1="0" y1={y / 2} x2="100" y2={y / 2} stroke="#1a2744" strokeWidth="0.2" />
+            <line key={`lat-${y}`} x1="0" y1={y / 2} x2="100" y2={y / 2} stroke="rgba(255,255,255,0.06)" strokeWidth="0.2" />
           ))}
           {lonLines.map((x) => (
-            <line key={`lon-${x}`} x1={x} y1="0" x2={x} y2="50" stroke="#1a2744" strokeWidth="0.2" />
+            <line key={`lon-${x}`} x1={x} y1="0" x2={x} y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="0.2" />
           ))}
-          <line x1="0" y1="25" x2="100" y2="25" stroke="#2d4a7a" strokeWidth="0.3" strokeDasharray="1,1" />
-          <line x1="50" y1="0" x2="50" y2="50" stroke="#2d4a7a" strokeWidth="0.3" strokeDasharray="1,1" />
+          <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.14)" strokeWidth="0.3" strokeDasharray="1,1" />
+          <line x1="50" y1="0" x2="50" y2="50" stroke="rgba(255,255,255,0.14)" strokeWidth="0.3" strokeDasharray="1,1" />
 
-          <g fill="#1e3a5f" stroke="#2d4a7a" strokeWidth="0.18" strokeLinejoin="round">
+          <g fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)" strokeWidth="0.18" strokeLinejoin="round">
 
             {/* ── North America ── */}
             <path d="
@@ -261,14 +261,14 @@ export default function TravelMap() {
                 <circle
                   cx={svgX} cy={svgY}
                   r={isHovered ? 2.2 : 1.5}
-                  fill="#fbbf24"
+                  fill="#f5f5f7"
                   fillOpacity={isHovered ? 0.4 : 0.25}
                 />
                 {/* Dot */}
                 <circle
                   cx={svgX} cy={svgY}
                   r={isHovered ? 1.0 : 0.7}
-                  fill="#fbbf24"
+                  fill="#f5f5f7"
                 />
                 {/* Tooltip */}
                 {isHovered && (
@@ -279,15 +279,15 @@ export default function TravelMap() {
                       width={labelW}
                       height="3"
                       rx="0.5"
-                      fill="#0a1020"
-                      stroke="#fbbf24"
+                      fill="#0a0a0c"
+                      stroke="#f5f5f7"
                       strokeWidth="0.2"
                     />
                     <text
                       x={svgX}
                       y={svgY - 3.6}
                       textAnchor="middle"
-                      fill="#fbbf24"
+                      fill="#f5f5f7"
                       fontSize="1.9"
                       fontFamily="monospace"
                     >
@@ -301,7 +301,7 @@ export default function TravelMap() {
         </svg>
       </div>
 
-      <p className="px-6 pb-4 pt-1 font-mono text-[10px] text-[#2d4a7a] tracking-widest">
+      <p className="px-6 pb-4 pt-1 font-mono text-[10px] text-white/30 tracking-widest">
         {lang === "fr" ? `${visited.length} pays visités` : `${visited.length} countries visited`}
       </p>
     </motion.div>

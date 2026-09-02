@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1a2744;
-  --bg-card: #1e3054;
-  --accent: #fbbf24;
-  --accent-dim: #f59e0b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border: #2d4a7a;
+  --bg-primary: #07070a;
+  --bg-secondary: #101014;
+  --bg-card: #101014;
+  --accent: #f5f5f7;
+  --accent-dim: #d8d8dc;
+  --text-primary: #f5f5f7;
+  --text-secondary: #8a8a90;
+  --border: rgba(255, 255, 255, 0.14);
 }
 
 @theme inline {
@@ -29,9 +29,9 @@ html {
 }
 
 body {
-  background-color: #0f172a;
-  color: #f1f5f9;
-  font-family: var(--font-geist-sans), 'Segoe UI', Arial, sans-serif;
+  background-color: #07070a;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-geist-sans), 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,18 +41,18 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #07070a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #fbbf24;
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* Selection color */
 ::selection {
-  background: #fbbf24;
-  color: #0f172a;
+  background: #f5f5f7;
+  color: #07070a;
 }

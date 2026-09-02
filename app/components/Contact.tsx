@@ -6,59 +6,42 @@ import { useLang } from "../context/LanguageContext";
 export default function Contact() {
   const { lang } = useLang();
   return (
-    <section className="min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-16 bg-[#0f172a] relative overflow-hidden">
-      {/* Background accent */}
+    <section id="contact" className="py-28 px-6 bg-[#07070a] relative overflow-hidden">
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-5 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, #fbbf24 0%, transparent 70%)" }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-[0.05] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, #ffffff 0%, transparent 70%)" }}
       />
 
       <div className="relative z-10 text-center max-w-lg mx-auto w-full">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-32"
+          className="mb-14"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-[#fbbf24] uppercase mb-4">
+          <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
             — Contact
           </p>
-          <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#f1f5f9]">
-            {lang === "fr" ? (
-              <>
-                Me{" "}
-                <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-                  Contacter
-                </span>
-              </>
-            ) : (
-              <>
-                Get{" "}
-                <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-                  In Touch
-                </span>
-              </>
-            )}
-          </h1>
-          <div className="mt-5 w-16 h-1 bg-[#fbbf24] rounded mx-auto" />
-          <p className="mt-8 text-[#94a3b8] text-base leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
+            {lang === "fr" ? "Me contacter" : "Get in touch"}
+          </h2>
+          <p className="mt-6 text-white/50 text-base leading-relaxed">
             {lang === "fr"
               ? "N'hésitez pas à me contacter pour toute opportunité ou collaboration — je réponds très rapidement !"
               : "Feel free to reach out for any opportunity or collaboration — I respond very quickly!"}
           </p>
         </motion.div>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.a
             href="mailto:khalil.moughamir@gmail.com"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-[#fbbf24] text-[#0f172a] font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-[#f59e0b] transition-colors duration-200"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-3 px-7 py-4 bg-white text-black font-semibold text-sm rounded-full hover:bg-white/90 transition-colors duration-200"
           >
             <EmailIcon />
             khalil.moughamir@gmail.com
@@ -69,43 +52,44 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.32 }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-3 px-8 py-4 border border-[#2d4a7a] text-[#94a3b8] font-bold uppercase tracking-widest text-sm rounded-xl hover:border-[#fbbf24] hover:text-[#fbbf24] transition-all duration-200"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
           >
             <GitHubIcon />
             khalilmgr
           </motion.a>
         </div>
 
-        {/* CV Download */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.44 }}
-          className="mt-6 flex justify-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.26 }}
+          className="mt-4 flex justify-center"
         >
           <a
             href={lang === "fr" ? "/CV_Khalil_Moughamir_FR.pdf" : "/CV_Khalil_Moughamir_EN.pdf"}
             download
-            className="inline-flex items-center gap-3 px-8 py-4 border border-[#fbbf24]/40 text-[#fbbf24] font-bold uppercase tracking-widest text-sm rounded-xl hover:border-[#fbbf24] hover:bg-[#fbbf24]/5 transition-all duration-200"
+            className="inline-flex items-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
           >
             <DownloadIcon />
             {lang === "fr" ? "Télécharger mon CV" : "Download my CV"}
           </a>
         </motion.div>
 
-        {/* Phone */}
         <motion.a
           href="tel:+33769888989"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.56 }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="mt-4 inline-flex items-center gap-3 px-8 py-4 border border-[#2d4a7a] text-[#94a3b8] font-bold uppercase tracking-widest text-sm rounded-xl hover:border-[#fbbf24] hover:text-[#fbbf24] transition-all duration-200"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.34 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="mt-4 inline-flex items-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
         >
           <PhoneIcon />
           +33 07 69 88 89 89

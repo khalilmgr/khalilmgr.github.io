@@ -10,7 +10,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#0f0f0f",
+          background: "#07070a",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -21,40 +21,28 @@ export default function Image() {
           position: "relative",
         }}
       >
-        {/* Accent bar top */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 6,
-            background: "#f5a623",
-          }}
-        />
-
         {/* Monogram */}
         <div
           style={{
             width: 90,
             height: 90,
             borderRadius: "50%",
-            border: "3px solid #f5a623",
+            border: "1px solid rgba(255,255,255,0.2)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             marginBottom: 32,
           }}
         >
-          <span style={{ color: "#f5a623", fontSize: 36, fontWeight: 700 }}>KM</span>
+          <span style={{ color: "#f5f5f7", fontSize: 36, fontWeight: 700 }}>KM</span>
         </div>
 
         {/* Name */}
         <div
           style={{
-            color: "#f0f0f0",
+            color: "#f5f5f7",
             fontSize: 60,
-            fontWeight: 900,
+            fontWeight: 600,
             letterSpacing: "-2px",
             marginBottom: 16,
           }}
@@ -65,7 +53,7 @@ export default function Image() {
         {/* Subtitle */}
         <div
           style={{
-            color: "#9a9a9a",
+            color: "#8a8a90",
             fontSize: 24,
             letterSpacing: "4px",
             textTransform: "uppercase",
@@ -81,11 +69,11 @@ export default function Image() {
             <div
               key={tag}
               style={{
-                background: "#1a1a1a",
-                border: "1px solid #2a2a2a",
-                borderRadius: 8,
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.14)",
+                borderRadius: 999,
                 padding: "8px 16px",
-                color: "#f5a623",
+                color: "#f5f5f7",
                 fontSize: 16,
                 fontWeight: 600,
               }}
@@ -100,7 +88,7 @@ export default function Image() {
           style={{
             position: "absolute",
             bottom: 32,
-            color: "#9a9a9a",
+            color: "#8a8a90",
             fontSize: 16,
             letterSpacing: "2px",
           }}

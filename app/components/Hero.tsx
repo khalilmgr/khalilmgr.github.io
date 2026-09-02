@@ -6,55 +6,83 @@ import { useLang } from "../context/LanguageContext";
 export default function Hero() {
   const { lang } = useLang();
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 bg-[#0f172a] relative overflow-hidden">
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#fbbf24 1px, transparent 1px), linear-gradient(90deg, #fbbf24 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-      {/* Radial glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center px-6 bg-[#07070a] relative overflow-hidden"
+    >
+      {/* Soft glass orbs */}
+      <div className="absolute inset-0 pointer-events-none">
         <div
-          className="w-[600px] h-[600px] rounded-full opacity-8"
-          style={{ background: "radial-gradient(circle, #fbbf24 0%, transparent 70%)" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-[0.06]"
+          style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-[0.05]"
+          style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
         />
       </div>
 
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 text-center max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+          <span className="font-mono text-[11px] tracking-[0.2em] text-white/60 uppercase">
+            {lang === "fr" ? "Disponible pour stage" : "Open to internships"}
+          </span>
+        </motion.div>
+
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-6xl md:text-8xl font-black uppercase tracking-tight mb-6"
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[#f5f5f7]"
+          style={{ textWrap: "balance" }}
         >
-          Khalil{" "}
-          <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-            Moughamir
-          </span>
+          Khalil Moughamir
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="font-mono text-base md:text-lg text-[#94a3b8] uppercase tracking-[0.2em]"
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+          className="text-lg md:text-xl text-white/55 max-w-xl mx-auto leading-relaxed"
         >
           {lang === "fr" ? (
             <>
-              Étudiant 2<sup>ème</sup> année &mdash;{" "}
-              <span className="text-[#fbbf24]">BUT Informatique Parcours Data</span>
+              Étudiant en 2<sup>ème</sup> année de BUT Informatique, parcours Data —
+              j’aime transformer des données brutes en décisions claires.
             </>
           ) : (
             <>
-              2<sup>nd</sup> Year Student &mdash;{" "}
-              <span className="text-[#fbbf24]">Computer Science, Data Track</span>
+              2<sup>nd</sup> year Computer Science student, Data track — I turn
+              raw data into clear decisions.
             </>
           )}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <a
+            href="#projects"
+            className="px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold tracking-wide hover:bg-white/90 transition-colors duration-200"
+          >
+            {lang === "fr" ? "Voir mes projets" : "See my work"}
+          </a>
+          <a
+            href="#contact"
+            className="px-7 py-3.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white text-sm font-semibold tracking-wide hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
+          >
+            {lang === "fr" ? "Me contacter" : "Get in touch"}
+          </a>
+        </motion.div>
       </div>
     </section>
   );

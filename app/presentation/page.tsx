@@ -1,13 +1,5 @@
-import Presentation from "../components/Presentation";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Présentation — Khalil Moughamir",
-};
-
-export default function PresentationPage() {
-  return (
-    <main className="min-h-screen pt-24">
-      <Presentation />
-    </main>
-  );
+export default function Page() {
+  redirect("/#about");
 }

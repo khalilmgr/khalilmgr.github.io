@@ -18,16 +18,20 @@ npm run lint     # Run ESLint
 
 ## Architecture
 
-Single-page portfolio (`app/page.tsx`) that composes six sections in order: `Navbar → Hero → Skills → Projects → Contact → Footer`. All components live in `app/components/`.
+Single-page, single-scroll portfolio (`app/page.tsx`) composing `Hero → About → Projects → Skills → Contact`, wrapped by `Navbar` and `Footer` in `app/layout.tsx`. All components live in `app/components/`. Bilingual FR/EN via `app/context/LanguageContext.tsx` (`useLang()` returns `{ lang, toggle }`); every component branches its copy on `lang`.
 
-**Design system** (defined as CSS variables in `globals.css`):
-- Background: `#0f0f0f` (primary), `#141414` (secondary), `#1a1a1a` (cards)
-- Accent: `#f5a623` (orange), dimmed `#c47d0e`
-- Text: `#f0f0f0` (primary), `#9a9a9a` (muted)
-- Border: `#2a2a2a`
+Navigation is anchor-based (`#hero`, `#about`, `#projects`, `#skills`, `#contact`) — `Navbar.tsx` uses an `IntersectionObserver` to highlight the active section, no client-side routing. Old multi-page routes (`/presentation`, `/formations`, `/competences`, `/projets/*`, `/contact`) are kept as thin `redirect()` pages to the matching anchor, for previously-indexed URLs.
 
-All components use `"use client"` and inline Tailwind + hardcoded hex values matching the design system. Framer Motion animations follow a consistent `fadeUp(delay)` helper pattern (opacity 0→1, y 30→0) with `useInView` for scroll-triggered reveals.
+`About.tsx` merges what used to be three separate pages (Presentation, Formations, sports career, interests) into one section with an internal tab switcher (`Formations` / `Parcours sportif` / `Centres d'intérêt`); the sports-career tab embeds a photo lightbox, the interests tab embeds `TravelMap.tsx`.
 
-**Projects data** is defined as static arrays directly in `Projects.tsx` (`academic` and `personal`). Each project has `title`, `description`, `tags[]`, optional `github`/`demo` URLs, and an optional `highlight` boolean for "Featured" badge treatment.
+**Design system — "liquid glass" monochrome** (tokens in `globals.css`, applied via Tailwind arbitrary values, not CSS var utilities):
+- Background: `#07070a` (primary), `#101014` (elevated / solid fallback, e.g. mobile menu)
+- Text: `#f5f5f7` (primary), `white/50`–`white/70` (muted, via opacity modifiers)
+- No accent color — strictly black/white/gray, no vivid hues anywhere (including third-party skill icons, which get a `grayscale` filter)
+- Glass surfaces: `bg-white/[0.04-0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10`, brightening to `bg-white/[0.1] border-white/20` on hover
+- Primary CTA: solid `bg-white text-black`; secondary CTA: the glass surface above
+- Typography: system font stack (`-apple-system, BlinkMacSystemFont, …`) so it renders as SF Pro on Apple devices, no webfont dependency
 
-Section anchors: `#hero`, `#skills`, `#projects`, `#contact`.
+All components use `"use client"` and inline Tailwind. Framer Motion: `initial`/`whileInView` + `viewport={{ once: true }}` for scroll reveals, `layoutId` shared-element pills for the navbar and tab switchers (Projects: Academic/Personal, About: the three sub-tabs).
+
+**Projects data** is defined as static arrays directly in `Projects.tsx` (`academic` and `personal`, keyed by `lang`). Each academic project has `title`, `description`, `github`, and an optional `highlight` boolean for the "Featured" badge; personal projects render as a single CTA card (no per-project repos exist yet for that category).

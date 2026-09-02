@@ -1,13 +1,5 @@
-import Formations from "../components/Formations";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Formations — Khalil Moughamir",
-};
-
-export default function FormationsPage() {
-  return (
-    <main className="min-h-screen pt-24">
-      <Formations />
-    </main>
-  );
+export default function Page() {
+  redirect("/#about");
 }

@@ -115,37 +115,35 @@ function SkillLogo({ skill }: { skill: SkillItem }) {
   const name = typeof skill === "string" ? skill : skill.name;
   const iconUrl = typeof skill === "string" ? DEVICON_MAP[skill] : undefined;
   const initials = typeof skill === "object" ? skill.initials : undefined;
-  const color = typeof skill === "object" ? skill.color : undefined;
 
   return (
     <div className="flex flex-col items-center gap-2 group/skill cursor-default">
-      <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-[#0f172a] border border-[#2d4a7a] group-hover/skill:border-[#fbbf24]/60 transition-all duration-200">
+      <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-white/[0.04] border border-white/10 group-hover/skill:bg-white/[0.08] group-hover/skill:border-white/25 transition-all duration-200">
         {iconUrl ? (
           <img
             src={iconUrl}
             alt={name}
             width={32}
             height={32}
-            className={`object-contain ${name === "GitHub" || name === "Symfony" ? "invert" : ""}`}
+            className={`object-contain grayscale opacity-70 group-hover/skill:opacity-100 transition-opacity duration-200 ${name === "GitHub" || name === "Symfony" ? "invert" : ""}`}
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";
               const parent = target.parentElement;
               if (parent) {
-                parent.innerHTML = `<span style="font-size:10px;font-weight:700;color:#94a3b8;text-align:center;line-height:1.2;">${name.slice(0, 3)}</span>`;
+                parent.innerHTML = `<span style="font-size:10px;font-weight:700;color:#8a8a90;text-align:center;line-height:1.2;">${name.slice(0, 3)}</span>`;
               }
             }}
           />
         ) : (
           <span
-            className="text-[9px] font-bold font-mono text-center leading-tight"
-            style={{ color: color ?? "#94a3b8" }}
+            className="text-[9px] font-bold font-mono text-center leading-tight text-white/50"
           >
             {initials ?? name.slice(0, 3)}
           </span>
         )}
       </div>
-      <span className="text-[10px] font-mono text-[#94a3b8] group-hover/skill:text-[#fbbf24] transition-colors duration-200 text-center leading-tight w-16">
+      <span className="text-[10px] font-mono text-white/40 group-hover/skill:text-white/80 transition-colors duration-200 text-center leading-tight w-16">
         {name}
       </span>
     </div>
@@ -164,10 +162,10 @@ function CategoryCard({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-[#1a2744] border border-[#2d4a7a] rounded-2xl p-8 hover:border-[#fbbf24]/30 transition-all duration-300"
+      className="bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300"
     >
-      <h3 className="text-xs font-bold uppercase tracking-widest text-[#fbbf24] mb-8 flex items-center gap-3">
-        <span className="w-5 h-px bg-[#fbbf24]/40" />
+      <h3 className="text-xs font-bold uppercase tracking-widest text-white/70 mb-8 flex items-center gap-3">
+        <span className="w-5 h-px bg-white/30" />
         {category.title}
       </h3>
       <div className="flex flex-wrap gap-8 justify-center">
@@ -191,7 +189,7 @@ export default function Skills() {
   const cats = categories[lang];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-[#0f172a]">
+    <section id="skills" className="py-28 px-6 bg-[#07070a]">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -199,16 +197,12 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-14 text-center"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-[#fbbf24] uppercase mb-4">
+          <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
             {lang === "fr" ? "— Compétences" : "— Skills"}
           </p>
-          <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#f1f5f9]">
-            {lang === "fr" ? "Ma" : "My"}{" "}
-            <span style={{ WebkitTextStroke: "2px #fbbf24", color: "transparent" }}>
-              Stack
-            </span>
-          </h1>
-          <div className="mt-5 w-16 h-1 bg-[#fbbf24] rounded mx-auto" />
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
+            {lang === "fr" ? "Ma" : "My"} Stack
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -1,13 +1,5 @@
-import Contact from "../components/Contact";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Contact — Khalil Moughamir",
-};
-
-export default function ContactPage() {
-  return (
-    <main className="min-h-screen pt-24">
-      <Contact />
-    </main>
-  );
+export default function Page() {
+  redirect("/#contact");
 }

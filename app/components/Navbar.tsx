@@ -60,13 +60,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4"
     >
-      <div
-        className={`w-full flex items-center justify-between rounded-full transition-all duration-300 px-4 py-2.5 ${
-          scrolled
-            ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-            : "bg-transparent border border-transparent"
-        }`}
-      >
+      <div className="w-full flex items-center justify-between">
         <a href="#hero" className="flex items-center pl-1">
           <Image
             src="/logomark.svg"
@@ -77,7 +71,13 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div
+          className={`hidden md:flex items-center gap-6 rounded-full transition-all duration-300 px-4 py-2.5 ${
+            scrolled
+              ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              : "bg-transparent border border-transparent"
+          }`}
+        >
           <ul className="flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = active === link.id;
@@ -114,7 +114,13 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div
+          className={`md:hidden flex items-center gap-2 rounded-full transition-all duration-300 px-2 py-1.5 ${
+            scrolled
+              ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              : "bg-transparent border border-transparent"
+          }`}
+        >
           <button
             onClick={toggle}
             className="flex items-center gap-1.5 border border-white/10 px-2 py-1.5 rounded-full transition-all duration-200"

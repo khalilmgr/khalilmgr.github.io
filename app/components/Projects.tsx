@@ -32,19 +32,19 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Jeu du Solitaire (Peg Solitaire)",
           description:
-            "Jeu de plateau à billes en Python/Pygame (architecture MVC), avec plusieurs plateaux classiques, des règles de déplacement avancées et une suite de tests unitaires.",
+            "Jeu de plateau à billes avec plusieurs plateaux classiques, des règles de déplacement avancées et une suite de tests validant la logique du jeu.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
         },
         {
           title: "Catalogue de jeux vidéo",
           description:
-            "Application PHP (PDO/MySQL) pour consulter, filtrer et gérer une base de données de jeux vidéo. Projet académique réalisé en binôme.",
+            "Application pour consulter, filtrer et gérer un catalogue de jeux vidéo. Projet académique réalisé en binôme.",
           github: "https://github.com/khalilmgr/video-game-library-php",
         },
         {
           title: "Algorithmes de génération de labyrinthes",
           description:
-            "Cinq algorithmes classiques de génération (arbre binaire, Sidewinder, Wilson...) modélisés en graphe, avec résolution automatique (BFS/DFS) et des métriques pour comparer objectivement chaque méthode.",
+            "Cinq algorithmes classiques de génération (arbre binaire, Sidewinder, Wilson...) avec résolution automatique et des métriques pour comparer objectivement chaque méthode.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
         },
       ],
@@ -55,7 +55,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "CoLive · Plateforme de colocation",
           description:
-            "Application Symfony développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
+            "Application développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
         },
         {
@@ -67,7 +67,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Tutoriel interactif bilingue pour la recherche documentaire sur ScienceDirect",
           description:
-            "Site pédagogique statique (HTML/CSS/JS, sans dépendances) guidant les étudiants de l'URCA à travers une recherche ScienceDirect et l'export de références vers Zotero, avec guide visuel en 8 étapes, vidéo intégrée et quiz d'auto-évaluation en français et en anglais.",
+            "Site pédagogique guidant les étudiants de l'URCA à travers une recherche ScienceDirect et l'export de références vers Zotero, avec guide visuel en 8 étapes, vidéo intégrée et quiz d'auto-évaluation en français et en anglais.",
           github: "https://github.com/khalilmgr/Tuto_FunctionExport",
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "Voir le tuto",
@@ -88,19 +88,19 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Peg Solitaire Game",
           description:
-            "Marble board game in Python/Pygame (MVC architecture), with several classic boards, advanced movement rules, and a full unit test suite.",
+            "Marble board game with several classic boards, advanced movement rules, and a test suite validating the game logic.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
         },
         {
           title: "Video Game Catalog",
           description:
-            "PHP application (PDO/MySQL) to browse, filter, and manage a video game database. Academic project built in pairs.",
+            "Application to browse, filter, and manage a video game catalog. Academic project built in pairs.",
           github: "https://github.com/khalilmgr/video-game-library-php",
         },
         {
           title: "Maze Generation Algorithms",
           description:
-            "Five classic generation algorithms (binary tree, Sidewinder, Wilson...) modeled as a graph, with automatic solving (BFS/DFS) and metrics to objectively compare each method.",
+            "Five classic generation algorithms (binary tree, Sidewinder, Wilson...) with automatic solving and metrics to objectively compare each method.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
         },
       ],
@@ -111,7 +111,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "CoLive · Co-living Platform",
           description:
-            "Symfony application built as a team to publish, search, and book co-living spaces, with built-in messaging, review management, and an admin back-office.",
+            "Application built as a team to publish, search, and book co-living spaces, with built-in messaging, review management, and an admin back-office.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
         },
         {
@@ -123,7 +123,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Bilingual Interactive Tutorial for ScienceDirect Research",
           description:
-            "A static educational site (HTML/CSS/JS, no dependencies) guiding URCA students through a ScienceDirect search and exporting references to Zotero, with an 8-step visual guide, embedded video, and self-assessment quiz in French and English.",
+            "Educational site guiding URCA students through a ScienceDirect search and exporting references to Zotero, with an 8-step visual guide, embedded video, and self-assessment quiz in French and English.",
           github: "https://github.com/khalilmgr/Tuto_FunctionExport",
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "View tutorial",

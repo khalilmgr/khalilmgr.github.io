@@ -70,7 +70,7 @@ const formations: { fr: Formation[]; en: Formation[] } = {
       degree: "Baccalauréat Général",
       subtitle:
         "Lycée Hugues Libergier, Reims · Spécialités Mathématiques et Physique-Chimie, mention Bien",
-      logo: "/logos/lycee.jpeg",
+      logo: "/logos/lycee.png",
       logoGrayscale: true,
     },
   ],
@@ -99,7 +99,7 @@ const formations: { fr: Formation[]; en: Formation[] } = {
       degree: "French Baccalauréat (General)",
       subtitle:
         "Lycée Hugues Libergier, Reims · Mathematics and Physics-Chemistry specialties, with honours",
-      logo: "/logos/lycee.jpeg",
+      logo: "/logos/lycee.png",
       logoGrayscale: true,
     },
   ],
@@ -229,7 +229,7 @@ function FormationsTab({ lang }: { lang: Lang }) {
           className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 border-b border-[#d9c7a3]/40 last:border-0"
         >
           {item.logo ? (
-            <div className="w-16 h-16 flex-shrink-0 rounded-xl bg-white border border-[#d9c7a3]/40 flex items-center justify-center p-2">
+            <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center">
               <img
                 src={item.logo}
                 alt=""
@@ -237,7 +237,7 @@ function FormationsTab({ lang }: { lang: Lang }) {
               />
             </div>
           ) : (
-            <div className="hidden sm:block w-16 h-16 flex-shrink-0" />
+            <div className="hidden sm:block w-20 h-20 flex-shrink-0" />
           )}
           <span className="font-mono text-xs text-[#a8b0b5] tracking-widest sm:w-28 sm:flex-shrink-0">
             {item.period}

@@ -315,10 +315,15 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
             {lang === "fr" ? "Voir le projet" : "View project"}
           </a>
         ) : project.private ? (
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-wide text-white/40">
-            <LockIcon />
-            {lang === "fr" ? "Plateforme privée · en production" : "Private platform · in production"}
-          </span>
+          <>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-wide text-white/40">
+              <LockIcon />
+              {lang === "fr" ? "Plateforme privée · en production" : "Private platform · in production"}
+            </span>
+            <span className="text-[11px] font-mono text-white/30 italic">
+              {lang === "fr" ? "Version de démo bientôt disponible" : "Demo version coming soon"}
+            </span>
+          </>
         ) : null}
       </div>
     </motion.div>

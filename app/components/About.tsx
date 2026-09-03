@@ -71,7 +71,8 @@ const formations: { fr: Formation[]; en: Formation[] } = {
       degree: "Baccalauréat Général",
       subtitle:
         "Lycée Hugues Libergier, Reims · Spécialités Mathématiques et Physique-Chimie, mention Bien",
-      logo: null,
+      logo: "/logos/lycee.jpeg",
+      logoGrayscale: true,
     },
   ],
   en: [
@@ -99,7 +100,8 @@ const formations: { fr: Formation[]; en: Formation[] } = {
       degree: "French Baccalauréat (General)",
       subtitle:
         "Lycée Hugues Libergier, Reims · Mathematics and Physics-Chemistry specialties, with honours",
-      logo: null,
+      logo: "/logos/lycee.jpeg",
+      logoGrayscale: true,
     },
   ],
 };

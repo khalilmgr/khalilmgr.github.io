@@ -6,10 +6,10 @@ import { useLang } from "../context/LanguageContext";
 export default function Contact() {
   const { lang } = useLang();
   return (
-    <section id="contact" className="py-28 px-6 bg-[#07070a] relative overflow-hidden">
+    <section id="contact" className="py-28 px-6 bg-[#f7f5f0] relative overflow-hidden">
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-[0.05] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, #ffffff 0%, transparent 70%)" }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-[0.12] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, #1e5f8c 0%, transparent 70%)" }}
       />
 
       <div className="relative z-10 text-center max-w-lg mx-auto w-full">
@@ -19,13 +19,13 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
+          <p className="font-mono text-xs tracking-[0.3em] text-[#a8b0b5] uppercase mb-4">
             • Contact
           </p>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1c2f4a]">
             {lang === "fr" ? "Me contacter" : "Get in touch"}
           </h2>
-          <p className="mt-6 text-white/50 text-base leading-relaxed">
+          <p className="mt-6 text-[#a8b0b5] text-base leading-relaxed">
             {lang === "fr"
               ? "N'hésitez pas à me contacter pour toute opportunité ou collaboration. Je réponds très rapidement !"
               : "Feel free to reach out for any opportunity or collaboration. I respond very quickly!"}
@@ -41,7 +41,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.1 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-3 px-7 py-4 bg-white text-black font-semibold text-sm rounded-full hover:bg-white/90 transition-colors duration-200"
+            className="flex items-center justify-center gap-3 px-7 py-4 bg-[#1e5f8c] text-white font-semibold text-sm rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
           >
             <EmailIcon />
             khalil.moughamir@gmail.com
@@ -57,7 +57,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.18 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
+            className="flex items-center justify-center gap-3 px-7 py-4 bg-white/50 backdrop-blur-xl border border-[#d9c7a3]/50 text-[#1c2f4a] font-semibold text-sm rounded-full hover:bg-white/70 hover:border-[#3f8fa8]/55 transition-all duration-200"
           >
             <GitHubIcon />
             khalilmgr
@@ -73,7 +73,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.26 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-3 px-7 py-4 bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white font-semibold text-sm rounded-full hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
+            className="flex items-center justify-center gap-3 px-7 py-4 bg-white/50 backdrop-blur-xl border border-[#d9c7a3]/50 text-[#1c2f4a] font-semibold text-sm rounded-full hover:bg-white/70 hover:border-[#3f8fa8]/55 transition-all duration-200"
           >
             <LinkedInIcon />
             LinkedIn

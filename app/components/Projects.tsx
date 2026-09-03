@@ -271,34 +271,34 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="group flex flex-col gap-4 bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-7 hover:bg-white/[0.07] hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+      className="group flex flex-col gap-4 bg-white/50 backdrop-blur-xl backdrop-saturate-150 border border-[#d9c7a3]/40 rounded-3xl p-7 hover:bg-white/70 hover:border-[#3f8fa8]/45 hover:-translate-y-1 transition-all duration-300"
     >
       <div className="flex items-center justify-between gap-2">
         {project.highlight ? (
-          <span className="font-mono text-[9px] tracking-widest text-white/70 uppercase border border-white/20 px-2.5 py-1 rounded-full">
+          <span className="font-mono text-[9px] tracking-widest text-[#1c2f4a]/75 uppercase border border-[#3f8fa8]/45 px-2.5 py-1 rounded-full">
             Featured
           </span>
         ) : (
           <span />
         )}
-        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-widest text-white/40 uppercase border border-white/10 px-2.5 py-1 rounded-full">
+        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-widest text-[#a8b0b5] uppercase border border-[#d9c7a3]/40 px-2.5 py-1 rounded-full">
           {project.team === 1 ? <UserIcon /> : <UsersIcon />}
           {teamLabel}
         </span>
       </div>
-      <h3 className="text-base font-semibold tracking-tight text-[#f5f5f7]">
+      <h3 className="text-base font-semibold tracking-tight text-[#1c2f4a]">
         {project.title}
       </h3>
-      <p className="text-sm text-white/50 leading-relaxed flex-1">
+      <p className="text-sm text-[#a8b0b5] leading-relaxed flex-1">
         {project.description}
       </p>
-      <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
+      <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#d9c7a3]/40">
         {project.demo && (
           <a
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#d9c7a3]/50 text-[11px] font-mono uppercase tracking-wide text-[#1c2f4a]/65 hover:text-[#1c2f4a] hover:border-[#3f8fa8]/50 hover:bg-white/65 transition-all duration-200"
           >
             <ExternalLinkIcon />
             {project.demoLabel}
@@ -309,18 +309,18 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#d9c7a3]/50 text-[11px] font-mono uppercase tracking-wide text-[#1c2f4a]/65 hover:text-[#1c2f4a] hover:border-[#3f8fa8]/50 hover:bg-white/65 transition-all duration-200"
           >
             <GitHubIcon />
             {lang === "fr" ? "Voir le projet" : "View project"}
           </a>
         ) : project.private ? (
           <>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-wide text-white/40">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#d9c7a3]/40 text-[11px] font-mono uppercase tracking-wide text-[#a8b0b5]">
               <LockIcon />
               {lang === "fr" ? "Plateforme privée · en production" : "Private platform · in production"}
             </span>
-            <span className="text-[11px] font-mono text-white/30 italic">
+            <span className="text-[11px] font-mono text-[#a8b0b5] italic">
               {lang === "fr" ? "Version de démo bientôt disponible" : "Demo version coming soon"}
             </span>
           </>
@@ -346,8 +346,8 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
         transition={{ duration: 0.4, delay: baseDelay }}
         className="flex items-center gap-3 mb-5"
       >
-        <span className="w-5 h-px bg-white/30" />
-        <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">
+        <span className="w-5 h-px bg-[#3f8fa8]/60" />
+        <span className="font-mono text-[11px] tracking-widest text-[#a8b0b5] uppercase">
           {group.year}
         </span>
       </motion.div>
@@ -396,7 +396,7 @@ export default function Projects() {
   }[lang];
 
   return (
-    <section id="projets" className="py-28 px-6 bg-[#07070a]">
+    <section id="projets" className="py-28 px-6 bg-[#f7f5f0]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={headerRef}
@@ -406,27 +406,27 @@ export default function Projects() {
           className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8"
         >
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-3">
+            <p className="font-mono text-xs tracking-[0.3em] text-[#a8b0b5] uppercase mb-3">
               {copy.eyebrow}
             </p>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1c2f4a]">
               {copy.title}
             </h2>
           </div>
 
-          <div className="inline-flex self-start sm:self-auto p-1 rounded-full bg-white/[0.04] border border-white/10">
+          <div className="inline-flex self-start sm:self-auto p-1 rounded-full bg-white/50 border border-[#d9c7a3]/40">
             {(["academic", "personal"] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
                 className={`relative px-5 py-2 text-xs font-medium uppercase tracking-wider rounded-full transition-colors duration-200 ${
-                  tab === t ? "text-black" : "text-white/60 hover:text-white"
+                  tab === t ? "text-white" : "text-[#1c2f4a]/65 hover:text-[#1c2f4a]"
                 }`}
               >
                 {tab === t && (
                   <motion.span
                     layoutId="project-tab-pill"
-                    className="absolute inset-0 bg-white rounded-full"
+                    className="absolute inset-0 bg-[#1e5f8c] rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -457,7 +457,7 @@ export default function Projects() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-sm text-[#a8b0b5] leading-relaxed mb-8 max-w-2xl">
                 {copy.personalIntro}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -468,17 +468,17 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="flex flex-col gap-4 bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-7 hover:bg-white/[0.07] hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+                    className="flex flex-col gap-4 bg-white/50 backdrop-blur-xl backdrop-saturate-150 border border-[#d9c7a3]/40 rounded-3xl p-7 hover:bg-white/70 hover:border-[#3f8fa8]/45 hover:-translate-y-1 transition-all duration-300"
                   >
-                    <h3 className="text-base font-semibold tracking-tight text-[#f5f5f7]">
+                    <h3 className="text-base font-semibold tracking-tight text-[#1c2f4a]">
                       {report.title}
                     </h3>
-                    <p className="text-sm text-white/50 leading-relaxed flex-1">
+                    <p className="text-sm text-[#a8b0b5] leading-relaxed flex-1">
                       {report.description}
                     </p>
                     <button
                       onClick={() => setOpenPdf(report)}
-                      className="inline-flex items-center justify-center gap-1.5 self-start px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+                      className="inline-flex items-center justify-center gap-1.5 self-start px-3.5 py-1.5 rounded-full border border-[#d9c7a3]/50 text-[11px] font-mono uppercase tracking-wide text-[#1c2f4a]/65 hover:text-[#1c2f4a] hover:border-[#3f8fa8]/50 hover:bg-white/65 transition-all duration-200"
                     >
                       {copy.readReport}
                     </button>
@@ -504,7 +504,7 @@ export default function Projects() {
             href="https://github.com/khalilmgr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-sm font-mono text-white/50 rounded-full hover:border-white/25 hover:text-white transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#d9c7a3]/40 text-sm font-mono text-[#a8b0b5] rounded-full hover:border-[#3f8fa8]/55 hover:text-[#1c2f4a] transition-all duration-200"
           >
             <GitHubIcon />
             {copy.allRepos}

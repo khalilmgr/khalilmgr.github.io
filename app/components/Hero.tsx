@@ -9,17 +9,17 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="min-h-screen flex items-center justify-center px-6 bg-[#07070a] relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-6 bg-[#f7f5f0] relative overflow-hidden"
     >
       {/* Soft glass orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-[0.12]"
+          style={{ background: "radial-gradient(circle, #3f8fa8 0%, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-[0.05]"
-          style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 70%)" }}
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-[0.10]"
+          style={{ background: "radial-gradient(circle, #1e5f8c 0%, transparent 70%)" }}
         />
       </div>
 
@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[#f5f5f7]"
+          className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[#1c2f4a]"
           style={{ textWrap: "balance" }}
         >
           Khalil Moughamir
@@ -38,7 +38,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-          className="text-lg md:text-xl text-white/55 max-w-xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-[#1c2f4a]/60 max-w-xl mx-auto leading-relaxed"
         >
           {lang === "fr" ? (
             <>
@@ -62,14 +62,14 @@ export default function Hero() {
           <a
             href="#projets"
             onClick={(e) => { e.preventDefault(); scrollToSection("projets"); }}
-            className="px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold tracking-wide hover:bg-white/90 transition-colors duration-200"
+            className="px-7 py-3.5 rounded-full bg-[#1e5f8c] text-white text-sm font-semibold tracking-wide hover:bg-[#1c2f4a] transition-colors duration-200"
           >
             {lang === "fr" ? "Voir mes projets" : "See my work"}
           </a>
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
-            className="px-7 py-3.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10 text-white text-sm font-semibold tracking-wide hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200"
+            className="px-7 py-3.5 rounded-full bg-white/50 backdrop-blur-xl border border-[#d9c7a3]/50 text-[#1c2f4a] text-sm font-semibold tracking-wide hover:bg-white/70 hover:border-[#3f8fa8]/60 transition-all duration-200"
           >
             {lang === "fr" ? "Me contacter" : "Get in touch"}
           </a>

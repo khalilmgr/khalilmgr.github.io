@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #07070a;
-  --bg-secondary: #101014;
-  --bg-card: #101014;
-  --accent: #f5f5f7;
-  --accent-dim: #d8d8dc;
-  --text-primary: #f5f5f7;
-  --text-secondary: #8a8a90;
-  --border: rgba(255, 255, 255, 0.14);
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #ede5d5;
+  --bg-card: #ede5d5;
+  --accent: #1e5f8c;
+  --accent-dim: #1c2f4a;
+  --accent-2: #3f8fa8;
+  --text-primary: #1c2f4a;
+  --text-secondary: #a8b0b5;
+  --border: #d9c7a3;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -29,9 +30,9 @@ html {
 }
 
 body {
-  background-color: #07070a;
-  color: #f5f5f7;
-  font-family: -apple-system, BlinkMacSystemFont, var(--font-geist-sans), 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f7f5f0;
+  color: #1c2f4a;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,18 +42,18 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #07070a;
+  background: #f7f5f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
+  background: #1e5f8c;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: #1c2f4a;
 }
 
 /* Selection color */
 ::selection {
-  background: #f5f5f7;
-  color: #07070a;
+  background: #1e5f8c;
+  color: #f7f5f0;
 }

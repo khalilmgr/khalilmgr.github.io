@@ -6,20 +6,6 @@ import { useLang } from "../context/LanguageContext";
 const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 const SIMPLEICONS_BASE = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
 
-// Simple Icons ship as solid black shapes with no fill attribute, so they need
-// the same invert treatment as the black devicon marks below.
-const INVERT_NAMES = new Set([
-  "GitHub",
-  "Symfony",
-  "Power BI",
-  "Tableau",
-  "Folium",
-  "phpMyAdmin",
-  "SQLAlchemy",
-  "UML",
-  "Render",
-]);
-
 const DEVICON_MAP: Record<string, string> = {
   Python: `${DEVICON_BASE}/python/python-original.svg`,
   Pandas: `${DEVICON_BASE}/pandas/pandas-original.svg`,
@@ -147,32 +133,32 @@ function SkillLogo({ skill }: { skill: SkillItem }) {
 
   return (
     <div className="flex flex-col items-center gap-2 group/skill cursor-default">
-      <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-white/[0.04] border border-white/10 group-hover/skill:bg-white/[0.08] group-hover/skill:border-white/25 transition-all duration-200">
+      <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-white/50 border border-[#d9c7a3]/40 group-hover/skill:bg-white/75 group-hover/skill:border-[#3f8fa8]/55 transition-all duration-200">
         {iconUrl ? (
           <img
             src={iconUrl}
             alt={name}
             width={32}
             height={32}
-            className={`object-contain grayscale opacity-70 group-hover/skill:opacity-100 transition-opacity duration-200 ${INVERT_NAMES.has(name) ? "invert" : ""}`}
+            className="object-contain opacity-80 group-hover/skill:opacity-100 transition-opacity duration-200"
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";
               const parent = target.parentElement;
               if (parent) {
-                parent.innerHTML = `<span style="font-size:10px;font-weight:700;color:#8a8a90;text-align:center;line-height:1.2;">${name.slice(0, 3)}</span>`;
+                parent.innerHTML = `<span style="font-size:10px;font-weight:700;color:#a8b0b5;text-align:center;line-height:1.2;">${name.slice(0, 3)}</span>`;
               }
             }}
           />
         ) : (
           <span
-            className="text-[9px] font-bold font-mono text-center leading-tight text-white/50"
+            className="text-[9px] font-bold font-mono text-center leading-tight text-[#a8b0b5]"
           >
             {initials ?? name.slice(0, 3)}
           </span>
         )}
       </div>
-      <span className="text-[10px] font-mono text-white/40 group-hover/skill:text-white/80 transition-colors duration-200 text-center leading-tight w-16">
+      <span className="text-[10px] font-mono text-[#a8b0b5] group-hover/skill:text-[#1c2f4a] transition-colors duration-200 text-center leading-tight w-16">
         {name}
       </span>
     </div>
@@ -191,10 +177,10 @@ function CategoryCard({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300"
+      className="bg-white/50 backdrop-blur-xl backdrop-saturate-150 border border-[#d9c7a3]/40 rounded-3xl p-8 hover:bg-white/65 hover:border-[#3f8fa8]/45 transition-all duration-300"
     >
-      <h3 className="text-xs font-bold uppercase tracking-widest text-white/70 mb-8 flex items-center gap-3">
-        <span className="w-5 h-px bg-white/30" />
+      <h3 className="text-xs font-bold uppercase tracking-widest text-[#1c2f4a]/75 mb-8 flex items-center gap-3">
+        <span className="w-5 h-px bg-[#3f8fa8]/60" />
         {category.title}
       </h3>
       <div className="flex flex-wrap gap-8 justify-center">
@@ -218,7 +204,7 @@ export default function Skills() {
   const cats = categories[lang];
 
   return (
-    <section id="competences" className="py-28 px-6 bg-[#07070a]">
+    <section id="competences" className="py-28 px-6 bg-[#f7f5f0]">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -226,10 +212,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-14 text-center"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4">
+          <p className="font-mono text-xs tracking-[0.3em] text-[#a8b0b5] uppercase mb-4">
             {lang === "fr" ? "• Compétences" : "• Skills"}
           </p>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f5f5f7]">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1c2f4a]">
             {lang === "fr" ? "Ma" : "My"} Stack
           </h2>
         </motion.div>

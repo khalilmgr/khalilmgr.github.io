@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
 
 const LOGOMARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 100">
-  <path d="M54,15 L76,85 L98,15 L98,85" fill="none" stroke="#f5f5f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M16,15 L16,85 M16,50 L54,15 M16,50 L54,85" fill="none" stroke="#f5f5f7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54,15 L76,85 L98,15 L98,85" fill="none" stroke="#1e5f8c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16,15 L16,85 M16,50 L54,15 M16,50 L54,85" fill="none" stroke="#1c2f4a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 const LOGOMARK_B64 = Buffer.from(LOGOMARK_SVG).toString("base64");
 
@@ -16,7 +16,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#07070a",
+          background: "#f7f5f0",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -39,7 +39,7 @@ export default function Image() {
         {/* Name */}
         <div
           style={{
-            color: "#f5f5f7",
+            color: "#1c2f4a",
             fontSize: 60,
             fontWeight: 600,
             letterSpacing: "-2px",
@@ -52,7 +52,7 @@ export default function Image() {
         {/* Subtitle */}
         <div
           style={{
-            color: "#8a8a90",
+            color: "#a8b0b5",
             fontSize: 24,
             letterSpacing: "4px",
             textTransform: "uppercase",
@@ -68,11 +68,11 @@ export default function Image() {
             <div
               key={tag}
               style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.14)",
+                background: "rgba(255,255,255,0.6)",
+                border: "1px solid rgba(217,199,163,0.6)",
                 borderRadius: 999,
                 padding: "8px 16px",
-                color: "#f5f5f7",
+                color: "#1c2f4a",
                 fontSize: 16,
                 fontWeight: 600,
               }}
@@ -87,7 +87,7 @@ export default function Image() {
           style={{
             position: "absolute",
             bottom: 32,
-            color: "#8a8a90",
+            color: "#a8b0b5",
             fontSize: 16,
             letterSpacing: "2px",
           }}

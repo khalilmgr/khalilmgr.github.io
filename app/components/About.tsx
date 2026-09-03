@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { useLang, type Lang } from "../context/LanguageContext";
-import TravelMap from "./TravelMap";
 
 /* ---------------------------------- data ---------------------------------- */
 
@@ -150,28 +149,44 @@ const sportifTimeline = {
   ],
 };
 
+const visitedFlags = {
+  fr: [
+    { flag: "🇲🇦", name: "Maroc" },
+    { flag: "🇨🇳", name: "Chine" },
+    { flag: "🇬🇷", name: "Crète" },
+    { flag: "🇨🇭", name: "Suisse" },
+    { flag: "🇪🇸", name: "Espagne" },
+    { flag: "🇵🇹", name: "Portugal" },
+    { flag: "🇬🇧", name: "Angleterre" },
+    { flag: "🇧🇪", name: "Belgique" },
+    { flag: "🇨🇦", name: "Canada" },
+  ],
+  en: [
+    { flag: "🇲🇦", name: "Morocco" },
+    { flag: "🇨🇳", name: "China" },
+    { flag: "🇬🇷", name: "Crete" },
+    { flag: "🇨🇭", name: "Switzerland" },
+    { flag: "🇪🇸", name: "Spain" },
+    { flag: "🇵🇹", name: "Portugal" },
+    { flag: "🇬🇧", name: "England" },
+    { flag: "🇧🇪", name: "Belgium" },
+    { flag: "🇨🇦", name: "Canada" },
+  ],
+};
+
 const interets = {
   fr: [
     {
-      icon: "✈️",
       titre: "Voyages",
       description:
         "Explorer de nouvelles cultures, découvrir d'autres façons de vivre et de penser. Les voyages élargissent la perspective et nourrissent la créativité.",
     },
     {
-      icon: "🤖",
       titre: "Intelligence artificielle",
       description:
         "Fasciné par les possibilités offertes par l'IA, notamment dans le domaine sportif : analyser des performances, détecter des patterns, anticiper des résultats.",
     },
     {
-      icon: "⚡",
-      titre: "Automatisation",
-      description:
-        "Concevoir des systèmes intelligents qui éliminent les tâches répétitives et libèrent du temps pour ce qui compte vraiment.",
-    },
-    {
-      icon: "🚀",
       titre: "Entrepreneuriat",
       description:
         "L'envie de créer, de bâtir des projets qui ont du sens et de l'impact : vision claire, équipe solide, exécution sans relâche.",
@@ -179,25 +194,16 @@ const interets = {
   ],
   en: [
     {
-      icon: "✈️",
       titre: "Travel",
       description:
         "Exploring new cultures, discovering different ways of living and thinking. Travel broadens perspective and nurtures creativity.",
     },
     {
-      icon: "🤖",
       titre: "Artificial Intelligence",
       description:
         "Fascinated by the possibilities offered by AI, especially in sport: analyzing performance, detecting patterns, predicting outcomes.",
     },
     {
-      icon: "⚡",
-      titre: "Automation",
-      description:
-        "Designing intelligent systems that eliminate repetitive tasks and free up time for what truly matters.",
-    },
-    {
-      icon: "🚀",
       titre: "Entrepreneurship",
       description:
         "The desire to create, to build projects with meaning and impact: a clear vision, a solid team, relentless execution.",
@@ -361,27 +367,35 @@ function SportifTab({ lang }: { lang: Lang }) {
 
 function InteretsTab({ lang }: { lang: Lang }) {
   const list = interets[lang];
+  const flags = visitedFlags[lang];
   return (
-    <div className="max-w-3xl mx-auto flex flex-col gap-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {list.map((item, i) => (
-          <motion.div
-            key={item.titre}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 flex gap-5 items-start hover:border-white/20 transition-all duration-300"
-          >
-            <span className="text-3xl flex-shrink-0">{item.icon}</span>
-            <div>
-              <h4 className="text-[#f5f5f7] font-semibold text-base mb-2">{item.titre}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
+    <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {list.map((item, i) => (
+        <motion.div
+          key={item.titre}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.08 }}
+          className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 hover:border-white/20 transition-all duration-300"
+        >
+          <h4 className="text-[#f5f5f7] font-semibold text-base mb-2">{item.titre}</h4>
+          <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
+          {item.titre === "Voyages" || item.titre === "Travel" ? (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {flags.map((c) => (
+                <span
+                  key={c.name}
+                  className="inline-flex items-center gap-1.5 font-mono text-[11px] text-white/60 bg-white/[0.04] border border-white/10 px-2.5 py-1 rounded-full"
+                >
+                  <span>{c.flag}</span>
+                  {c.name}
+                </span>
+              ))}
             </div>
-          </motion.div>
-        ))}
-      </div>
-      <TravelMap />
+          ) : null}
+        </motion.div>
+      ))}
     </div>
   );
 }

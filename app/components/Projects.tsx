@@ -222,13 +222,13 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
       <p className="text-sm text-white/50 leading-relaxed flex-1">
         {project.description}
       </p>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs font-mono">
+      <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
         {project.demo && (
           <a
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-white/50 hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
           >
             <ExternalLinkIcon />
             {project.demoLabel}
@@ -238,11 +238,10 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-white/50 hover:text-white transition-colors duration-200 ml-auto"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
         >
           <GitHubIcon />
-          {project.github.replace("https://github.com/", "")}
-          <span>→</span>
+          {lang === "fr" ? "Voir le projet" : "View project"}
         </a>
       </div>
     </motion.div>

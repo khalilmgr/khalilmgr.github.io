@@ -8,76 +8,131 @@ type Project = {
   title: string;
   description: string;
   github: string;
+  demo?: string;
+  demoLabel?: string;
   highlight?: boolean;
 };
 
-const academic = {
+type YearGroup = {
+  year: string;
+  projects: Project[];
+};
+
+const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
   fr: [
     {
-      title: "Analyse des JO Paris 2024 avec Power BI",
-      description:
-        "Tableau de bord interactif pour analyser les performances des athlètes, les épreuves et les statistiques clés des Jeux Olympiques 2024.",
-      github: "https://github.com/khalilmgr/olympics-data-analysis",
-      highlight: true,
+      year: "1ère année",
+      projects: [
+        {
+          title: "Analyse des JO Paris 2024 avec Power BI",
+          description:
+            "Tableau de bord interactif pour analyser les performances des athlètes, les épreuves et les statistiques clés des Jeux Olympiques 2024.",
+          github: "https://github.com/khalilmgr/olympics-data-analysis",
+          highlight: true,
+        },
+        {
+          title: "Jeu du Solitaire (Peg Solitaire)",
+          description:
+            "Implémentation en Python du jeu de réflexion avec gestion de la grille, validation des coups et logique complète.",
+          github: "https://github.com/khalilmgr/peg-solitaire-python",
+        },
+        {
+          title: "Catalogue de jeux vidéo",
+          description:
+            "Application web inspirée de Steam pour consulter un catalogue de jeux avec fiches détaillées et navigation facilitée.",
+          github: "https://github.com/khalilmgr/video-game-library-php",
+        },
+        {
+          title: "Algorithmes de génération de labyrinthes",
+          description:
+            "Projet Python implémentant DFS, Sidewinder, Binary Tree, Wilson et Kruskal pour créer et analyser des labyrinthes parfaits.",
+          github: "https://github.com/khalilmgr/maze-generation-algorithms",
+        },
+      ],
     },
     {
-      title: "CoLive · Plateforme de colocation",
-      description:
-        "Application web permettant aux étudiants en alternance de trouver plus facilement des colocations pendant leurs études.",
-      github: "https://github.com/khalilmgr/colive-symfony-app",
+      year: "2ème année",
+      projects: [
+        {
+          title: "CoLive · Plateforme de colocation",
+          description:
+            "Application web permettant aux étudiants en alternance de trouver plus facilement des colocations pendant leurs études.",
+          github: "https://github.com/khalilmgr/colive-symfony-app",
+        },
+        {
+          title: "Impact de la météo sur la performance en course à pied",
+          description:
+            "Un pipeline data de bout en bout qui croise mes propres données de course (Garmin) avec des données météo (Open-Meteo) pour mesurer l'impact des conditions environnementales sur la performance sportive.",
+          github: "https://github.com/khalilmgr/RunxMeteo-data-project",
+        },
+        {
+          title: "Tutoriel interactif bilingue pour la recherche documentaire sur ScienceDirect",
+          description:
+            "Site pédagogique statique (HTML/CSS/JS, sans dépendances) guidant les étudiants de l'URCA à travers une recherche ScienceDirect et l'export de références vers Zotero, avec guide visuel en 8 étapes, vidéo intégrée et quiz d'auto-évaluation en français et en anglais.",
+          github: "https://github.com/khalilmgr/Tuto_FunctionExport",
+          demo: "https://tutosciencedirect.vercel.app/",
+          demoLabel: "Voir le tuto",
+        },
+      ],
     },
-    {
-      title: "Jeu du Solitaire (Peg Solitaire)",
-      description:
-        "Implémentation en Python du jeu de réflexion avec gestion de la grille, validation des coups et logique complète.",
-      github: "https://github.com/khalilmgr/peg-solitaire-python",
-    },
-    {
-      title: "Catalogue de jeux vidéo",
-      description:
-        "Application web inspirée de Steam pour consulter un catalogue de jeux avec fiches détaillées et navigation facilitée.",
-      github: "https://github.com/khalilmgr/video-game-library-php",
-    },
-    {
-      title: "Algorithmes de génération de labyrinthes",
-      description:
-        "Projet Python implémentant DFS, Sidewinder, Binary Tree, Wilson et Kruskal pour créer et analyser des labyrinthes parfaits.",
-      github: "https://github.com/khalilmgr/maze-generation-algorithms",
-    },
-  ] as Project[],
+  ],
   en: [
     {
-      title: "Paris 2024 Olympics Analysis with Power BI",
-      description:
-        "Interactive dashboard analyzing athlete performances, events, and key statistics from the 2024 Olympic Games.",
-      github: "https://github.com/khalilmgr/olympics-data-analysis",
-      highlight: true,
+      year: "1st year",
+      projects: [
+        {
+          title: "Paris 2024 Olympics Analysis with Power BI",
+          description:
+            "Interactive dashboard analyzing athlete performances, events, and key statistics from the 2024 Olympic Games.",
+          github: "https://github.com/khalilmgr/olympics-data-analysis",
+          highlight: true,
+        },
+        {
+          title: "Peg Solitaire Game",
+          description:
+            "Python implementation of the puzzle game with grid management, move validation, and complete game logic.",
+          github: "https://github.com/khalilmgr/peg-solitaire-python",
+        },
+        {
+          title: "Video Game Catalog",
+          description:
+            "Steam-inspired web application to browse a video game catalog with detailed pages and easy navigation.",
+          github: "https://github.com/khalilmgr/video-game-library-php",
+        },
+        {
+          title: "Maze Generation Algorithms",
+          description:
+            "Python project implementing DFS, Sidewinder, Binary Tree, Wilson and Kruskal to create and analyze perfect mazes.",
+          github: "https://github.com/khalilmgr/maze-generation-algorithms",
+        },
+      ],
     },
     {
-      title: "CoLive · Co-living Platform",
-      description:
-        "Web application allowing student interns to more easily find shared housing during their studies.",
-      github: "https://github.com/khalilmgr/colive-symfony-app",
+      year: "2nd year",
+      projects: [
+        {
+          title: "CoLive · Co-living Platform",
+          description:
+            "Web application allowing student interns to more easily find shared housing during their studies.",
+          github: "https://github.com/khalilmgr/colive-symfony-app",
+        },
+        {
+          title: "Impact of Weather on Running Performance",
+          description:
+            "An end-to-end data pipeline that cross-references my own running data (Garmin) with weather data (Open-Meteo) to measure the impact of environmental conditions on athletic performance.",
+          github: "https://github.com/khalilmgr/RunxMeteo-data-project",
+        },
+        {
+          title: "Bilingual Interactive Tutorial for ScienceDirect Research",
+          description:
+            "A static educational site (HTML/CSS/JS, no dependencies) guiding URCA students through a ScienceDirect search and exporting references to Zotero, with an 8-step visual guide, embedded video, and self-assessment quiz in French and English.",
+          github: "https://github.com/khalilmgr/Tuto_FunctionExport",
+          demo: "https://tutosciencedirect.vercel.app/",
+          demoLabel: "View tutorial",
+        },
+      ],
     },
-    {
-      title: "Peg Solitaire Game",
-      description:
-        "Python implementation of the puzzle game with grid management, move validation, and complete game logic.",
-      github: "https://github.com/khalilmgr/peg-solitaire-python",
-    },
-    {
-      title: "Video Game Catalog",
-      description:
-        "Steam-inspired web application to browse a video game catalog with detailed pages and easy navigation.",
-      github: "https://github.com/khalilmgr/video-game-library-php",
-    },
-    {
-      title: "Maze Generation Algorithms",
-      description:
-        "Python project implementing DFS, Sidewinder, Binary Tree, Wilson and Kruskal to create and analyze perfect mazes.",
-      github: "https://github.com/khalilmgr/maze-generation-algorithms",
-    },
-  ] as Project[],
+  ],
 };
 
 function GitHubIcon() {
@@ -88,16 +143,23 @@ function GitHubIcon() {
   );
 }
 
+function ExternalLinkIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path d="M15 3h6v6" />
+      <path d="M10 14L21 3" />
+    </svg>
+  );
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <motion.a
+    <motion.div
       ref={ref}
-      href={project.github}
-      target="_blank"
-      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.06 }}
@@ -114,12 +176,57 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <p className="text-sm text-white/50 leading-relaxed flex-1">
         {project.description}
       </p>
-      <div className="flex items-center gap-2 pt-4 border-t border-white/10 text-xs font-mono text-white/40 group-hover:text-white/80 transition-colors duration-200">
-        <GitHubIcon />
-        {project.github.replace("https://github.com/", "")}
-        <span className="ml-auto">→</span>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs font-mono">
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-white/50 hover:text-white transition-colors duration-200"
+          >
+            <ExternalLinkIcon />
+            {project.demoLabel}
+          </a>
+        )}
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-white/50 hover:text-white transition-colors duration-200 ml-auto"
+        >
+          <GitHubIcon />
+          {project.github.replace("https://github.com/", "")}
+          <span>→</span>
+        </a>
       </div>
-    </motion.a>
+    </motion.div>
+  );
+}
+
+function AcademicYearGroup({ group, baseDelay }: { group: YearGroup; baseDelay: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <div className="mb-10 last:mb-0">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.4, delay: baseDelay }}
+        className="flex items-center gap-3 mb-5"
+      >
+        <span className="w-5 h-px bg-white/30" />
+        <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">
+          {group.year}
+        </span>
+      </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {group.projects.map((p, i) => (
+          <ProjectCard key={p.github + p.title} project={p} index={i} />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -201,10 +308,9 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             >
-              {academic[lang].map((p, i) => (
-                <ProjectCard key={p.github} project={p} index={i} />
+              {academicYears[lang].map((group, i) => (
+                <AcademicYearGroup key={group.year} group={group} baseDelay={i * 0.1} />
               ))}
             </motion.div>
           ) : (

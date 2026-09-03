@@ -4,6 +4,21 @@ import { motion } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
 
 const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+const SIMPLEICONS_BASE = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
+
+// Simple Icons ship as solid black shapes with no fill attribute, so they need
+// the same invert treatment as the black devicon marks below.
+const INVERT_NAMES = new Set([
+  "GitHub",
+  "Symfony",
+  "Power BI",
+  "Tableau",
+  "Folium",
+  "phpMyAdmin",
+  "SQLAlchemy",
+  "UML",
+  "Render",
+]);
 
 const DEVICON_MAP: Record<string, string> = {
   Python: `${DEVICON_BASE}/python/python-original.svg`,
@@ -36,6 +51,13 @@ const DEVICON_MAP: Record<string, string> = {
   Vite: `${DEVICON_BASE}/vitejs/vitejs-original.svg`,
   Vercel: `${DEVICON_BASE}/vercel/vercel-original.svg`,
   Cloudflare: `${DEVICON_BASE}/cloudflare/cloudflare-original.svg`,
+  "Power BI": `${SIMPLEICONS_BASE}/powerbi.svg`,
+  Tableau: `${SIMPLEICONS_BASE}/tableau.svg`,
+  Folium: `${SIMPLEICONS_BASE}/folium.svg`,
+  phpMyAdmin: `${SIMPLEICONS_BASE}/phpmyadmin.svg`,
+  SQLAlchemy: `${SIMPLEICONS_BASE}/sqlalchemy.svg`,
+  UML: `${SIMPLEICONS_BASE}/uml.svg`,
+  Render: `${SIMPLEICONS_BASE}/render.svg`,
 };
 
 const categories = {
@@ -45,10 +67,8 @@ const categories = {
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
         "Plotly", "Streamlit", "SQL Avancé", "Grafana",
-        { name: "Power BI", initials: "BI", color: "#F2C811" },
-        { name: "Tableau", initials: "TB", color: "#E97627" },
+        "Power BI", "Tableau", "Folium",
         { name: "Seaborn", initials: "SB", color: "#4C72B0" },
-        { name: "Folium", initials: "FL", color: "#77B829" },
       ],
     },
     {
@@ -57,10 +77,10 @@ const categories = {
         "MySQL",
         "Oracle",
         "PostgreSQL",
+        "phpMyAdmin",
+        "SQLAlchemy",
+        "UML",
         { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
-        { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
-        { name: "SQLAlchemy", initials: "SQLA", color: "#D71F00" },
-        { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],
@@ -73,8 +93,7 @@ const categories = {
       title: "Outils & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare",
-        { name: "Render", initials: "RD", color: "#46E3B7" },
+        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare", "Render",
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],
     },
@@ -85,10 +104,8 @@ const categories = {
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
         "Plotly", "Streamlit", "Advanced SQL", "Grafana",
-        { name: "Power BI", initials: "BI", color: "#F2C811" },
-        { name: "Tableau", initials: "TB", color: "#E97627" },
+        "Power BI", "Tableau", "Folium",
         { name: "Seaborn", initials: "SB", color: "#4C72B0" },
-        { name: "Folium", initials: "FL", color: "#77B829" },
       ],
     },
     {
@@ -97,10 +114,10 @@ const categories = {
         "MySQL",
         "Oracle",
         "PostgreSQL",
+        "phpMyAdmin",
+        "SQLAlchemy",
+        "UML",
         { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
-        { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
-        { name: "SQLAlchemy", initials: "SQLA", color: "#D71F00" },
-        { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],
@@ -113,8 +130,7 @@ const categories = {
       title: "Tools & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare",
-        { name: "Render", initials: "RD", color: "#46E3B7" },
+        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare", "Render",
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],
     },
@@ -137,7 +153,7 @@ function SkillLogo({ skill }: { skill: SkillItem }) {
             alt={name}
             width={32}
             height={32}
-            className={`object-contain grayscale opacity-70 group-hover/skill:opacity-100 transition-opacity duration-200 ${name === "GitHub" || name === "Symfony" ? "invert" : ""}`}
+            className={`object-contain grayscale opacity-70 group-hover/skill:opacity-100 transition-opacity duration-200 ${INVERT_NAMES.has(name) ? "invert" : ""}`}
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";

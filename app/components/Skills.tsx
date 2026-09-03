@@ -35,6 +35,7 @@ const DEVICON_MAP: Record<string, string> = {
   "Tailwind CSS": `${DEVICON_BASE}/tailwindcss/tailwindcss-original.svg`,
   Vite: `${DEVICON_BASE}/vitejs/vitejs-original.svg`,
   Vercel: `${DEVICON_BASE}/vercel/vercel-original.svg`,
+  Cloudflare: `${DEVICON_BASE}/cloudflare/cloudflare-original.svg`,
 };
 
 const categories = {
@@ -72,7 +73,7 @@ const categories = {
       title: "Outils & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm", "Vercel",
+        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare",
         { name: "Render", initials: "RD", color: "#46E3B7" },
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],
@@ -112,7 +113,7 @@ const categories = {
       title: "Tools & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm", "Vercel",
+        "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare",
         { name: "Render", initials: "RD", color: "#46E3B7" },
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],

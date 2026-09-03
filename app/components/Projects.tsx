@@ -32,19 +32,19 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Jeu du Solitaire (Peg Solitaire)",
           description:
-            "Implémentation en Python du jeu de réflexion avec gestion de la grille, validation des coups et logique complète.",
+            "Jeu de plateau à billes en Python/Pygame (architecture MVC), avec plusieurs plateaux classiques, des règles de déplacement avancées et une suite de tests unitaires.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
         },
         {
           title: "Catalogue de jeux vidéo",
           description:
-            "Application web inspirée de Steam pour consulter un catalogue de jeux avec fiches détaillées et navigation facilitée.",
+            "Application PHP (PDO/MySQL) pour consulter, filtrer et gérer une base de données de jeux vidéo. Projet académique réalisé en binôme.",
           github: "https://github.com/khalilmgr/video-game-library-php",
         },
         {
           title: "Algorithmes de génération de labyrinthes",
           description:
-            "Projet Python implémentant DFS, Sidewinder, Binary Tree, Wilson et Kruskal pour créer et analyser des labyrinthes parfaits.",
+            "Cinq algorithmes classiques de génération (arbre binaire, Sidewinder, Wilson...) modélisés en graphe, avec résolution automatique (BFS/DFS) et des métriques pour comparer objectivement chaque méthode.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
         },
       ],
@@ -55,7 +55,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "CoLive · Plateforme de colocation",
           description:
-            "Application web permettant aux étudiants en alternance de trouver plus facilement des colocations pendant leurs études.",
+            "Application Symfony développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
         },
         {
@@ -88,19 +88,19 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "Peg Solitaire Game",
           description:
-            "Python implementation of the puzzle game with grid management, move validation, and complete game logic.",
+            "Marble board game in Python/Pygame (MVC architecture), with several classic boards, advanced movement rules, and a full unit test suite.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
         },
         {
           title: "Video Game Catalog",
           description:
-            "Steam-inspired web application to browse a video game catalog with detailed pages and easy navigation.",
+            "PHP application (PDO/MySQL) to browse, filter, and manage a video game database. Academic project built in pairs.",
           github: "https://github.com/khalilmgr/video-game-library-php",
         },
         {
           title: "Maze Generation Algorithms",
           description:
-            "Python project implementing DFS, Sidewinder, Binary Tree, Wilson and Kruskal to create and analyze perfect mazes.",
+            "Five classic generation algorithms (binary tree, Sidewinder, Wilson...) modeled as a graph, with automatic solving (BFS/DFS) and metrics to objectively compare each method.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
         },
       ],
@@ -111,7 +111,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
         {
           title: "CoLive · Co-living Platform",
           description:
-            "Web application allowing student interns to more easily find shared housing during their studies.",
+            "Symfony application built as a team to publish, search, and book co-living spaces, with built-in messaging, review management, and an admin back-office.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
         },
         {

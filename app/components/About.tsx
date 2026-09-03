@@ -159,6 +159,7 @@ const visitedFlags = {
     { flag: "🇵🇹", name: "Portugal" },
     { flag: "🇬🇧", name: "Angleterre" },
     { flag: "🇧🇪", name: "Belgique" },
+    { flag: "🇩🇪", name: "Allemagne" },
     { flag: "🇨🇦", name: "Canada" },
   ],
   en: [
@@ -170,6 +171,7 @@ const visitedFlags = {
     { flag: "🇵🇹", name: "Portugal" },
     { flag: "🇬🇧", name: "England" },
     { flag: "🇧🇪", name: "Belgium" },
+    { flag: "🇩🇪", name: "Germany" },
     { flag: "🇨🇦", name: "Canada" },
   ],
 };

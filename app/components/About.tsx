@@ -105,6 +105,34 @@ const formations: { fr: Formation[]; en: Formation[] } = {
   ],
 };
 
+type Experience = {
+  period: string;
+  title: string;
+  subtitle: string;
+  logo: string | null;
+  logoGrayscale?: boolean;
+};
+
+const experiences: { fr: Experience[]; en: Experience[] } = {
+  fr: [
+    {
+      period: "Avr. – Mai 2026",
+      title: "Stage de 2ème année · Développeur Data",
+      subtitle:
+        "ESTAC Troyes · 8 semaines · Développement de KORA, plateforme d'analyse de performance football",
+      logo: "/logos/estac.png",
+    },
+  ],
+  en: [
+    {
+      period: "Apr – May 2026",
+      title: "2nd-year internship · Data Developer",
+      subtitle: "ESTAC Troyes · 8 weeks · Built KORA, a football performance analytics platform",
+      logo: "/logos/estac.png",
+    },
+  ],
+};
+
 const photos = [
   "/photos/IMG_0445.jpg",
   "/photos/IMG_0454.JPG",
@@ -244,6 +272,43 @@ function FormationsTab({ lang }: { lang: Lang }) {
           </span>
           <div>
             <p className="text-[#1c2f4a] font-semibold text-base">{item.degree}</p>
+            <p className="text-[#a8b0b5] text-sm mt-1">{item.subtitle}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+function ExperiencesTab({ lang }: { lang: Lang }) {
+  const items = experiences[lang];
+  return (
+    <div className="max-w-2xl mx-auto flex flex-col">
+      {items.map((item, i) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.08 }}
+          className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 border-b border-[#d9c7a3]/40 last:border-0"
+        >
+          {item.logo ? (
+            <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center">
+              <img
+                src={item.logo}
+                alt=""
+                className={`w-full h-full object-contain ${item.logoGrayscale ? "grayscale" : ""}`}
+              />
+            </div>
+          ) : (
+            <div className="hidden sm:block w-20 h-20 flex-shrink-0" />
+          )}
+          <span className="font-mono text-xs text-[#a8b0b5] tracking-widest sm:w-28 sm:flex-shrink-0">
+            {item.period}
+          </span>
+          <div>
+            <p className="text-[#1c2f4a] font-semibold text-base">{item.title}</p>
             <p className="text-[#a8b0b5] text-sm mt-1">{item.subtitle}</p>
           </div>
         </motion.div>
@@ -434,16 +499,18 @@ function InteretsTab({ lang }: { lang: Lang }) {
 
 export default function About() {
   const { lang } = useLang();
-  const [tab, setTab] = useState<"formations" | "sportif" | "interets">("formations");
+  const [tab, setTab] = useState<"formations" | "experiences" | "sportif" | "interets">("formations");
 
   const tabs = {
     fr: [
       { id: "formations" as const, label: "Formations" },
+      { id: "experiences" as const, label: "Expérience pro" },
       { id: "sportif" as const, label: "Parcours sportif" },
       { id: "interets" as const, label: "Centres d'intérêt" },
     ],
     en: [
       { id: "formations" as const, label: "Education" },
+      { id: "experiences" as const, label: "Work experience" },
       { id: "sportif" as const, label: "Sports career" },
       { id: "interets" as const, label: "Interests" },
     ],
@@ -506,6 +573,7 @@ export default function About() {
             transition={{ duration: 0.3 }}
           >
             {tab === "formations" && <FormationsTab lang={lang} />}
+            {tab === "experiences" && <ExperiencesTab lang={lang} />}
             {tab === "sportif" && <SportifTab lang={lang} />}
             {tab === "interets" && <InteretsTab lang={lang} />}
           </motion.div>

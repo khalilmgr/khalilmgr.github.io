@@ -28,7 +28,6 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Tableau de bord interactif pour analyser les performances des athlètes, les épreuves et les statistiques clés des Jeux Olympiques 2024.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
-          highlight: true,
         },
         {
           title: "Jeu du Solitaire (Peg Solitaire)",
@@ -85,7 +84,6 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Interactive dashboard analyzing athlete performances, events, and key statistics from the 2024 Olympic Games.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
-          highlight: true,
         },
         {
           title: "Peg Solitaire Game",

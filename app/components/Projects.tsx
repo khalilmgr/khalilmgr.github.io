@@ -11,6 +11,7 @@ type Project = {
   demo?: string;
   demoLabel?: string;
   highlight?: boolean;
+  team: number;
 };
 
 type YearGroup = {
@@ -28,24 +29,28 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Tableau de bord interactif pour analyser les performances des athlètes, les épreuves et les statistiques clés des Jeux Olympiques 2024.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
+          team: 1,
         },
         {
           title: "Jeu du Solitaire (Peg Solitaire)",
           description:
             "Jeu de plateau à billes avec plusieurs plateaux classiques, des règles de déplacement avancées et une suite de tests validant la logique du jeu.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
+          team: 1,
         },
         {
           title: "Catalogue de jeux vidéo",
           description:
-            "Application pour consulter, filtrer et gérer un catalogue de jeux vidéo. Projet académique réalisé en binôme.",
+            "Application pour consulter, filtrer et gérer un catalogue de jeux vidéo.",
           github: "https://github.com/khalilmgr/video-game-library-php",
+          team: 1,
         },
         {
           title: "Algorithmes de génération de labyrinthes",
           description:
             "Cinq algorithmes classiques de génération (arbre binaire, Sidewinder, Wilson...) avec résolution automatique et des métriques pour comparer objectivement chaque méthode.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
+          team: 1,
         },
       ],
     },
@@ -57,12 +62,14 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Application développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
+          team: 5,
         },
         {
           title: "Impact de la météo sur la performance en course à pied",
           description:
             "Un pipeline data de bout en bout qui croise mes propres données de course (Garmin) avec des données météo (Open-Meteo) pour mesurer l'impact des conditions environnementales sur la performance sportive.",
           github: "https://github.com/khalilmgr/RunxMeteo-data-project",
+          team: 4,
         },
         {
           title: "Tutoriel interactif bilingue pour la recherche documentaire sur ScienceDirect",
@@ -71,6 +78,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           github: "https://github.com/khalilmgr/Tuto_FunctionExport",
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "Voir le tuto",
+          team: 2,
         },
       ],
     },
@@ -84,24 +92,28 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Interactive dashboard analyzing athlete performances, events, and key statistics from the 2024 Olympic Games.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
+          team: 1,
         },
         {
           title: "Peg Solitaire Game",
           description:
             "Marble board game with several classic boards, advanced movement rules, and a test suite validating the game logic.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
+          team: 1,
         },
         {
           title: "Video Game Catalog",
           description:
-            "Application to browse, filter, and manage a video game catalog. Academic project built in pairs.",
+            "Application to browse, filter, and manage a video game catalog.",
           github: "https://github.com/khalilmgr/video-game-library-php",
+          team: 1,
         },
         {
           title: "Maze Generation Algorithms",
           description:
             "Five classic generation algorithms (binary tree, Sidewinder, Wilson...) with automatic solving and metrics to objectively compare each method.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
+          team: 1,
         },
       ],
     },
@@ -113,12 +125,14 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           description:
             "Application built as a team to publish, search, and book co-living spaces, with built-in messaging, review management, and an admin back-office.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
+          team: 5,
         },
         {
           title: "Impact of Weather on Running Performance",
           description:
             "An end-to-end data pipeline that cross-references my own running data (Garmin) with weather data (Open-Meteo) to measure the impact of environmental conditions on athletic performance.",
           github: "https://github.com/khalilmgr/RunxMeteo-data-project",
+          team: 4,
         },
         {
           title: "Bilingual Interactive Tutorial for ScienceDirect Research",
@@ -127,6 +141,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           github: "https://github.com/khalilmgr/Tuto_FunctionExport",
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "View tutorial",
+          team: 2,
         },
       ],
     },
@@ -151,9 +166,34 @@ function ExternalLinkIcon() {
   );
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function UserIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+function UsersIcon() {
+  return (
+    <svg width="13" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  );
+}
+
+function ProjectCard({ project, index, lang }: { project: Project; index: number; lang: "fr" | "en" }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
+
+  const teamLabel =
+    project.team === 1
+      ? lang === "fr" ? "Seul" : "Solo"
+      : lang === "fr" ? `Équipe de ${project.team}` : `Team of ${project.team}`;
 
   return (
     <motion.div
@@ -163,11 +203,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.4, delay: index * 0.06 }}
       className="group flex flex-col gap-4 bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-7 hover:bg-white/[0.07] hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
     >
-      {project.highlight && (
-        <span className="self-start font-mono text-[9px] tracking-widest text-white/70 uppercase border border-white/20 px-2.5 py-1 rounded-full">
-          Featured
+      <div className="flex items-center justify-between gap-2">
+        {project.highlight ? (
+          <span className="font-mono text-[9px] tracking-widest text-white/70 uppercase border border-white/20 px-2.5 py-1 rounded-full">
+            Featured
+          </span>
+        ) : (
+          <span />
+        )}
+        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-widest text-white/40 uppercase border border-white/10 px-2.5 py-1 rounded-full">
+          {project.team === 1 ? <UserIcon /> : <UsersIcon />}
+          {teamLabel}
         </span>
-      )}
+      </div>
       <h3 className="text-base font-semibold tracking-tight text-[#f5f5f7]">
         {project.title}
       </h3>
@@ -201,7 +249,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-function AcademicYearGroup({ group, baseDelay }: { group: YearGroup; baseDelay: number }) {
+function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseDelay: number; lang: "fr" | "en" }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -221,7 +269,7 @@ function AcademicYearGroup({ group, baseDelay }: { group: YearGroup; baseDelay: 
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {group.projects.map((p, i) => (
-          <ProjectCard key={p.github + p.title} project={p} index={i} />
+          <ProjectCard key={p.github + p.title} project={p} index={i} lang={lang} />
         ))}
       </div>
     </div>
@@ -308,7 +356,7 @@ export default function Projects() {
               transition={{ duration: 0.25 }}
             >
               {academicYears[lang].map((group, i) => (
-                <AcademicYearGroup key={group.year} group={group} baseDelay={i * 0.1} />
+                <AcademicYearGroup key={group.year} group={group} baseDelay={i * 0.1} lang={lang} />
               ))}
             </motion.div>
           ) : (

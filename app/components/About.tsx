@@ -366,36 +366,64 @@ function SportifTab({ lang }: { lang: Lang }) {
 }
 
 function InteretsTab({ lang }: { lang: Lang }) {
-  const list = interets[lang];
+  const [voyages, ...rest] = interets[lang];
   const flags = visitedFlags[lang];
+
   return (
-    <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
-      {list.map((item, i) => (
-        <motion.div
-          key={item.titre}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.08 }}
-          className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 hover:border-white/20 transition-all duration-300"
-        >
-          <h4 className="text-[#f5f5f7] font-semibold text-base mb-2">{item.titre}</h4>
-          <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
-          {item.titre === "Voyages" || item.titre === "Travel" ? (
-            <div className="mt-5 flex flex-wrap gap-2">
-              {flags.map((c) => (
-                <span
-                  key={c.name}
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] text-white/60 bg-white/[0.04] border border-white/10 px-2.5 py-1 rounded-full"
-                >
-                  <span>{c.flag}</span>
-                  {c.name}
-                </span>
-              ))}
+    <div className="max-w-4xl mx-auto flex flex-col gap-5">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-8 sm:p-10 hover:border-white/20 transition-all duration-300 flex flex-col sm:flex-row items-start gap-8 sm:gap-12"
+      >
+        <div className="flex-shrink-0 text-left">
+          <div className="text-6xl sm:text-7xl font-bold tracking-tight text-[#f5f5f7]" style={{ fontVariantNumeric: "tabular-nums" }}>
+            {flags.length}
+          </div>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.18em] uppercase text-white/40">
+            {lang === "fr" ? "Pays visités" : "Countries visited"}
+          </p>
+        </div>
+        <div className="flex-1 min-w-0">
+          <h4 className="text-[#f5f5f7] font-semibold text-lg mb-2">{voyages.titre}</h4>
+          <p className="text-white/50 text-sm leading-relaxed max-w-md mb-5">{voyages.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {flags.map((c) => (
+              <span
+                key={c.name}
+                className="inline-flex items-center gap-1.5 font-mono text-[11px] text-white/60 bg-white/[0.04] border border-white/10 px-2.5 py-1 rounded-full"
+              >
+                <span>{c.flag}</span>
+                {c.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {rest.map((item, i) => (
+          <motion.div
+            key={item.titre}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+            className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 hover:border-white/20 transition-all duration-300"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-5 h-px bg-white/30" />
+              <span className="font-mono text-[11px] text-white/40 tracking-widest">
+                0{i + 1}
+              </span>
             </div>
-          ) : null}
-        </motion.div>
-      ))}
+            <h4 className="text-[#f5f5f7] font-semibold text-base mb-2">{item.titre}</h4>
+            <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

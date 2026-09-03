@@ -1,9 +1,15 @@
 "use client";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLang } from "../context/LanguageContext";
 import PdfViewer from "./PdfViewer";
+
+type ProjectDetails = {
+  technologies: string[];
+  approach: string;
+  results: string;
+};
 
 type Project = {
   title: string;
@@ -14,6 +20,7 @@ type Project = {
   highlight?: boolean;
   private?: boolean;
   team: number;
+  details?: ProjectDetails;
 };
 
 type PdfReport = {
@@ -116,6 +123,23 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Application développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
           team: 5,
+          details: {
+            technologies: [
+              "Symfony 7.3 (PHP 8.2)",
+              "Doctrine ORM + migrations",
+              "Twig",
+              "EasyAdmin",
+              "Symfony UX (Stimulus/Turbo)",
+              "MariaDB/MySQL",
+              "Codeception",
+              "PHPUnit",
+              "PHP-CS-Fixer",
+            ],
+            approach:
+              "Conception et implémentation du module logement de bout en bout : entités et migrations (Housing, HousingPhoto), recherche/affichage unifié des annonces, CRUD complet (création, édition, suppression sécurisées par CSRF et contrôle de propriétaire), upload et galerie photo, puis polish UI (navbar, logo, redirections liées à l'authentification).",
+            results:
+              "98 commits sur 74 fichiers, 7 controllers et 13 templates touchés, 7 migrations de base de données ajoutées ; livraison de 4+ fonctionnalités mergées (galerie photo, gestion des annonces, recherche de logements, résolution de bugs critiques comme le crash sur photo nulle et les liens cassés).",
+          },
         },
         {
           title: "Impact de la météo sur la performance en course à pied",
@@ -187,6 +211,23 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Application built as a team to publish, search, and book co-living spaces, with built-in messaging, review management, and an admin back-office.",
           github: "https://github.com/khalilmgr/colive-symfony-app",
           team: 5,
+          details: {
+            technologies: [
+              "Symfony 7.3 (PHP 8.2)",
+              "Doctrine ORM + migrations",
+              "Twig",
+              "EasyAdmin",
+              "Symfony UX (Stimulus/Turbo)",
+              "MariaDB/MySQL",
+              "Codeception",
+              "PHPUnit",
+              "PHP-CS-Fixer",
+            ],
+            approach:
+              "End-to-end design and implementation of the housing module: entities and migrations (Housing, HousingPhoto), unified listing search/display, full CRUD (creation, editing, deletion secured with CSRF and ownership checks), photo upload and gallery, then UI polish (navbar, logo, auth-related redirects).",
+            results:
+              "98 commits across 74 files, 7 controllers and 13 templates touched, 7 database migrations added; shipped 4+ merged features (photo gallery, listing management, housing search, critical bug fixes such as the null-photo crash and broken links).",
+          },
         },
         {
           title: "Impact of Weather on Running Performance",
@@ -256,7 +297,100 @@ function LockIcon() {
   );
 }
 
-function ProjectCard({ project, index, lang }: { project: Project; index: number; lang: "fr" | "en" }) {
+function ProjectDetailModal({
+  project,
+  lang,
+  onClose,
+}: {
+  project: Project;
+  lang: "fr" | "en";
+  onClose: () => void;
+}) {
+  const details = project.details!;
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  const labels = {
+    fr: { technologies: "Technologies utilisées", approach: "Ta démarche", results: "Résultats concrets", close: "Fermer" },
+    en: { technologies: "Technologies used", approach: "Approach", results: "Concrete results", close: "Close" },
+  }[lang];
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[70] bg-[#1c2f4a]/40 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 16, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.98 }}
+          transition={{ duration: 0.25 }}
+          onClick={(e) => e.stopPropagation()}
+          className="w-full max-w-xl max-h-[85vh] overflow-y-auto bg-white/95 backdrop-blur-xl border border-[#d9c7a3]/50 rounded-3xl p-8 shadow-2xl"
+        >
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <h3 className="text-lg font-semibold tracking-tight text-[#1c2f4a]">{project.title}</h3>
+            <button
+              onClick={onClose}
+              className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#d9c7a3]/50 hover:border-[#3f8fa8]/55 hover:bg-white/70 text-[#1c2f4a]/65 hover:text-[#1c2f4a] text-xs font-mono uppercase tracking-wide transition-all duration-200"
+            >
+              {labels.close}
+              <span>✕</span>
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className="font-mono text-[10px] tracking-widest text-[#3f8fa8] uppercase mb-3">
+                {labels.technologies}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {details.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 rounded-full bg-[#f7f5f0] border border-[#d9c7a3]/40 text-xs font-mono text-[#1c2f4a]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="font-mono text-[10px] tracking-widest text-[#3f8fa8] uppercase mb-3">
+                {labels.approach}
+              </p>
+              <p className="text-sm text-[#1c2f4a]/80 leading-relaxed">{details.approach}</p>
+            </div>
+
+            <div className="border-l-2 border-[#3f8fa8]/60 pl-4">
+              <p className="font-mono text-[10px] tracking-widest text-[#3f8fa8] uppercase mb-3">
+                {labels.results}
+              </p>
+              <p className="text-sm text-[#1c2f4a]/80 leading-relaxed">{details.results}</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+function ProjectCard({ project, index, lang, onOpenDetails }: { project: Project; index: number; lang: "fr" | "en"; onOpenDetails: (project: Project) => void }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
@@ -325,12 +459,30 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
             </span>
           </>
         ) : null}
+        {project.details && (
+          <button
+            onClick={() => onOpenDetails(project)}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#d9c7a3]/50 text-[11px] font-mono uppercase tracking-wide text-[#1c2f4a]/65 hover:text-[#1c2f4a] hover:border-[#3f8fa8]/50 hover:bg-white/65 transition-all duration-200"
+          >
+            {lang === "fr" ? "En savoir plus" : "Learn more"}
+          </button>
+        )}
       </div>
     </motion.div>
   );
 }
 
-function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseDelay: number; lang: "fr" | "en" }) {
+function AcademicYearGroup({
+  group,
+  baseDelay,
+  lang,
+  onOpenDetails,
+}: {
+  group: YearGroup;
+  baseDelay: number;
+  lang: "fr" | "en";
+  onOpenDetails: (project: Project) => void;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -354,13 +506,13 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
       {featured.length > 0 && (
         <div className="flex flex-col gap-5 mb-5">
           {featured.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} lang={lang} />
+            <ProjectCard key={p.title} project={p} index={i} lang={lang} onOpenDetails={onOpenDetails} />
           ))}
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {rest.map((p, i) => (
-          <ProjectCard key={p.title} project={p} index={i} lang={lang} />
+          <ProjectCard key={p.title} project={p} index={i} lang={lang} onOpenDetails={onOpenDetails} />
         ))}
       </div>
     </div>
@@ -371,6 +523,7 @@ export default function Projects() {
   const { lang } = useLang();
   const [tab, setTab] = useState<"academic" | "personal">("academic");
   const [openPdf, setOpenPdf] = useState<PdfReport | null>(null);
+  const [openDetail, setOpenDetail] = useState<Project | null>(null);
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
@@ -446,7 +599,13 @@ export default function Projects() {
               transition={{ duration: 0.25 }}
             >
               {academicYears[lang].map((group, i) => (
-                <AcademicYearGroup key={group.year} group={group} baseDelay={i * 0.1} lang={lang} />
+                <AcademicYearGroup
+                  key={group.year}
+                  group={group}
+                  baseDelay={i * 0.1}
+                  lang={lang}
+                  onOpenDetails={setOpenDetail}
+                />
               ))}
             </motion.div>
           ) : (
@@ -491,6 +650,10 @@ export default function Projects() {
 
         {openPdf && (
           <PdfViewer url={openPdf.file} title={openPdf.title} onClose={() => setOpenPdf(null)} />
+        )}
+
+        {openDetail && (
+          <ProjectDetailModal project={openDetail} lang={lang} onClose={() => setOpenDetail(null)} />
         )}
 
         <motion.div

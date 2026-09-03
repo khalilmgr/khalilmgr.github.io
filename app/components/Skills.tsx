@@ -123,6 +123,120 @@ const categories = {
   ],
 };
 
+const softSkills = {
+  fr: [
+    { label: "Capacité d'adaptation", icon: "refresh" },
+    { label: "Autonomie", icon: "compass" },
+    { label: "Écoute des autres", icon: "headphones" },
+    { label: "Organisation", icon: "clipboard" },
+    { label: "Empathie", icon: "heart" },
+    { label: "Leadership", icon: "flag" },
+    { label: "Altruiste", icon: "gift" },
+    { label: "Humanisme", icon: "globe" },
+  ],
+  en: [
+    { label: "Adaptability", icon: "refresh" },
+    { label: "Autonomy", icon: "compass" },
+    { label: "Active listening", icon: "headphones" },
+    { label: "Organization", icon: "clipboard" },
+    { label: "Empathy", icon: "heart" },
+    { label: "Leadership", icon: "flag" },
+    { label: "Altruism", icon: "gift" },
+    { label: "Humanism", icon: "globe" },
+  ],
+} as const;
+
+type SoftSkillIconName = (typeof softSkills)["fr"][number]["icon"];
+
+function SoftSkillIcon({ name, className }: { name: SoftSkillIconName; className?: string }) {
+  const props = {
+    className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+  switch (name) {
+    case "refresh":
+      return (
+        <svg {...props}>
+          <polyline points="23 4 23 10 17 10" />
+          <polyline points="1 20 1 14 7 14" />
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+        </svg>
+      );
+    case "compass":
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      );
+    case "headphones":
+      return (
+        <svg {...props}>
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+        </svg>
+      );
+    case "clipboard":
+      return (
+        <svg {...props}>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        </svg>
+      );
+    case "heart":
+      return (
+        <svg {...props}>
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      );
+    case "flag":
+      return (
+        <svg {...props}>
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+          <line x1="4" y1="22" x2="4" y2="15" />
+        </svg>
+      );
+    case "gift":
+      return (
+        <svg {...props}>
+          <polyline points="20 12 20 22 4 22 4 12" />
+          <rect x="2" y="7" width="20" height="5" />
+          <line x1="12" y1="22" x2="12" y2="7" />
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+        </svg>
+      );
+    case "globe":
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="10" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      );
+  }
+}
+
+function SoftSkillPill({ label, icon, index }: { label: string; icon: SoftSkillIconName; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="flex items-center gap-2.5 bg-white/50 backdrop-blur-xl backdrop-saturate-150 border border-[#d9c7a3]/40 rounded-full pl-3 pr-5 py-2.5 hover:bg-white/70 hover:border-[#3f8fa8]/45 transition-all duration-200"
+    >
+      <SoftSkillIcon name={icon} className="w-4 h-4 text-[#3f8fa8] shrink-0" />
+      <span className="text-sm font-medium text-[#1c2f4a]">{label}</span>
+    </motion.div>
+  );
+}
+
 type SkillItem = string | { name: string; initials: string; color: string };
 
 function SkillLogo({ skill }: { skill: SkillItem }) {
@@ -224,6 +338,23 @@ export default function Skills() {
             <CategoryCard key={cat.title} category={cat} index={i} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 text-center"
+        >
+          <h3 className="text-xs font-bold uppercase tracking-widest text-[#1c2f4a]/75 mb-6">
+            {lang === "fr" ? "Savoir-être" : "Soft Skills"}
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {softSkills[lang].map((skill, i) => (
+              <SoftSkillPill key={skill.label} label={skill.label} icon={skill.icon} index={i} />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

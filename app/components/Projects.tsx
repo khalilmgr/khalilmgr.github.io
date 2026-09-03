@@ -3,6 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { useLang } from "../context/LanguageContext";
+import PdfViewer from "./PdfViewer";
 
 type Project = {
   title: string;
@@ -12,6 +13,49 @@ type Project = {
   demoLabel?: string;
   highlight?: boolean;
   team: number;
+};
+
+type PdfReport = {
+  title: string;
+  description: string;
+  file: string;
+};
+
+const pdfReports: { fr: PdfReport[]; en: PdfReport[] } = {
+  fr: [
+    {
+      title: "Brentford FC · Rapport de data visualisation",
+      description: "Analyse de la saison 2025-2026 : performances, statistiques clés et visualisations du club.",
+      file: "/projets-perso/brentford-data-analysis.pdf",
+    },
+    {
+      title: "Stade de Reims · Rapport de data visualisation",
+      description: "Analyse de la saison 2025-2026 à partir des données FBref : performances et statistiques du club.",
+      file: "/projets-perso/reims-data-visualization-report.pdf",
+    },
+    {
+      title: "Succession de Riyad Mahrez · Analyse statistique",
+      description: "Analyse statistique multidimensionnelle et shortlist de recrutement pour remplacer Riyad Mahrez à Al-Ahli.",
+      file: "/projets-perso/mahrez-succession-analysis.pdf",
+    },
+  ],
+  en: [
+    {
+      title: "Brentford FC · Data Visualization Report",
+      description: "2025-2026 season analysis: performances, key statistics and club visualizations.",
+      file: "/projets-perso/brentford-data-analysis.pdf",
+    },
+    {
+      title: "Stade de Reims · Data Visualization Report",
+      description: "2025-2026 season analysis built from FBref data: club performances and statistics.",
+      file: "/projets-perso/reims-data-visualization-report.pdf",
+    },
+    {
+      title: "Riyad Mahrez Succession · Statistical Analysis",
+      description: "Multidimensional statistical analysis and recruitment shortlist to replace Riyad Mahrez at Al-Ahli.",
+      file: "/projets-perso/mahrez-succession-analysis.pdf",
+    },
+  ],
 };
 
 type YearGroup = {
@@ -278,6 +322,7 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
 export default function Projects() {
   const { lang } = useLang();
   const [tab, setTab] = useState<"academic" | "personal">("academic");
+  const [openPdf, setOpenPdf] = useState<PdfReport | null>(null);
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
@@ -287,9 +332,9 @@ export default function Projects() {
       title: "Mes réalisations",
       academic: "Académiques",
       personal: "Personnels",
-      personalTitle: "Football Data",
-      personalDesc: "Mes projets d'analyse de données appliquée au football : mercato, performances et statistiques de clubs.",
-      viewOnGithub: "Voir sur GitHub",
+      personalIntro: "Mes projets d'analyse de données appliquée au football : mercato, performances et statistiques de clubs.",
+      readReport: "Lire le rapport",
+      viewOnGithub: "Voir le repo GitHub",
       allRepos: "Voir tous mes repos sur GitHub",
     },
     en: {
@@ -297,9 +342,9 @@ export default function Projects() {
       title: "My work",
       academic: "Academic",
       personal: "Personal",
-      personalTitle: "Football Data",
-      personalDesc: "My data analysis projects applied to football: transfer market, performance and club statistics.",
-      viewOnGithub: "View on GitHub",
+      personalIntro: "My data analysis projects applied to football: transfer market, performance and club statistics.",
+      readReport: "Read the report",
+      viewOnGithub: "View GitHub repo",
       allRepos: "View all my repos on GitHub",
     },
   }[lang];
@@ -365,29 +410,55 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="flex justify-center"
             >
-              <div className="max-w-md w-full text-center bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-10">
-                <h3 className="text-2xl font-semibold tracking-tight text-[#f5f5f7] mb-3">
-                  {copy.personalTitle}
-                </h3>
-                <p className="text-sm text-white/50 leading-relaxed mb-8">
-                  {copy.personalDesc}
-                </p>
+              <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-2xl">
+                {copy.personalIntro}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {pdfReports[lang].map((report, i) => (
+                  <motion.div
+                    key={report.file}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="flex flex-col gap-4 bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-3xl p-7 hover:bg-white/[0.07] hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <h3 className="text-base font-semibold tracking-tight text-[#f5f5f7]">
+                      {report.title}
+                    </h3>
+                    <p className="text-sm text-white/50 leading-relaxed flex-1">
+                      {report.description}
+                    </p>
+                    <button
+                      onClick={() => setOpenPdf(report)}
+                      className="inline-flex items-center justify-center gap-1.5 self-start px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+                    >
+                      {copy.readReport}
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-8">
                 <a
                   href="https://github.com/khalilmgr/football-data-analysis"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-sm font-mono text-white/50 rounded-full hover:border-white/25 hover:text-white transition-all duration-200"
                 >
                   <GitHubIcon />
                   {copy.viewOnGithub}
-                  <span>→</span>
+                  <span className="ml-1">→</span>
                 </a>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
+
+        {openPdf && (
+          <PdfViewer url={openPdf.file} title={openPdf.title} onClose={() => setOpenPdf(null)} />
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}

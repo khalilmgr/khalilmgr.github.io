@@ -334,7 +334,6 @@ export default function Projects() {
       personal: "Personnels",
       personalIntro: "Mes projets d'analyse de données appliquée au football : mercato, performances et statistiques de clubs.",
       readReport: "Lire le rapport",
-      viewOnGithub: "Voir le repo GitHub",
       allRepos: "Voir tous mes repos sur GitHub",
     },
     en: {
@@ -344,7 +343,6 @@ export default function Projects() {
       personal: "Personal",
       personalIntro: "My data analysis projects applied to football: transfer market, performance and club statistics.",
       readReport: "Read the report",
-      viewOnGithub: "View GitHub repo",
       allRepos: "View all my repos on GitHub",
     },
   }[lang];
@@ -438,19 +436,6 @@ export default function Projects() {
                     </button>
                   </motion.div>
                 ))}
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href="https://github.com/khalilmgr/football-data-analysis"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-sm font-mono text-white/50 rounded-full hover:border-white/25 hover:text-white transition-all duration-200"
-                >
-                  <GitHubIcon />
-                  {copy.viewOnGithub}
-                  <span className="ml-1">→</span>
-                </a>
               </div>
             </motion.div>
           )}

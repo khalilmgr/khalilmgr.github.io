@@ -13,8 +13,6 @@ const DEVICON_MAP: Record<string, string> = {
   Matplotlib: `${DEVICON_BASE}/matplotlib/matplotlib-original.svg`,
   Plotly: `${DEVICON_BASE}/plotly/plotly-original.svg`,
   Streamlit: `${DEVICON_BASE}/streamlit/streamlit-original.svg`,
-  "SQL Avancé": `${DEVICON_BASE}/postgresql/postgresql-original.svg`,
-  "Advanced SQL": `${DEVICON_BASE}/postgresql/postgresql-original.svg`,
   Grafana: `${DEVICON_BASE}/grafana/grafana-original.svg`,
   PHP: `${DEVICON_BASE}/php/php-original.svg`,
   JavaScript: `${DEVICON_BASE}/javascript/javascript-original.svg`,
@@ -56,7 +54,7 @@ const categories = {
       title: "Data & Analyse",
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
-        "Plotly", "Streamlit", "SQL Avancé", "Grafana",
+        "Plotly", "Streamlit", "Grafana",
         "Power BI", "Tableau", "Folium", "Seaborn",
       ],
     },
@@ -91,7 +89,7 @@ const categories = {
       title: "Data & Analysis",
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
-        "Plotly", "Streamlit", "Advanced SQL", "Grafana",
+        "Plotly", "Streamlit", "Grafana",
         "Power BI", "Tableau", "Folium", "Seaborn",
       ],
     },

@@ -58,6 +58,7 @@ const DEVICON_MAP: Record<string, string> = {
   SQLAlchemy: `${SIMPLEICONS_BASE}/sqlalchemy.svg`,
   UML: `${SIMPLEICONS_BASE}/uml.svg`,
   Render: `${SIMPLEICONS_BASE}/render.svg`,
+  "SQL Developer": `${DEVICON_BASE}/sqldeveloper/sqldeveloper-original.svg`,
 };
 
 const categories = {
@@ -80,7 +81,7 @@ const categories = {
         "phpMyAdmin",
         "SQLAlchemy",
         "UML",
-        { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
+        "SQL Developer",
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],
@@ -117,7 +118,7 @@ const categories = {
         "phpMyAdmin",
         "SQLAlchemy",
         "UML",
-        { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
+        "SQL Developer",
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],

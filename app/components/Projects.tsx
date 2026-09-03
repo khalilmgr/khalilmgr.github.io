@@ -329,6 +329,9 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  const featured = group.projects.filter((p) => p.highlight);
+  const rest = group.projects.filter((p) => !p.highlight);
+
   return (
     <div className="mb-10 last:mb-0">
       <motion.div
@@ -343,8 +346,15 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
           {group.year}
         </span>
       </motion.div>
+      {featured.length > 0 && (
+        <div className="flex flex-col gap-5 mb-5">
+          {featured.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} lang={lang} />
+          ))}
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {group.projects.map((p, i) => (
+        {rest.map((p, i) => (
           <ProjectCard key={p.title} project={p} index={i} lang={lang} />
         ))}
       </div>

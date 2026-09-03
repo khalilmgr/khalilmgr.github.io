@@ -218,7 +218,7 @@ function FormationsTab({ lang }: { lang: Lang }) {
           transition={{ duration: 0.4, delay: i * 0.08 }}
           className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 border-b border-white/10 last:border-0"
         >
-          {item.logo && (
+          {item.logo ? (
             <div className="w-16 h-16 flex-shrink-0 rounded-xl bg-white flex items-center justify-center p-2">
               <img
                 src={item.logo}
@@ -226,6 +226,8 @@ function FormationsTab({ lang }: { lang: Lang }) {
                 className={`w-full h-full object-contain ${item.logoGrayscale ? "grayscale" : ""}`}
               />
             </div>
+          ) : (
+            <div className="hidden sm:block w-16 h-16 flex-shrink-0" />
           )}
           <span className="font-mono text-xs text-white/40 tracking-widest sm:w-28 sm:flex-shrink-0">
             {item.period}

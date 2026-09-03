@@ -72,9 +72,9 @@ export default function Navbar() {
           className="flex items-center pl-1"
         >
           <Image
-            src="/logomark.svg"
+            src="/logomark.png"
             alt="Khalil Moughamir"
-            width={40}
+            width={41}
             height={35}
             className="object-contain"
           />

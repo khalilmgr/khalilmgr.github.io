@@ -37,28 +37,41 @@ const bio = {
   ],
 };
 
-const formations = {
+type Formation = {
+  period: string;
+  degree: string;
+  subtitle: string;
+  logo: string | null;
+  logoGrayscale?: boolean;
+};
+
+const formations: { fr: Formation[]; en: Formation[] } = {
   fr: [
     {
       period: "2026 – 2027",
       degree: "Bidiplomation · BUT Informatique / Baccalauréat en informatique",
       subtitle: "Université du Québec à Chicoutimi",
+      logo: "/logos/uqac.png",
+      logoGrayscale: true,
     },
     {
       period: "2025 – 2026",
       degree: "BUT Informatique · Parcours Data",
       subtitle: "IUT de Reims-Châlons-Charleville · Major de promo",
+      logo: "/logos/urca.png",
     },
     {
       period: "2024 – 2025",
       degree: "BUT Informatique",
       subtitle: "IUT de Reims-Châlons-Charleville",
+      logo: "/logos/urca.png",
     },
     {
       period: "2023 – 2024",
       degree: "Baccalauréat Général",
       subtitle:
         "Lycée Hugues Libergier, Reims · Spécialités Mathématiques et Physique-Chimie, mention Bien",
+      logo: null,
     },
   ],
   en: [
@@ -66,22 +79,27 @@ const formations = {
       period: "2026 – 2027",
       degree: "Dual degree · BUT Informatique / Bachelor's in Computer Science",
       subtitle: "Université du Québec à Chicoutimi",
+      logo: "/logos/uqac.png",
+      logoGrayscale: true,
     },
     {
       period: "2025 – 2026",
       degree: "Bachelor's in Computer Science · Data Track",
       subtitle: "IUT de Reims-Châlons-Charleville · Top of class",
+      logo: "/logos/urca.png",
     },
     {
       period: "2024 – 2025",
       degree: "Bachelor's in Computer Science",
       subtitle: "IUT de Reims-Châlons-Charleville",
+      logo: "/logos/urca.png",
     },
     {
       period: "2023 – 2024",
       degree: "French Baccalauréat (General)",
       subtitle:
         "Lycée Hugues Libergier, Reims · Mathematics and Physics-Chemistry specialties, with honours",
+      logo: null,
     },
   ],
 };
@@ -198,8 +216,17 @@ function FormationsTab({ lang }: { lang: Lang }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: i * 0.08 }}
-          className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8 py-5 border-b border-white/10 last:border-0"
+          className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 border-b border-white/10 last:border-0"
         >
+          <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-white flex items-center justify-center p-1.5">
+            {item.logo && (
+              <img
+                src={item.logo}
+                alt=""
+                className={`w-full h-full object-contain ${item.logoGrayscale ? "grayscale" : ""}`}
+              />
+            )}
+          </div>
           <span className="font-mono text-xs text-white/40 tracking-widest sm:w-28 sm:flex-shrink-0">
             {item.period}
           </span>

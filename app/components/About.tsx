@@ -311,7 +311,7 @@ function SportifTab({ lang }: { lang: Lang }) {
             <div className="w-px h-4 bg-white/15 mt-0.5" />
             <div>
               <p className="text-[#f5f5f7] font-semibold text-base">
-                {lang === "fr" ? "Concours d'éloquence · 3ème Prix 🥉" : "Eloquence Competition · 3rd Prize 🥉"}
+                {lang === "fr" ? "Concours d'éloquence · 3ème Prix" : "Eloquence Competition · 3rd Prize"}
               </p>
               <p className="text-white/40 font-mono text-[10px] mt-0.5">Fondaction du Football · U16 · Stade de Reims</p>
             </div>

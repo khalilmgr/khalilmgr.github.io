@@ -42,7 +42,9 @@ const DEVICON_MAP: Record<string, string> = {
   Folium: `${SIMPLEICONS_BASE}/folium.svg`,
   phpMyAdmin: `${SIMPLEICONS_BASE}/phpmyadmin.svg`,
   SQLAlchemy: `${SIMPLEICONS_BASE}/sqlalchemy.svg`,
-  UML: `${SIMPLEICONS_BASE}/uml.svg`,
+  "UML & Merise": `${SIMPLEICONS_BASE}/uml.svg`,
+  Seaborn: "/logos/seaborn.svg",
+  "MS Planner": "/logos/ms-planner.svg",
   Render: `${SIMPLEICONS_BASE}/render.svg`,
   "SQL Developer": `${DEVICON_BASE}/sqldeveloper/sqldeveloper-original.svg`,
 };
@@ -54,8 +56,7 @@ const categories = {
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
         "Plotly", "Streamlit", "SQL Avancé", "Grafana",
-        "Power BI", "Tableau", "Folium",
-        { name: "Seaborn", initials: "SB", color: "#4C72B0" },
+        "Power BI", "Tableau", "Folium", "Seaborn",
       ],
     },
     {
@@ -66,9 +67,8 @@ const categories = {
         "PostgreSQL",
         "phpMyAdmin",
         "SQLAlchemy",
-        "UML",
+        "UML & Merise",
         "SQL Developer",
-        { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],
     },
@@ -81,7 +81,7 @@ const categories = {
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
         "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare", "Render",
-        { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
+        "MS Planner",
       ],
     },
   ],
@@ -91,8 +91,7 @@ const categories = {
       skills: [
         "Python", "Pandas", "NumPy", "Matplotlib",
         "Plotly", "Streamlit", "Advanced SQL", "Grafana",
-        "Power BI", "Tableau", "Folium",
-        { name: "Seaborn", initials: "SB", color: "#4C72B0" },
+        "Power BI", "Tableau", "Folium", "Seaborn",
       ],
     },
     {
@@ -103,9 +102,8 @@ const categories = {
         "PostgreSQL",
         "phpMyAdmin",
         "SQLAlchemy",
-        "UML",
+        "UML & Merise",
         "SQL Developer",
-        { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
       ],
     },
@@ -118,7 +116,7 @@ const categories = {
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
         "Canva", "PhpStorm", "PyCharm", "Vercel", "Cloudflare", "Render",
-        { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
+        "MS Planner",
       ],
     },
   ],

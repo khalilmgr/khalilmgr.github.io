@@ -27,9 +27,14 @@ const DEVICON_MAP: Record<string, string> = {
   "VS Code": `${DEVICON_BASE}/vscode/vscode-original.svg`,
   MySQL: `${DEVICON_BASE}/mysql/mysql-original.svg`,
   Oracle: `${DEVICON_BASE}/oracle/oracle-original.svg`,
+  PostgreSQL: `${DEVICON_BASE}/postgresql/postgresql-original.svg`,
   Canva: `${DEVICON_BASE}/canva/canva-original.svg`,
   PhpStorm: `${DEVICON_BASE}/phpstorm/phpstorm-original.svg`,
   PyCharm: `${DEVICON_BASE}/pycharm/pycharm-original.svg`,
+  FastAPI: `${DEVICON_BASE}/fastapi/fastapi-original.svg`,
+  "Tailwind CSS": `${DEVICON_BASE}/tailwindcss/tailwindcss-original.svg`,
+  Vite: `${DEVICON_BASE}/vitejs/vitejs-original.svg`,
+  Vercel: `${DEVICON_BASE}/vercel/vercel-original.svg`,
 };
 
 const categories = {
@@ -50,8 +55,10 @@ const categories = {
       skills: [
         "MySQL",
         "Oracle",
+        "PostgreSQL",
         { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
         { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
+        { name: "SQLAlchemy", initials: "SQLA", color: "#D71F00" },
         { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
@@ -59,13 +66,14 @@ const categories = {
     },
     {
       title: "Développement Web",
-      skills: ["PHP", "JavaScript", "React", "HTML/CSS", "Symfony"],
+      skills: ["PHP", "JavaScript", "React", "HTML/CSS", "Symfony", "FastAPI", "Tailwind CSS", "Vite"],
     },
     {
       title: "Outils & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm",
+        "Canva", "PhpStorm", "PyCharm", "Vercel",
+        { name: "Render", initials: "RD", color: "#46E3B7" },
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],
     },
@@ -87,8 +95,10 @@ const categories = {
       skills: [
         "MySQL",
         "Oracle",
+        "PostgreSQL",
         { name: "SQL Developer", initials: "SQLD", color: "#F80000" },
         { name: "phpMyAdmin", initials: "phpMA", color: "#F89C0E" },
+        { name: "SQLAlchemy", initials: "SQLA", color: "#D71F00" },
         { name: "UML", initials: "UML", color: "#6272a4" },
         { name: "Merise", initials: "MR", color: "#4a9eff" },
         { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
@@ -96,13 +106,14 @@ const categories = {
     },
     {
       title: "Web Development",
-      skills: ["PHP", "JavaScript", "React", "HTML/CSS", "Symfony"],
+      skills: ["PHP", "JavaScript", "React", "HTML/CSS", "Symfony", "FastAPI", "Tailwind CSS", "Vite"],
     },
     {
       title: "Tools & DevOps",
       skills: [
         "Git", "GitHub", "Linux", "Docker", "VS Code",
-        "Canva", "PhpStorm", "PyCharm",
+        "Canva", "PhpStorm", "PyCharm", "Vercel",
+        { name: "Render", initials: "RD", color: "#46E3B7" },
         { name: "MS Planner", initials: "MSP", color: "#0f6cbd" },
       ],
     },

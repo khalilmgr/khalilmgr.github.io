@@ -8,10 +8,11 @@ import PdfViewer from "./PdfViewer";
 type Project = {
   title: string;
   description: string;
-  github: string;
+  github?: string;
   demo?: string;
   demoLabel?: string;
   highlight?: boolean;
+  private?: boolean;
   team: number;
 };
 
@@ -102,6 +103,14 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
       year: "2ème année",
       projects: [
         {
+          title: "KORA · Plateforme d'analyse de performance football",
+          description:
+            "KORA (Key Operational Reporting for Athletes) est une plateforme web interne développée pour l'ESTAC Troyes (club de football professionnel français) afin de centraliser et automatiser l'analyse de la performance des équipes du centre de formation : équipe réserve (National 1), U19 Nationaux et U17 Nationaux. Avant KORA, les équipes du club (analyste vidéo, préparateurs physiques, et staff) travaillaient avec des fichiers Excel épars et des exports manuels d'outils tiers, sans vue unifiée par joueur ou par match, sans historique exploitable, ni accès différencié selon les rôles. Déployée en production, elle est utilisée par le staff sportif du club depuis août 2026, et le projet a été commercialisé auprès du club.",
+          private: true,
+          highlight: true,
+          team: 1,
+        },
+        {
           title: "CoLive · Plateforme de colocation",
           description:
             "Application développée en équipe pour publier, rechercher et réserver des espaces de coliving, avec messagerie intégrée, gestion des avis et back-office d'administration.",
@@ -164,6 +173,14 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
     {
       year: "2nd year",
       projects: [
+        {
+          title: "KORA · Football Performance Analytics Platform",
+          description:
+            "KORA (Key Operational Reporting for Athletes) is an internal web platform built for ESTAC Troyes (a professional French football club) to centralize and automate performance analysis for its academy teams: the reserve team (National 1), U19 and U17 National squads. Before KORA, the club's teams (video analyst, physical trainers, and staff) worked with scattered Excel files and manual exports from third-party tools, with no unified view per player or match, no usable history, and no role-based access. Deployed in production, it has been used by the club's sports staff since August 2026, and the project has been commercialized to the club.",
+          private: true,
+          highlight: true,
+          team: 1,
+        },
         {
           title: "CoLive · Co-living Platform",
           description:
@@ -230,6 +247,15 @@ function UsersIcon() {
   );
 }
 
+function LockIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
 function ProjectCard({ project, index, lang }: { project: Project; index: number; lang: "fr" | "en" }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
@@ -278,15 +304,22 @@ function ProjectCard({ project, index, lang }: { project: Project; index: number
             {project.demoLabel}
           </a>
         )}
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
-        >
-          <GitHubIcon />
-          {lang === "fr" ? "Voir le projet" : "View project"}
-        </a>
+        {project.github ? (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/15 text-[11px] font-mono uppercase tracking-wide text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+          >
+            <GitHubIcon />
+            {lang === "fr" ? "Voir le projet" : "View project"}
+          </a>
+        ) : project.private ? (
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-wide text-white/40">
+            <LockIcon />
+            {lang === "fr" ? "Plateforme privée · en production" : "Private platform · in production"}
+          </span>
+        ) : null}
       </div>
     </motion.div>
   );
@@ -312,7 +345,7 @@ function AcademicYearGroup({ group, baseDelay, lang }: { group: YearGroup; baseD
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {group.projects.map((p, i) => (
-          <ProjectCard key={p.github + p.title} project={p} index={i} lang={lang} />
+          <ProjectCard key={p.title} project={p} index={i} lang={lang} />
         ))}
       </div>
     </div>

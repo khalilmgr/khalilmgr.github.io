@@ -47,6 +47,7 @@ const DEVICON_MAP: Record<string, string> = {
   "MS Planner": "/logos/ms-planner.svg",
   Render: `${SIMPLEICONS_BASE}/render.svg`,
   "SQL Developer": `${DEVICON_BASE}/sqldeveloper/sqldeveloper-original.svg`,
+  PowerAMC: "/logos/poweramc.png",
 };
 
 const categories = {
@@ -69,7 +70,7 @@ const categories = {
         "SQLAlchemy",
         "UML & Merise",
         "SQL Developer",
-        { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
+        "PowerAMC",
       ],
     },
     {
@@ -104,7 +105,7 @@ const categories = {
         "SQLAlchemy",
         "UML & Merise",
         "SQL Developer",
-        { name: "PowerAMC", initials: "PAC", color: "#0066cc" },
+        "PowerAMC",
       ],
     },
     {

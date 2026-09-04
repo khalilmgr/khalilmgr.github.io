@@ -100,6 +100,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Jeu de plateau à billes avec plusieurs plateaux classiques, des règles de déplacement avancées et une suite de tests validant la logique du jeu.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
           team: 1,
+          details: {
+            technologies: ["Python", "Pygame", "Architecture MVC", "unittest"],
+            approach:
+              "Modélisation du plateau et des billes sous forme de structures de données (dictionnaires/listes) manipulées par des fonctions pures côté Model, séparées de l'affichage Pygame (View) et de la gestion des interactions souris/clavier (Controller). Ajout progressif de 5 configurations de plateau (anglaise, européenne, allemande, asymétrique, diamant) et de 3 modes avancés introduisant des billes aux règles de déplacement et de suppression spéciales.",
+            results:
+              "~2500 lignes de code réparties sur 8 modules Model, couvertes par 58 tests unitaires (6 fichiers de tests) ; 5 configurations de plateau et 4 modes de jeu (normal + 3 avancés) implémentés et jouables.",
+          },
         },
         {
           title: "Catalogue de jeux vidéo",
@@ -221,6 +228,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Marble board game with several classic boards, advanced movement rules, and a test suite validating the game logic.",
           github: "https://github.com/khalilmgr/peg-solitaire-python",
           team: 1,
+          details: {
+            technologies: ["Python", "Pygame", "MVC architecture", "unittest"],
+            approach:
+              "Modeled the board and marbles as data structures (dictionaries/lists) manipulated by pure functions on the Model side, kept separate from the Pygame rendering (View) and mouse/keyboard input handling (Controller). Progressively added 5 board layouts (English, European, German, asymmetric, diamond) and 3 advanced modes introducing marbles with special movement and removal rules.",
+            results:
+              "~2500 lines of code across 8 Model modules, covered by 58 unit tests (6 test files); 5 board layouts and 4 game modes (normal + 3 advanced) implemented and playable.",
+          },
         },
         {
           title: "Video Game Catalog",

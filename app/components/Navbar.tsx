@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
 import { scrollToSection } from "../lib/scroll";
@@ -65,21 +64,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4"
     >
-      <div className="w-full flex items-center justify-between">
-        <a
-          href="#accueil"
-          onClick={(e) => { e.preventDefault(); scrollToSection("accueil"); }}
-          className="flex items-center pl-1"
-        >
-          <Image
-            src="/logomark.png"
-            alt="Khalil Moughamir"
-            width={41}
-            height={35}
-            className="object-contain"
-          />
-        </a>
-
+      <div className="w-full flex items-center justify-end">
         <div
           className={`hidden md:flex items-center gap-6 rounded-full transition-all duration-300 px-4 py-2.5 ${
             scrolled

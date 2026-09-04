@@ -103,6 +103,17 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Cinq algorithmes classiques de génération (arbre binaire, Sidewinder, Wilson...) avec résolution automatique et des métriques pour comparer objectivement chaque méthode.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
           team: 1,
+          details: {
+            technologies: [
+              "Python (module random)",
+              "Dictionnaires et ensembles natifs",
+              "Jupyter Notebook",
+            ],
+            approach:
+              "Modélisation du labyrinthe en graphe (cellules = sommets, murs = absence d'arêtes), puis implémentation de 5 algorithmes de génération (arbre binaire, Sidewinder, fusion de chemins, exploration exhaustive, Wilson) et de 2 algorithmes de résolution (DFS, BFS), avant d'ajouter des fonctions d'analyse comparative des labyrinthes générés.",
+            results:
+              "5 algorithmes de génération et 2 algorithmes de résolution fonctionnels, validés sur des grilles jusqu'à 15x15 ; 4 métriques d'analyse implémentées (distance géodésique, distance de Manhattan, longueur du pire chemin, nombre de culs-de-sac) permettant de comparer objectivement la complexité des labyrinthes produits par chaque méthode.",
+          },
         },
       ],
     },
@@ -191,6 +202,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Five classic generation algorithms (binary tree, Sidewinder, Wilson...) with automatic solving and metrics to objectively compare each method.",
           github: "https://github.com/khalilmgr/maze-generation-algorithms",
           team: 1,
+          details: {
+            technologies: ["Python (random module)", "Native dictionaries and sets", "Jupyter Notebook"],
+            approach:
+              "Modeled the maze as a graph (cells = vertices, walls = missing edges), then implemented 5 generation algorithms (binary tree, Sidewinder, path merging, exhaustive exploration, Wilson) and 2 solving algorithms (DFS, BFS), before adding comparative analysis functions for the generated mazes.",
+            results:
+              "5 working generation algorithms and 2 solving algorithms, validated on grids up to 15x15; 4 analysis metrics implemented (geodesic distance, Manhattan distance, longest path length, number of dead ends) to objectively compare the complexity of mazes produced by each method.",
+          },
         },
       ],
     },

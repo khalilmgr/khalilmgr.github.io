@@ -158,6 +158,21 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Un pipeline data de bout en bout qui croise mes propres données de course (Garmin) avec des données météo (Open-Meteo) pour mesurer l'impact des conditions environnementales sur la performance sportive.",
           github: "https://github.com/khalilmgr/RunxMeteo-data-project",
           team: 4,
+          details: {
+            technologies: [
+              "Python (parsing CSV, appels API)",
+              "PostgreSQL",
+              "API Open-Meteo",
+              "Cron",
+              "Power BI",
+              "Streamlit",
+              "GitLab",
+            ],
+            approach:
+              "Collecte de données de course réelles sur 4 séances (Garmin, protocole 3×400m) en faisant varier heure, terrain et conditions météo, croisées avec des données environnementales géolocalisées via Open-Meteo ; pipeline automatisé (ingestion CSV → enrichissement météo → stockage PostgreSQL) puis visualisation comparative sur Power BI et Streamlit.",
+            results:
+              "4 séances de course analysées sur 4 coureurs (allures de 3:31 à 6:13/km, FC de 159 à 184 bpm en moyenne à la séance de référence), permettant de tester l'effet de l'heure, du terrain et la reproductibilité des performances face aux variations environnementales.",
+          },
         },
         {
           title: "Tutoriel interactif bilingue pour la recherche documentaire sur ScienceDirect",
@@ -253,6 +268,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "An end-to-end data pipeline that cross-references my own running data (Garmin) with weather data (Open-Meteo) to measure the impact of environmental conditions on athletic performance.",
           github: "https://github.com/khalilmgr/RunxMeteo-data-project",
           team: 4,
+          details: {
+            technologies: ["Python (CSV parsing, API calls)", "PostgreSQL", "Open-Meteo API", "Cron", "Power BI", "Streamlit", "GitLab"],
+            approach:
+              "Collected real running data across 4 sessions (Garmin, 3×400m protocol) varying time of day, terrain and weather conditions, cross-referenced with geolocated environmental data via Open-Meteo; automated pipeline (CSV ingestion → weather enrichment → PostgreSQL storage) then comparative visualization in Power BI and Streamlit.",
+            results:
+              "4 running sessions analyzed across 4 runners (paces from 3:31 to 6:13/km, average heart rate from 159 to 184 bpm on the reference session), used to test the effect of time of day, terrain, and performance reproducibility against environmental variations.",
+          },
         },
         {
           title: "Bilingual Interactive Tutorial for ScienceDirect Research",

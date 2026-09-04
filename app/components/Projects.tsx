@@ -82,6 +82,17 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Tableau de bord interactif pour analyser les performances des athlètes, les épreuves et les statistiques clés des Jeux Olympiques 2024.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
           team: 1,
+          details: {
+            technologies: [
+              "Oracle SQL (DDL/DML, contraintes, index, vues, GRANT)",
+              "PowerAMC/PowerDesigner (MCD)",
+              "Power BI",
+            ],
+            approach:
+              "Conception d'un MCD relationnel pour la base des JO Paris 2024 (athlètes, pays, sites, épreuves, disciplines, achats de billets), implémentation du schéma Oracle avec contraintes d'intégrité et indexation, import/nettoyage des données sources, puis écriture de requêtes SQL avancées (jointures, sous-requêtes, agrégats, requêtes de division) avant construction d'un dashboard Power BI pour l'analyse et la visualisation.",
+            results:
+              "Base exploitant 8 686 athlètes et 6 609 épreuves réparties sur 23 sites olympiques ; dashboard Power BI avec 6 visualisations clés (répartition par panier, département, pays, genre) révélant que Paris (75) concentre 46 % des sites et que la France est la nation la plus représentée (~600 athlètes) ; gestion de droits d'accès différenciés (GRANT ciblés, vue filtrée) pour un second utilisateur.",
+          },
         },
         {
           title: "Jeu du Solitaire (Peg Solitaire)",
@@ -196,6 +207,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Interactive dashboard analyzing athlete performances, events, and key statistics from the 2024 Olympic Games.",
           github: "https://github.com/khalilmgr/olympics-data-analysis",
           team: 1,
+          details: {
+            technologies: ["Oracle SQL (DDL/DML, constraints, indexes, views, GRANT)", "PowerAMC/PowerDesigner (ERD)", "Power BI"],
+            approach:
+              "Designed a relational entity-relationship model for the Paris 2024 Olympics database (athletes, countries, venues, events, disciplines, ticket purchases), implemented the Oracle schema with integrity constraints and indexing, imported and cleaned the source data, then wrote advanced SQL queries (joins, subqueries, aggregates, division queries) before building a Power BI dashboard for analysis and visualization.",
+            results:
+              "Database covering 8,686 athletes and 6,609 events across 23 Olympic venues; Power BI dashboard with 6 key visualizations (breakdown by ticket basket, department, country, gender) revealing that Paris (75) hosts 46% of venues and that France is the most represented nation (~600 athletes); role-based access management (targeted GRANTs, filtered view) for a second user.",
+          },
         },
         {
           title: "Peg Solitaire Game",

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
 import { scrollToSection } from "../lib/scroll";
+import NameParticles from "./NameParticles";
 
 export default function Hero() {
   const { lang } = useLang();
@@ -24,15 +25,15 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center max-w-3xl">
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[#1c2f4a]"
-          style={{ textWrap: "balance" }}
+          className="mb-6"
         >
-          Khalil Moughamir
-        </motion.h1>
+          <h1 className="sr-only">Khalil Moughamir</h1>
+          <NameParticles text="Khalil Moughamir" />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

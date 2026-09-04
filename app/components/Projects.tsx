@@ -488,7 +488,7 @@ function ProjectDetailModal({
   }, [onClose]);
 
   const labels = {
-    fr: { technologies: "Technologies utilisées", approach: "Ta démarche", results: "Résultats concrets", close: "Fermer" },
+    fr: { technologies: "Technologies utilisées", approach: "Ma démarche", results: "Résultats concrets", close: "Fermer" },
     en: { technologies: "Technologies used", approach: "Approach", results: "Concrete results", close: "Close" },
   }[lang];
 

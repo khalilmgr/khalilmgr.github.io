@@ -114,6 +114,17 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Application pour consulter, filtrer et gérer un catalogue de jeux vidéo.",
           github: "https://github.com/khalilmgr/video-game-library-php",
           team: 1,
+          details: {
+            technologies: [
+              "PHP natif (POO, autoload PSR-4/Composer)",
+              "PDO / MySQL",
+              "HTML/CSS responsive",
+            ],
+            approach:
+              "Modélisation des entités et de leurs relations (jeu ↔ genres ↔ catégories), puis mise en place d'une couche repository (requêtes PDO) séparée de l'affichage. Développement ensuite des vues et des formulaires CRUD (création, édition, suppression), avec tri dynamique et connexion à une base MySQL distante via VPN.",
+            results:
+              "Application fonctionnelle de ~1 200 lignes de PHP réparties sur 11 pages publiques et 8 classes métier, couvrant le cycle CRUD complet sur les jeux, le filtrage par genre/catégorie, le tri par titre/année et l'affichage détaillé (plateformes, note Metacritic, poster).",
+          },
         },
         {
           title: "Algorithmes de génération de labyrinthes",
@@ -254,6 +265,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             "Application to browse, filter, and manage a video game catalog.",
           github: "https://github.com/khalilmgr/video-game-library-php",
           team: 1,
+          details: {
+            technologies: ["Native PHP (OOP, PSR-4 autoloading/Composer)", "PDO / MySQL", "Responsive HTML/CSS"],
+            approach:
+              "Modeled the entities and their relationships (game ↔ genres ↔ categories), then built a repository layer (PDO queries) kept separate from the display logic. Developed the views and CRUD forms next (create, edit, delete), with dynamic sorting and a connection to a remote MySQL database over VPN.",
+            results:
+              "Working application of ~1,200 lines of PHP spread across 11 public pages and 8 business classes, covering the full CRUD cycle on games, filtering by genre/category, sorting by title/year, and detailed display (platforms, Metacritic score, poster).",
+          },
         },
         {
           title: "Maze Generation Algorithms",

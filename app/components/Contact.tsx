@@ -32,64 +32,54 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col items-center gap-6">
           <motion.a
             href="mailto:khalil.moughamir@gmail.com"
-            aria-label="Email"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center w-14 h-14 bg-[#1e5f8c] text-white rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
+            className="font-mono text-base sm:text-lg text-[#1e5f8c] font-semibold hover:text-[#1c2f4a] transition-colors duration-200"
           >
-            <EmailIcon />
+            khalil.moughamir@gmail.com
           </motion.a>
 
-          <motion.a
-            href="https://github.com/khalilmgr"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.18 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center w-14 h-14 bg-[#1e5f8c] text-white rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
-          >
-            <GitHubIcon />
-          </motion.a>
+          <div className="flex gap-4 justify-center">
+            <motion.a
+              href="https://github.com/khalilmgr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.18 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center w-14 h-14 bg-[#1e5f8c] text-white rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
+            >
+              <GitHubIcon />
+            </motion.a>
 
-          <motion.a
-            href="https://www.linkedin.com/in/khalil-moughamir-2284b02a9/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.26 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center w-14 h-14 bg-[#1e5f8c] text-white rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
-          >
-            <LinkedInIcon />
-          </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/khalil-moughamir-2284b02a9/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.26 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center w-14 h-14 bg-[#1e5f8c] text-white rounded-full hover:bg-[#1c2f4a] transition-colors duration-200"
+            >
+              <LinkedInIcon />
+            </motion.a>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function EmailIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="M2 7l10 7 10-7" />
-    </svg>
   );
 }
 

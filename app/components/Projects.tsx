@@ -700,7 +700,8 @@ export default function Projects() {
       title: "Mes réalisations",
       academic: "Académiques",
       personal: "Personnels",
-      personalIntro: "Mes projets d'analyse de données appliquée au football : mercato, performances et statistiques de clubs.",
+      personalIntro:
+        "Trois rapports construits sous Tableau à partir de données football (Opta, StatsBomb, FBref selon les sources), réalisés dans le cadre de ma recherche de stage pour démontrer mes compétences en analyse de données appliquée au football : reporting de performance et analyse mercato. Ce sont notamment ces travaux qui m'ont permis de décrocher mon stage à l'ESTAC Troyes.",
       readReport: "Lire le rapport",
       allRepos: "Voir tous mes repos sur GitHub",
     },
@@ -709,7 +710,8 @@ export default function Projects() {
       title: "My work",
       academic: "Academic",
       personal: "Personal",
-      personalIntro: "My data analysis projects applied to football: transfer market, performance and club statistics.",
+      personalIntro:
+        "Three reports built in Tableau from football data (Opta, StatsBomb, FBref depending on the source), created during my internship search to demonstrate my football data analysis skills: performance reporting and transfer market analysis. This work is in large part what helped me land my internship at ESTAC Troyes.",
       readReport: "Read the report",
       allRepos: "View all my repos on GitHub",
     },

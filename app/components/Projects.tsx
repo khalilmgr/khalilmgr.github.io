@@ -181,9 +181,9 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
               "JWT (python-jose, bcrypt)",
             ],
             approach:
-              "Le projet est parti d'un constat terrain : le staff de l'ESTAC travaillait avec des exports manuels de deux outils tiers — SportsCode pour la vidéo, STATSports pour le GPS — sans vue croisée par joueur ou par match. La base de données modélise joueurs, matchs et séances avec 7 rôles utilisateurs et un accès cloisonné par section (un staff U17 ne voit pas les données U19). Deux parsers dédiés absorbent les formats hétérogènes de SportsCode et STATSports pour rendre les données exploitables en quelques secondes après dépôt. Le site de la FFF (Angular, sans API publique) est scrapé automatiquement plusieurs fois par semaine pour retranscrire les compositions d'équipes et les stats des joueurs, avec un algorithme de matching flou pour relier les noms FFF aux profils internes.",
+              "Le projet est parti d'un constat terrain : le staff de l'ESTAC travaillait avec des exports manuels de deux outils tiers (SportsCode pour la vidéo, STATSports pour le GPS), sans vue croisée par joueur ou par match. La base de données modélise joueurs, matchs et séances avec 7 rôles utilisateurs et un accès cloisonné par section (un staff U17 ne voit pas les données U19). Deux parsers dédiés absorbent les formats hétérogènes de SportsCode et STATSports pour rendre les données exploitables en quelques secondes après dépôt. Le site de la FFF (Angular, sans API publique) est scrapé automatiquement plusieurs fois par semaine pour retranscrire les compositions d'équipes et les stats des joueurs, avec un algorithme de matching flou pour relier les noms FFF aux profils internes.",
             results:
-              "Cinq modules livrés : un dashboard, un module match avec rapports détaillés par rencontre, un module joueur où chaque profil affiche une carte et des métriques adaptées à son poste, un module entraînement avec un dashboard des séances collectives, et un module gestion où chaque rôle saisit ses propres données. La plateforme couvre 3 équipes et une soixantaine de joueurs pour la saison en cours. En production depuis août 2026, elle est utilisée quotidiennement par le staff sportif du club — et le projet a été commercialisé auprès de l'ESTAC Troyes. Ce résumé reste partiel : le projet est trop dense pour être détaillé entièrement ici.",
+              "Cinq modules livrés : un dashboard, un module match avec rapports détaillés par rencontre, un module joueur où chaque profil affiche une carte et des métriques adaptées à son poste, un module entraînement avec un dashboard des séances collectives, et un module gestion où chaque rôle saisit ses propres données. La plateforme couvre 3 équipes et une soixantaine de joueurs pour la saison en cours, avec 27 utilisateurs actuellement. En production depuis août 2026, elle est utilisée quotidiennement par le staff sportif du club, et le projet a été commercialisé auprès de l'ESTAC Troyes. Ce résumé reste partiel : le projet est trop dense pour être détaillé entièrement ici.",
           },
         },
         {
@@ -250,7 +250,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             approach:
               "Conception d'un guide pédagogique en 8 étapes visuelles (captures d'écran annotées) couvrant la recherche sur ScienceDirect et l'export vers Zotero, puis intégration d'une vidéo tutorielle et d'un quiz de validation. Ajout itératif de couches UX/accessibilité : navigation par sidebar avec suivi de progression, mode sombre, lightbox, barre de progression de lecture et attributs ARIA.",
             results:
-              "Tutoriel bilingue FR/EN (bascule dynamique sans rechargement), quiz de 3 questions avec correction et score automatiques, checklist de progression par étape persistée localement, et lancement en un clic sur Mac/Linux/Windows — le tout sans build ni serveur requis.",
+              "Tutoriel bilingue FR/EN (bascule dynamique sans rechargement), quiz de 3 questions avec correction et score automatiques, checklist de progression par étape persistée localement, et lancement en un clic sur Mac/Linux/Windows, le tout sans build ni serveur requis.",
           },
         },
       ],
@@ -353,9 +353,9 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
               "JWT (python-jose, bcrypt)",
             ],
             approach:
-              "The project started from a field observation: ESTAC's staff worked with manual exports from two third-party tools — SportsCode for video, STATSports for GPS — with no cross-referenced view per player or match. The database models players, matches and training sessions with 7 user roles and section-based access control (U17 staff can't see U19 data). Two dedicated parsers absorb SportsCode's and STATSports' heterogeneous formats to make the data usable within seconds of upload. The FFF federation website (Angular, no public API) is scraped automatically several times a week to capture team lineups and player stats, using a fuzzy-matching algorithm to link FFF names to internal player profiles.",
+              "The project started from a field observation: ESTAC's staff worked with manual exports from two third-party tools (SportsCode for video, STATSports for GPS), with no cross-referenced view per player or match. The database models players, matches and training sessions with 7 user roles and section-based access control (U17 staff can't see U19 data). Two dedicated parsers absorb SportsCode's and STATSports' heterogeneous formats to make the data usable within seconds of upload. The FFF federation website (Angular, no public API) is scraped automatically several times a week to capture team lineups and player stats, using a fuzzy-matching algorithm to link FFF names to internal player profiles.",
             results:
-              "Five modules shipped: a dashboard, a match module with detailed per-game reports, a player module where each profile shows a card and metrics tailored to their position, a training module with a dashboard for team sessions, and a management module where each role enters its own data. The platform covers 3 teams and about 60 players for the current season. In production since August 2026, it's used daily by the club's sports staff — and the project has been commercialized to ESTAC Troyes. This summary is necessarily partial — the project is too extensive to detail in full here.",
+              "Five modules shipped: a dashboard, a match module with detailed per-game reports, a player module where each profile shows a card and metrics tailored to their position, a training module with a dashboard for team sessions, and a management module where each role enters its own data. The platform covers 3 teams and about 60 players for the current season, with 27 users currently. In production since August 2026, it's used daily by the club's sports staff, and the project has been commercialized to ESTAC Troyes. This summary is necessarily partial: the project is too extensive to detail in full here.",
           },
         },
         {
@@ -409,7 +409,7 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
             approach:
               "Designed an 8-step visual guide (annotated screenshots) covering ScienceDirect search and exporting to Zotero, then integrated a tutorial video and a validation quiz. Iteratively layered on UX/accessibility features: sidebar navigation with progress tracking, dark mode, lightbox, reading progress bar, and ARIA attributes.",
             results:
-              "Bilingual FR/EN tutorial (dynamic switch with no reload), a 3-question quiz with automatic grading and scoring, a per-step progress checklist persisted locally, and one-click launch on Mac/Linux/Windows — no build or server required.",
+              "Bilingual FR/EN tutorial (dynamic switch with no reload), a 3-question quiz with automatic grading and scoring, a per-step progress checklist persisted locally, and one-click launch on Mac/Linux/Windows, no build or server required.",
           },
         },
       ],

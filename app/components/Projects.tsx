@@ -200,6 +200,18 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "Voir le tuto",
           team: 2,
+          details: {
+            technologies: [
+              "HTML5",
+              "CSS3 (variables, dark mode, responsive)",
+              "JavaScript vanilla",
+              "localStorage",
+            ],
+            approach:
+              "Conception d'un guide pédagogique en 8 étapes visuelles (captures d'écran annotées) couvrant la recherche sur ScienceDirect et l'export vers Zotero, puis intégration d'une vidéo tutorielle et d'un quiz de validation. Ajout itératif de couches UX/accessibilité : navigation par sidebar avec suivi de progression, mode sombre, lightbox, barre de progression de lecture et attributs ARIA.",
+            results:
+              "Tutoriel bilingue FR/EN (bascule dynamique sans rechargement), quiz de 3 questions avec correction et score automatiques, checklist de progression par étape persistée localement, et lancement en un clic sur Mac/Linux/Windows — le tout sans build ni serveur requis.",
+          },
         },
       ],
     },
@@ -316,6 +328,13 @@ const academicYears: { fr: YearGroup[]; en: YearGroup[] } = {
           demo: "https://tutosciencedirect.vercel.app/",
           demoLabel: "View tutorial",
           team: 2,
+          details: {
+            technologies: ["HTML5", "CSS3 (variables, dark mode, responsive)", "Vanilla JavaScript", "localStorage"],
+            approach:
+              "Designed an 8-step visual guide (annotated screenshots) covering ScienceDirect search and exporting to Zotero, then integrated a tutorial video and a validation quiz. Iteratively layered on UX/accessibility features: sidebar navigation with progress tracking, dark mode, lightbox, reading progress bar, and ARIA attributes.",
+            results:
+              "Bilingual FR/EN tutorial (dynamic switch with no reload), a 3-question quiz with automatic grading and scoring, a per-step progress checklist persisted locally, and one-click launch on Mac/Linux/Windows — no build or server required.",
+          },
         },
       ],
     },

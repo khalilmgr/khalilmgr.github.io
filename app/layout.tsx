@@ -20,7 +20,7 @@ const siteUrl = "https://khalil-moughamir.vercel.app";
 export const metadata: Metadata = {
   title: "Khalil Moughamir · Portfolio Data & Développement Web",
   description:
-    "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED à l'IUT de Reims-Châlons-Charleville, en double diplôme à l'UQAC (Québec). Compétences en Python, SQL, Power BI, Tableau, React et développement web.",
+    "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours Data à l'IUT de Reims-Châlons-Charleville, en double diplôme à l'UQAC (Québec). Compétences en Python, SQL, Power BI, Tableau, React et développement web.",
   keywords: [
     "Khalil Moughamir",
     "khalil moughamir",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "développement web",
     "IUT Reims",
     "BUT Informatique",
-    "AGED",
+    "parcours Data",
     "UQAC",
     "Chicoutimi",
     "double diplôme",
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Khalil Moughamir · Portfolio Data & Développement Web",
     description:
-      "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED, en double diplôme à l'UQAC (Québec).",
+      "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours Data, en double diplôme à l'UQAC (Québec).",
     siteName: "Khalil Moughamir",
   },
   twitter: {
     card: "summary",
     title: "Khalil Moughamir · Portfolio",
     description:
-      "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours AGED, en double diplôme à l'UQAC (Québec).",
+      "Portfolio de Khalil Moughamir, étudiant en BUT Informatique parcours Data, en double diplôme à l'UQAC (Québec).",
   },
   verification: {
     google: "dyiSzpzVaR4UQPKy4IT4yj1gpIzoeUdzhKHTcirK4Ug",
@@ -78,7 +78,7 @@ export default function RootLayout({
     "@type": "Person",
     name: "Khalil Moughamir",
     url: siteUrl,
-    jobTitle: "Étudiant BUT Informatique parcours AGED",
+    jobTitle: "Étudiant BUT Informatique parcours Data",
     alumniOf: ["IUT de Reims-Châlons-Charleville", "Université du Québec à Chicoutimi (UQAC)"],
     email: "khalil.moughamir@gmail.com",
     sameAs: ["https://github.com/khalilmgr"],
